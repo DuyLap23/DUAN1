@@ -16,8 +16,8 @@ function pdo_get_connection(){
 }
 
 // Hàm thêm sửa xóa
-function pdo_execute($sql){
-    $sql_args = array_slice(func_get_args(), 1);
+    function pdo_execute($sql){
+        $sql_args = array_slice(func_get_args(), 1);
     try{
         $conn = Pdo_get_connection();
         $stmt = $conn -> prepare($sql);
