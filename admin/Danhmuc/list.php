@@ -36,42 +36,50 @@
                        <span>1</span>
                     </td>
                     <td colspan="5"> <p>Quần Đùi</p></td>
-                    <td ><button class=" btn status completed">Sửa </button>
-                    <button class="btn status pending">xóa</button>
+                    <td >
+                        <a href="index.php?act=updatedm"><button class=" btn status completed">Sửa </button></a>
+                    <a href="index.php?act=deletedm"><button class="btn status pending">xóa</button></a>
                     </td>
                 </tr>
+                
                 <tr class="tr-shadow">
                     <td colspan="2">
                        <span>1</span>
                     </td>
                     <td colspan="5"> <p>Quần Đùi</p></td>
-                    <td ><button class=" btn status completed">Sửa </button>
-                    <button class="btn status pending">xóa</button>
+                    <td >
+                        <a href="index.php?act=updatedm"><button class=" btn status completed">Sửa </button></a>
+                    <a href="index.php?act=deletedm"><button class="btn status pending">xóa</button></a>
                     </td>
                 </tr>
+                
                 <tr class="tr-shadow">
                     <td colspan="2">
                        <span>1</span>
                     </td>
                     <td colspan="5"> <p>Quần Đùi</p></td>
-                    <td ><button class=" btn status completed">Sửa </button>
-                    <button class="btn status pending">xóa</button>
+                    <td >
+                        <a href="index.php?act=updatedm"><button class=" btn status completed">Sửa </button></a>
+                    <a href="index.php?act=deletedm"><button class="btn status pending">xóa</button></a>
                     </td>
                 </tr>
+                
                 <tr class="tr-shadow">
                     <td colspan="2">
                        <span>1</span>
                     </td>
                     <td colspan="5"> <p>Quần Đùi</p></td>
-                    <td ><button class=" btn status completed">Sửa </button>
-                    <button class="btn status pending">xóa</button>
+                    <td >
+                        <a href="index.php?act=updatedm"><button class=" btn status completed">Sửa </button></a>
+                    <a href="index.php?act=deletedm"><button class="btn status pending">xóa</button></a>
                     </td>
                 </tr>
+                
              
             </tbody>    
         </table>
-        <form action="" class="form"> 
-            <a href="index.php?act=createdm"><button class="btn ">Thêm Danh Mục</button></a>
+        <form action="index.php?act=createdm" method="post" > 
+            <a href="index.php?act=createdm"><button class="btn btn-insert">Thêm Danh Mục</button></a>
         </form>
     </div>
 

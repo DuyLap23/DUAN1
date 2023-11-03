@@ -19,10 +19,10 @@ include "header.php";
                         break;
                 
                     // add dm 
-                    case 'createdm':
+                   case"createdm":
                         include "Danhmuc/create.php";
                         break;
-                    
+
                     // update dm 
                     case 'updatedm':
                         include "Danhmuc/update.php";
@@ -55,7 +55,7 @@ include "header.php";
 
                 // Thống Kê
                     case 'listthongke':
-                        include "Thongke/list.php";
+                        include "Thongke/thongke.php";
                         break;
 
 

@@ -32,7 +32,22 @@ li {
 	--green: #088F8F;
 	--light-green: #E6FFFA;
 }
-
+.btn-insert{
+	background-color: var(--blue);
+	color: white;
+}.btn-insert:hover{
+	background-color: var(--light-blue);
+	
+}.btn-reset{
+	background-color: var(--red);
+color: white;
+}.btn-reset:hover{
+	background-color: var(--light-orange);
+	
+}
+.btn-submit{
+	background-color: var(--green);
+}
 html {
 	overflow-x: hidden;
 }

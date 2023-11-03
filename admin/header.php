@@ -49,7 +49,7 @@
 			</li>
 			
 			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listkh') ? 'active' : ''; ?>">
-				<a href="index.php?act=listkh">
+				<a href="index.php?act=listkhachhang">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Khách Hàng</span>
 				</a>
