@@ -1,32 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự án mẫu</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-     
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="path/to/boxicons.min.css">
+	<!-- My CSS -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>AdminHub</title>
 </head>
 <body>
-    <div class="boxcenter">
-       <!-- BIGIN HEADER -->
-       <header>
-        <div class="row mb header_admin">
-            <h1>Admin</h1>
-        </div>
-        <div class="row mb menu">
-            <ul>          
-              <!-- <li><a href="index.php">Trang chủ</a></li> -->
-              <li><a href="index.php?act=adddm">Danh mục</a></li>
-              <li><a href="index.php?act=addsp">Hàng hóa</a></li>
-              <li><a href="index.php?act=dskh">Khách hàng</a></li>
-              <li><a href="index.php?act=dsbl">Bình luận</a></li>
-              <li><a href="index.php?act=bieudo">Biểu Đồ</a></li>
-              <li><a href="index.php?act=thongke">Thống Kê</a></li>
-            </ul>
-        </div>
-      </header>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-alarm-add	'></i>
+			<span class="text">AdminHub</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'home') ? 'active' : ''; ?>">
+				<a href="index.php?act=home">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Trang Chủ</span>
+				</a>
+			</li>
+			
+			
+			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listdm') ? 'active' : ''; ?>" >
+				<a href="index.php?act=listdm">
+					<i class='bx bxs-category' ></i>
+					<span class="text">Danh Mục</span>
+				</a>
+			</li>
+			
+			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listsp') ? 'active' : ''; ?>">
+				<a href="index.php?act=listsp">
+					<i class='bx bxs-shopping-bag' ></i>
+					<span class="text">Sản Phẩm</span>
+				</a>
+			</li>
+			
+			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listkh') ? 'active' : ''; ?>">
+				<a href="index.php?act=listkh">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Khách Hàng</span>
+				</a>
+			</li>
+			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listbinhluan') ? 'active' : ''; ?>">
+				<a href="index.php?act=listbinhluan">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Bình Luận</span>
+				</a>
+			</li>
+			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listdonhang') ? 'active' : ''; ?>">
+				<a href="index.php?act=listdonhang">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Quản Lý Đơn Hàng</span>
+				</a>
+			</li>
+            <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listthongke') ? 'active' : ''; ?>">
+				<a href="index.php?act=listthongke">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Thống Kê</span>
+				</a>
+			</li>
+		
+		</ul>
+		<ul class="side-menu">
+		
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+    <section id="content">
+    <nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="img/people.png">
+			</a>
+		</nav>
