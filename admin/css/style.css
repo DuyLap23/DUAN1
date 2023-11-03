@@ -47,6 +47,7 @@ color: white;
 }
 .btn-submit{
 	background-color: var(--green);
+	color: var(--light);
 }
 html {
 	overflow-x: hidden;
@@ -109,7 +110,7 @@ body {
 }
 #sidebar .side-menu {
 	width: 100%;
-	margin-top: 48px;
+	
 }
 #sidebar .side-menu li {
 	height: 48px;
@@ -176,11 +177,23 @@ body {
 }
 /* SIDEBAR */
 
-
-
+/* form-search-sp
+ */
+ .form-search-sp{
+	padding-left: 5rem;
+	width: 45%;
+	
+ }
+ .form-search-sp span{
+		font-weight: 400;
+	
+	
+ }
 
 
 /* CONTENT */
+#content .side-menu li a.logout 
+{color: var(--red);}
 #content {
 	position: relative;
 	width: calc(100% - 280px);

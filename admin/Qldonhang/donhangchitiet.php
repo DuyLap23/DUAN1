@@ -18,7 +18,7 @@
 <div class="table-data">
     <div class="order">
         <div class="head">
-            <h3>Quản Lý Đơn Hàng</h3>
+            <h3>Chi Tiết Đơn Hàng</h3>
           
         </div>
         <table>
@@ -29,9 +29,13 @@
                     <th>Số Lượng</th>
                     <th>Size</th>
                     <th>Màu Sắc</th>
+                    <th>Người Nhận</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Địa Chỉ</th>
                     <th>Tình Trạng Thanh Toán</th>
                     <th>Tình Trạng Giao Hàng</th>
-                    <th >Thao Tác</th>
+                  
+                 
                 </tr>
             </thead>
             <tbody>
@@ -43,44 +47,15 @@
                     <td>2</td>
                     <td>L</td>
                     <td>Đỏ</td>
+                    <td>Hoàng Duy Lập</td>
+                    <td>0343014882</td>
+                    <td>Bắc Giang</td>
                     <td>Đã Thanh Toán</td>
                     <td><span class="status completed">Hoàn Thành</span></td>
-                    <td >
-
-                    <a href="index.php?act=order_detail"><button class="btn btn-submit">Chi Tiết Đơn Hàng</button></a>
-                    </td>
+                  
                 </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> 2</td>
-                    <td>2</td>
-                    <td>L</td>
-                    <td>Đỏ</td>
-                    <td>Đã Thanh Toán</td>
-                    <td><span class="status process">Đang Giao</span></td>
-                    <td >
-
-                    <a href="index.php?act=order_detail"><button class="btn btn-submit   ">Chi Tiết Đơn Hàng</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> 2</td>
-                    <td>2</td>
-                    <td>L</td>
-                    <td>Đỏ</td>
-                    <td>Đã Thanh Toán</td>
-                    <td><span class="status pending">Chờ Xử Lý</span></td>  
-                    <td >
-
-                    <a href="index.php?act=order_detail"><button class="btn  btn-submit ">Chi Tiết Đơn Hàng</button></a>
-                    </td>
-                </tr>
-                
+             
+        
                
                 
              

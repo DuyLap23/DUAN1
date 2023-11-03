@@ -2,8 +2,6 @@
 include "header.php";
 
 
-
-
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -54,11 +52,22 @@ if (isset($_GET['act'])) {
             include "Binhluan/list.php";
             break;
 
+                // xóa bl 
+                case 'deletebl':
+                    include "Binhluan/delete.php";
+                    break;
+                    
+
 
         // Khách Hàng 
         case 'listkhachhang':
             include "Khachhang/list.php";
             break;
+                
+                // xóa kh 
+                case 'deletekh':
+                    include "Khachhang/delete.php";
+                    break;
 
 
         // Đơn Hàng
@@ -66,14 +75,20 @@ if (isset($_GET['act'])) {
             include "Qldonhang/list.php";
             break;
 
-
+            // dh chi tiết
+            case 'order_detail':
+                include "Qldonhang/donhangchitiet.php";
+                break;
 
         // Thống Kê
         case 'listthongke':
             include "Thongke/thongke.php";
             break;
 
-
+        //  Biểu đồ 
+        case 'bieudo':
+            include "Thongke/bieudo.php";
+            break;
 
 
 

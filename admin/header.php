@@ -72,22 +72,20 @@
 					<span class="text">Thống Kê</span>
 				</a>
 			</li>
-		
-		</ul>
-		<ul class="side-menu">
-		
-			<li>
-				<a href="#" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
+            <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'bieudo') ? 'active' : ''; ?>">
+				<a href="index.php?act=bieudo">
+					<i class='bx bxs-chart' ></i>
+					<span class="text">Biểu Đồ</span>
 				</a>
 			</li>
+		
 		</ul>
+		
 	</section>
     <section id="content">
     <nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
+	
 			<form action="#">
 				<div class="form-input">
 					<input type="search" placeholder="Search...">
@@ -96,11 +94,17 @@
 			</form>
 			<input type="checkbox" id="switch-mode" hidden>
 			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
+			
 			<a href="#" class="profile">
 				<img src="img/people.png">
 			</a>
+			<ul class="side-menu pt-3 px-3">
+		
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
 		</nav>
