@@ -21,6 +21,9 @@
             <h3>Danh Mục</h3>
           
         </div>
+        <form action="index.php?act=createdm" method="post" class="pb-4"> 
+            <a href="index.php?act=createdm"><button class="btn btn-insert">Thêm Danh Mục</button></a>
+        </form>
         <table>
             <thead>
                 <tr>
@@ -78,9 +81,7 @@
              
             </tbody>    
         </table>
-        <form action="index.php?act=createdm" method="post" > 
-            <a href="index.php?act=createdm"><button class="btn btn-insert">Thêm Danh Mục</button></a>
-        </form>
+      
     </div>
 
 </div>

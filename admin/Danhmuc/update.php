@@ -1,7 +1,7 @@
 <main>
     <div class="head-title">
         <div class="left">
-            <h1>Sửa Danh Mục</h1>
+            <h1>Cập Nhật Danh Mục</h1>
             <ul class="breadcrumb">
                 <li>
                     <a href="#">Trang Chủ</a>
@@ -12,7 +12,7 @@
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
                 <li>
-                    <a class="active" href="#">Sửa Danh Mục </a>
+                    <a class="active" href="#">Cập Nhật Danh Mục </a>
                 </li>
             </ul>
         </div>
@@ -39,9 +39,9 @@
                </div>
 
 
-                <a href="index.php?act=listdm"><input type="submit" name="submit" id="" value="Thêm"
+                <a href="index.php?act=listdm"><input type="submit" name="submit" id="" value="Cập Nhật"
                         class="btn btn-insert  status completed "> </a>
-                <input type="reset" name="reset" id="" value="Làm Lại" class=" btn btn-reset ">
+                <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
             </form>
         </div>
 

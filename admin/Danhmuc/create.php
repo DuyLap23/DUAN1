@@ -41,7 +41,7 @@
 
                 <a href="index.php?act=listdm"><input type="submit" name="submit" id="" value="Thêm"
                         class="btn btn-insert  status completed "> </a>
-                <input type="reset" name="reset" id="" value="Làm Lại" class=" btn btn-reset ">
+                <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
             </form>
         </div>
 
