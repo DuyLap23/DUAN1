@@ -44,6 +44,28 @@
                     <a href="index.php?act=deletekh"><button class="btn status pending">xóa</button></a>
                     </td>
                 </tr>
+                <tr class="tr-shadow">
+                    <td>
+                       1
+                    </td>
+                    <td> Hoàng Duy Lập</td>
+                    <td>hoangduylap124@gmail.com</td>
+                    <td>0343014882</td>
+                    <td >
+                    <a href="index.php?act=deletekh"><button class="btn status pending">xóa</button></a>
+                    </td>
+                </tr>
+                <tr class="tr-shadow">
+                    <td>
+                       1
+                    </td>
+                    <td> Hoàng Duy Lập</td>
+                    <td>hoangduylap124@gmail.com</td>
+                    <td>0343014882</td>
+                    <td >
+                    <a href="index.php?act=deletekh"><button class="btn status pending">xóa</button></a>
+                    </td>
+                </tr>
                 
                
                 

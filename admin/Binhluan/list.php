@@ -46,6 +46,32 @@
                     <a href="index.php?act=deletebl"><button class="btn status pending">xóa</button></a>
                     </td>
                 </tr>
+                <tr class="tr-shadow">
+                    <td>
+                       1
+                    </td>
+                    <td> 2</td>
+                    <td>3</td>
+                    <td>Here We Go</td>
+                    <td>10/10/2021</td>
+                    <td >
+
+                    <a href="index.php?act=deletebl"><button class="btn status pending">xóa</button></a>
+                    </td>
+                </tr>
+                <tr class="tr-shadow">
+                    <td>
+                       1
+                    </td>
+                    <td> 2</td>
+                    <td>3</td>
+                    <td>Here We Go</td>
+                    <td>10/10/2021</td>
+                    <td >
+
+                    <a href="index.php?act=deletebl"><button class="btn status pending">xóa</button></a>
+                    </td>
+                </tr>
                 
                
                 
