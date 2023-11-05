@@ -46,9 +46,10 @@ function update_categories($category_id, $category_name)
 // Lấy ra tất cả danh mục con theo id danh mục cha 
 function sellect_all_categories_item($category_id)
 {
-    $sql = "SELECT categories_details.category_id_items, categories_details.category_name_items 
-FROM categories_details
-WHERE categories_details.category_id = $category_id";
+    $sql = "SELECT categories_details.category_id_items, categories_details.category_name_items ";
+    $sql .= " FROM categories_details";
+    $sql .= " WHERE categories_details.category_id = $category_id";
+
 
     return pdo_query($sql);
 }

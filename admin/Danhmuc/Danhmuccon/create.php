@@ -42,7 +42,6 @@
                     class="input w-75 rounded-2">
                </div>
 
-
                <input type="submit" name="submit" id="" value="Thêm"
                         class="btn btn-insert  status completed ">
                 <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
