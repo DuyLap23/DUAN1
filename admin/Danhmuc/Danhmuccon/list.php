@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
 if (is_array($one_categories_items)) {
     extract($one_categories_items);
 }
 
-// gọi để lấy tên danh mục cha
+
 
 ?>
 
@@ -81,4 +81,4 @@ if (is_array($one_categories_items)) {
     </div>
 
 </div>
-</main>
+</main> -->

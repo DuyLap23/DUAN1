@@ -29,7 +29,7 @@
                 <tr>
                     <th>Mã Danh Mục</th>
                     <th colspan="5">Tên Danh Mục</th>
-                    <th>Danh Mục Con</th>
+            
                     <th >Thao Tác</th>
                 </tr>
             </thead>
@@ -38,7 +38,7 @@
                     foreach($sellect_categories as $category){
                         extract($category);
                         $category_id=$category['category_id'];
-                        $category_items= "index.php?act=listdm_items&id_cate=".$category_id;
+                       
                         $edit ="index.php?act=editdm&id_cate=".$category_id;
                         $delete ="index.php?act=deletedm&id_cate=".$category_id;
                         echo '
@@ -48,8 +48,7 @@
                            <span>'.$category_id.'</span>
                         </td>
                         <td colspan="5"> <p>'.$category_name.'</p></td>
-                        <td> <a href="'.$category_items.'"><button class=" btn status process">Danh Mục Con </button></a>
-                        </td>
+                     
                         <td >
                             <a href="'.$edit.'"><button class=" btn status completed">Sửa </button></a>
                         <a href="'.$delete.'"><button class="btn status pending">xóa</button></a>
@@ -62,8 +61,12 @@
                     }
                 
                 
-                ?>
-              
+                ?>   
+
+                <!-- danh mục con  -->
+                 <!-- $category_items= "index.php?act=listdm_items&id_cate=".$category_id; -->
+                <!-- // <td> <a href="'.$category_items.'"><button class=" btn status process">Danh Mục Con </button></a>
+                // </td> -->
               
              
             </tbody>    

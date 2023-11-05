@@ -50,7 +50,7 @@ if (is_array($one_categories)) {
                         value="<?=$category_name?>" class="input w-75 rounded-2 px-3">
                 </div>
 
-                <input type="submit" name="update" id="" value="Cập Nhật" class="btn btn-insert  status completed ">
+                <input type="submit" name="updatedm" id="" value="Cập Nhật" class="btn btn-insert  status completed ">
                 <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
                 
                 <a href="index.php?act=listdm"><button class="btn btn-insert  status completed" >Về Trang Danh Sách</button>

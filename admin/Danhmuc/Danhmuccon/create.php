@@ -1,4 +1,4 @@
-
+<!-- 
 
 
 
@@ -34,19 +34,20 @@
                <label for="">
                     Mã Danh Mục
                 </label> <br />
-                <input type="text" name="category_id" id="" value="" readonly class="rounded-2 w-75"> <br />
+                <input type="text" name="category_id_items" id="" value="" readonly class="rounded-2 w-75"> <br />
                 <label for="" class="label pt-2">
                     Tên Danh Mục
                 </label><br />
-                <input type="text" name="category_name" id="" value="" placeholder="Nhập tên danh mục "
+                <input type="text" name="category_name_items" id="" value="" placeholder="Nhập tên danh mục "
                     class="input w-75 rounded-2">
                </div>
 
-               <input type="submit" name="submit" id="" value="Thêm"
+               <input type="submit" name="submitdm_items" id="" value="Thêm"
                         class="btn btn-insert  status completed ">
                 <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
-                <a href="index.php?act=listdm"><button class="btn btn-insert  status completed ">Về Trang Danh Sách </button></button></a>
+               
             </form>
+            <a href="index.php?act=listdm_items"><button class="btn btn-insert  status completed mt-4">Về Trang Danh Sách </button></button></a>
             <?php
             if (isset($Notification) && $Notification != "") {
               echo $Notification;
@@ -55,4 +56,4 @@
         </div>
 
     </div>
-</main>
+</main> -->

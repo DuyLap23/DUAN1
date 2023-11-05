@@ -25,7 +25,7 @@
                 <h3>Danh Mục</h3>
 
             </div>
-            <form action="index.php?act=listdm" class="form-input" method="post">
+            <form action="index.php?act=createdm" class="form-input" method="post">
                <div class="form-group pb-4">
                <label for="">
                     Mã Danh Mục
@@ -39,11 +39,12 @@
                </div>
 
 
-               <input type="submit" name="submit" id="" value="Thêm"
+               <input type="submit" name="submitdm" id="" value="Thêm"
                         class="btn btn-insert  status completed ">
                 <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
-                <a href="index.php?act=listdm"><button class="btn btn-insert  status completed ">Về Trang Danh Sách </button></button></a>
+               
             </form>
+            <a href="index.php?act=listdm"><button class="btn btn-insert  status completed mt-4">Về Trang Danh Sách </button></button></a>
             <?php
             if (isset($Notification) && $Notification != "") {
               echo $Notification;
