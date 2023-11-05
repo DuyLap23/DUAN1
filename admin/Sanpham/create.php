@@ -68,7 +68,29 @@
                         Số Lượng
                     </label><br />
                     <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
-                        class="input w-75 rounded-2">
+                        class="input w-75 rounded-2 "><br />
+                        <select name="category_id" id="" class="rounded-2 mt-3">
+                            <option value="">
+                                Danh Mục 1
+                            </option>
+                            <option value="">
+                                Danh Mục 2
+                            </option>
+                            <option value="">
+                                Danh Mục 3
+                            </option>
+                        </select>
+                        <select name="category_id" id="" class="rounded-2 mt-3">
+                            <option value="">
+                                Danh Mục Con 1
+                            </option>
+                            <option value="">
+                                Danh Mục Con2
+                            </option>
+                            <option value="">
+                                Danh Mục Con 3
+                            </option>
+                        </select>
                 </div>
 
 

@@ -1,3 +1,7 @@
+
+
+
+
 <main>
     <div class="head-title">
         <div class="left">
@@ -12,7 +16,7 @@
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
                 <li>
-                    <a class="active" href="#">Thêm Danh Mục </a>
+                    <a class="active" href="#">Thêm Danh Mục Con </a>
                 </li>
             </ul>
         </div>
@@ -22,10 +26,10 @@
     <div class="table-data">
         <div class="order">
             <div class="head">
-                <h3>Danh Mục</h3>
+                <h3>Danh Mục Con    </h3>
 
             </div>
-            <form action="index.php?act=listdm" class="form-input" method="post">
+            <form action="index.php?act=createdm_items" class="form-input" method="post">
                <div class="form-group pb-4">
                <label for="">
                     Mã Danh Mục

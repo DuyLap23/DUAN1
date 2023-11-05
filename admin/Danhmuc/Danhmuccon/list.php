@@ -1,3 +1,14 @@
+<?php
+if (is_array($one_categories_items)) {
+    extract($one_categories_items);
+}
+
+// gọi để lấy tên danh mục cha
+
+?>
+
+
+
 <main>
 <div class="head-title">
     <div class="left">
@@ -18,38 +29,36 @@
 <div class="table-data">
     <div class="order">
         <div class="head">
-            <h3>Danh Mục</h3>
+            <h3>Danh Mục Cha : <i><?=$category_name?></i> </h3>
           
         </div>
-        <form action="index.php?act=createdm" method="post" class="pb-4"> 
-            <a href="index.php?act=createdm"><button class="btn btn-insert">Thêm Danh Mục</button></a>
+        <form action="index.php?act=createdm_items" method="post" class="pb-4"> 
+            <a href="index.php?act=createdm_items"><button class="btn btn-insert">Thêm Danh Mục Con</button></a>
         </form>
         <table>
             <thead>
                 <tr>
                     <th>Mã Danh Mục</th>
                     <th colspan="5">Tên Danh Mục</th>
-                    <th>Danh Mục Con</th>
+
                     <th >Thao Tác</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                    foreach($sellect_categories as $category){
-                        extract($category);
-                        $category_id=$category['category_id'];
-                        $category_items= "index.php?act=listdm_items&id_cate=".$category_id;
-                        $edit ="index.php?act=editdm&id_cate=".$category_id;
-                        $delete ="index.php?act=deletedm&id_cate=".$category_id;
+                    foreach($sellect_all_categories_item as $category_items){
+                        extract($category_items);
+          
+                        $edit ="index.php?act=editdm_item&id_category_item=".$category_id_items;
+                        $delete ="index.php?act=deletedm_item&id_category_item=".$category_id_items;
                         echo '
                         
                         <tr class="tr-shadow">
                         <td colspan="2">
-                           <span>'.$category_id.'</span>
+                           <span>'.$category_id_items.'</span>
                         </td>
-                        <td colspan="5"> <p>'.$category_name.'</p></td>
-                        <td> <a href="'.$category_items.'"><button class=" btn status process">Danh Mục Con </button></a>
-                        </td>
+                        <td colspan="5"> <p>'.$category_name_items.'</p></td>
+                      
                         <td >
                             <a href="'.$edit.'"><button class=" btn status completed">Sửa </button></a>
                         <a href="'.$delete.'"><button class="btn status pending">xóa</button></a>

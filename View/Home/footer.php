@@ -117,7 +117,18 @@
 
 	<!-- SPECIFIC SCRIPTS -->
 	<script src="View/js/carousel-home.min.js"></script>
-
+	<script src="View/js/sticky_sidebar.min.js"></script>
+	<script src="View/js/specific_listing.js"></script>
+	
+	<script src="View/js/carousel-home.js"></script>
+	<script>
+		// Sticky sidebar
+		$('#sidebar_fixed').theiaStickySidebar({
+			minWidth: 991,
+			updateSidebarHeight: false,
+			additionalMarginTop: 90
+		});
+	</script>
 </body>
 
 </html>

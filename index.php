@@ -1,5 +1,6 @@
 <?php
 require "View/Home/header.php";
+require "Models/connect.php";
 
 if (isset($_GET['act']) && ($_GET['act']) != "") {
     $act = $_GET['act'];

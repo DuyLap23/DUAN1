@@ -280,7 +280,7 @@
 										<div class="dropdown-menu">
 											<ul>
 												<li>
-													<a href="product-detail-1.html">
+													<a href="index.php?act=chitietsp">
 														<figure><img
 																src="View/img/products/product_placeholder_square_small.jpg"
 																data-src="View/img/products/shoes/thumb/1.jpg" alt=""
@@ -290,7 +290,7 @@
 													<a href="#0" class="action"><i class="ti-trash"></i></a>
 												</li>
 												<li>
-													<a href="product-detail-1.html">
+													<a href="index.php?act=chitietsp">
 														<figure><img
 																src="View/img/products/product_placeholder_square_small.jpg"
 																data-src="View/img/products/shoes/thumb/2.jpg" alt=""
