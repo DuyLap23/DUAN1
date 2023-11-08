@@ -233,7 +233,7 @@
 	                    <span class="ribbon new">New</span>
 	                    <figure>
 	                        <a href="product-detail-1.html">
-	                            <img class="owl-lazy" src="img/products/product_placeholder_square_medium.jpg" data-src="img/products/shoes/4.jpg" alt="">
+	                            <img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg" data-src="View/img/products/shoes/4.jpg" alt="">
 	                        </a>
 	                    </figure>
 	                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
@@ -257,7 +257,7 @@
 	                    <span class="ribbon new">New</span>
 	                    <figure>
 	                        <a href="product-detail-1.html">
-	                            <img class="owl-lazy" src="img/products/product_placeholder_square_medium.jpg" data-src="img/products/shoes/5.jpg" alt="">
+	                            <img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg" data-src="View/img/products/shoes/5.jpg" alt="">
 	                        </a>
 	                    </figure>
 	                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
@@ -281,7 +281,7 @@
 	                    <span class="ribbon hot">Hot</span>
 	                    <figure>
 	                        <a href="product-detail-1.html">
-	                            <img class="owl-lazy" src="img/products/product_placeholder_square_medium.jpg" data-src="img/products/shoes/8.jpg" alt="">
+	                            <img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg" data-src="View/img/products/shoes/8.jpg" alt="">
 	                        </a>
 	                    </figure>
 	                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
@@ -305,7 +305,7 @@
 	                    <span class="ribbon off">-30%</span>
 	                    <figure>
 	                        <a href="product-detail-1.html">
-	                            <img class="owl-lazy" src="img/products/product_placeholder_square_medium.jpg" data-src="img/products/shoes/2.jpg" alt="">
+	                            <img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg" data-src="View/img/products/shoes/2.jpg" alt="">
 	                        </a>
 	                    </figure>
 	                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
@@ -330,7 +330,7 @@
 	                    <span class="ribbon off">-50%</span>
 	                    <figure>
 	                        <a href="product-detail-1.html">
-	                            <img class="owl-lazy" src="img/products/product_placeholder_square_medium.jpg" data-src="img/products/shoes/3.jpg" alt="">
+	                            <img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg" data-src="View/img/products/shoes/3.jpg" alt="">
 	                        </a>
 	                    </figure>
 	                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
@@ -351,43 +351,10 @@
 	            </div>
 	            <!-- /item -->
 	        </div>
-	        <!-- /products_carousel -->
+	        <!-- /products_car	ousel -->
 	    </div>
 	    <!-- /container -->
 
-	    <div class="feat">
-			<div class="container">
-				<ul>
-					<li>
-						<div class="box">
-							<i class="ti-gift"></i>
-							<div class="justify-content-center">
-								<h3>Free Shipping</h3>
-								<p>For all oders over $99</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="box">
-							<i class="ti-wallet"></i>
-							<div class="justify-content-center">
-								<h3>Secure Payment</h3>
-								<p>100% secure payment</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="box">
-							<i class="ti-headphone-alt"></i>
-							<div class="justify-content-center">
-								<h3>24/7 Support</h3>
-								<p>Online top support</p>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!--/feat-->
+	 
 
 	</main>

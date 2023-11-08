@@ -11,7 +11,7 @@
                     <a class="" href="#">Sản Phẩm </a>
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
-                <li>    
+                <li>
                     <a class="active" href="#">Cập Nhật Sản Phẩm </a>
                 </li>
             </ul>
@@ -71,19 +71,25 @@
                         class="input w-75 rounded-2"><br />
 
                     <label for="" class="pt-3">Danh Mục</label><br />
-                        <select name="category_id" id="" class="rounded-2 ">
-                            <option value="">
-                                Danh Mục 1
-                            </option>
-                            <option value="">
-                                Danh Mục 2
-                            </option>
-                            <option value="">
-                                Danh Mục 3
-                            </option>
-                        </select>
-                      
-                </div>  
+                    <select name="category_id" id="" class="rounded-2 ">
+                        <option value="">
+                            Danh Mục 1
+                        </option>
+                        <option value="">
+                            Danh Mục 2
+                        </option>
+                        <option value="">
+                            Danh Mục 3
+                        </option>
+                    </select>
+                    <div class="notification">
+                        <?php
+                        if (isset($Notification) && $Notification != "") {
+                            echo $Notification;
+                        }
+                        ?>
+                    </div>
+                </div>
 
 
                 <a href="index.php?act=listsp"><input type="submit" name="submit" id="" value="Cập Nhật"

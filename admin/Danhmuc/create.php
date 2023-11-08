@@ -45,11 +45,14 @@
                
             </form>
             <a href="index.php?act=listdm"><button class="btn btn-insert  status completed mt-4">Về Trang Danh Sách </button></button></a>
+            <div class="notification">
             <?php
             if (isset($Notification) && $Notification != "") {
               echo $Notification;
             }
           ?>
+            </div>
+          
         </div>
 
     </div>

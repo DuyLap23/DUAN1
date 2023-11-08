@@ -14,6 +14,9 @@ li {
 	list-style: none;
 }
 
+.notification{
+	color: var(--green);
+}
 :root {
 	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
@@ -94,7 +97,7 @@ body {
 	height: 56px;
 	display: flex;
 	align-items: center;
-	color: var(--blue);
+	color: var(--green);
 	position: sticky;
 	top: 0;
 	left: 0;

@@ -65,27 +65,7 @@ if (isset($_GET['act'])) {
             include "Danhmuc/list.php";
             break;
 
-                // Danh mục con 
-                // case "createdm_items":
-                //     if (isset($_POST['submitdm_items']) && $_POST['submitdm_items']) {
-                //         $id_category = $_POST['category_id'];
-                //         $category_name_items = $_POST['category_name_items'];
-                //         insert_categories_items($category_name_items,$id_category);
-                //         $Notification = "Thêm Thành Công";
-                //     }
-
-                //     include "Danhmuc/Danhmuccon/create.php";
-                //     break;
-                // case "listdm_items":
-
-                //     // lấy ra tên danh mục cha 
-                //     $one_categories_items = sellect_one_categories($_GET['id_cate']);
-                    
-                //     // tìm trong Danhmuc/danhmuccon/list.php lấy ra tên danh mục con
-                //     $sellect_all_categories_item=sellect_all_categories_item($_GET['id_cate']);
-
-                
-
+               
 
         // Sản phẩm 
         case 'listsp':
@@ -150,7 +130,7 @@ if (isset($_GET['act'])) {
             include "Thongke/bieudo.php";
             break;
 
-
+            
 
         default:
             include "home.php";
