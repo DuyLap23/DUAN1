@@ -8,6 +8,7 @@ function sellect_all_categories()
     return pdo_query($sql);
 }
 
+
 //  lấy ra 1 danh mục theo id 
 function sellect_one_categories($category_id)
 {

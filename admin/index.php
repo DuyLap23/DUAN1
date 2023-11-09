@@ -20,6 +20,11 @@ if (isset($_GET['act'])) {
 
         // Danh mục
         case 'listdm':
+            if (isset($_POST['search'])&&($_POST['search']) ) {
+                $sea=$_POST['sea'];
+            }else{
+                $sea='';
+            }
             $sellect_categories = sellect_all_categories();
             include "Danhmuc/list.php";
             break;

@@ -27,8 +27,7 @@
       </form> 
       <form action="" method="post" class="form-group form-search-sp">
               <div class="form-input pb-2 d-flex    ">
-                <span class="w-25 pt-2 ">Tìm Kiếm </span>
-              <input type="text" name="search" width="50px"  placeholder="Search..." class="form-control px-2" >	
+              <input type="text" name="search" width="50px"  placeholder="Search..." class="form-control mx-2" >	
                   <input type="submit" name="locsp" value="Lọc " class=" btn btn-insert px-2">
               </div>
           </form>
