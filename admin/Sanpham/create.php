@@ -25,12 +25,12 @@
                 <h3>Sản Phẩm</h3>
 
             </div>
-            <form action="index.php?act=createsp" class="form-input" method="post">
+            <form action="index.php?act=createsp" class="form-input" method="post" enctype="multipart/form-data">
                 <div class="form-group pb-4">
                     <label for="">
                         Mã Sản Phẩm
                     </label> <br />
-                    <input type="text" name="product_id" id="" value="" readonly class="rounded-2 w-75"> <br />
+                    <input type="text" name="product_id" id="" value="" readonly class="rounded-2 w-75" > <br />
                     <label for="" class="label pt-2">
                         Tên Sản Phẩm
                     </label><br />
@@ -47,7 +47,7 @@
                     <input type="number" name="price" id="" value="" placeholder="Nhập số lượng "
                         class="input w-75 rounded-2"><br />
 
-                    <label for="product_size" class="label pt-2">
+                    <!-- <label for="product_size" class="label pt-2">
                         Size:</label>
                     <select id="product_size" name="product_size">
                         <option value="S">S</option>
@@ -59,7 +59,7 @@
                     <input type="radio" id="red" name="product_color" value="Red">
                     <label for="red">Đỏ</label>
                     <input type="radio" id="blue" name="product_color" value="Blue">
-                    <label for="blue">Xanh</label><br />
+                    <label for="blue">Xanh</label><br /> -->
                     <label for="" class="label pt-2">
                         Mô Tả
                     </label><br />
@@ -67,19 +67,19 @@
                     <label for="" class="label pt-2">
                         Số Lượng
                     </label><br />
-                    <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
-                        class="input w-75 rounded-2 "><br />
+                    <!-- <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
+                        class="input w-75 rounded-2 "><br /> -->
                     <label for="" class="label pt-3">Danh Mục</label><br />
                     <select name="category_id" id="" class="rounded-2 ">
-                        <option value="">
-                            Danh Mục 1
-                        </option>
-                        <option value="">
-                            Danh Mục 2
-                        </option>
-                        <option value="">
-                            Danh Mục 3
-                        </option>
+                    
+                            <?php 
+                            foreach ($sellect_categories as $danhmuc) {
+                                extract($danhmuc);
+                                echo '   <option value="'.$category_id .'">'.$category_name.'</option>';
+                            }
+                            ?>
+                         
+                       
                     </select>
 
                     <div class="notification">
@@ -92,7 +92,7 @@
                 </div>
 
 
-                <a href="index.php?act=listsp"><input type="submit" name="submit" id="" value="Thêm"
+                <a href="index.php?act=createsp"><input type="submit" name="submitsp" id="" value="Thêm"
                         class="btn btn-insert  status completed "> </a>
                 <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
             </form>

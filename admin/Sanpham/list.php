@@ -27,8 +27,18 @@
       </form> 
       <form action="" method="post" class="form-group form-search-sp">
               <div class="form-input pb-2 d-flex    ">
+                
               <input type="text" name="search" width="50px"  placeholder="Search..." class="form-control mx-2" >	
-                  <input type="submit" name="locsp" value="Lọc " class=" btn btn-insert px-2">
+              <select name="category_id">
+                        <option value="0" selected>Tất cả</option>
+                    <?php 
+                            foreach ($sellect_categories as $danhmuc) {
+                                extract($danhmuc);
+                                echo '   <option value="'.$category_id.'">'.$category_name.'</option>';
+                            }
+                            ?>
+                    </select>
+              <input type="submit" name="locsp" value="Lọc " class=" btn btn-insert px-2">
               </div>
           </form>
       </div>
@@ -49,55 +59,35 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="tr-shadow">
-                    <td>
-                     1
-                    </td>
-                    <td >Quần Đùi</td>
-                    <td colspan="2">Ảnh</td>
-                    <td>Giá</td>
-                    <td>Mô Tả</td>
-                    <td>Số Lượng</td>
-                    <td>Lượt Xem</td>
-                    <td>Mã Danh Mục</td>
-                    <td >
-                        <a href="index.php?act=updatesp"><button class=" btn status completed">Sửa </button></a>
-                    <a href="index.php?act=deletesp"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                     1
-                    </td>
-                    <td >Quần Đùi</td>
-                    <td colspan="2">Ảnh</td>
-                    <td>Giá</td>
-                    <td>Mô Tả</td>
-                    <td>Số Lượng</td>
-                    <td>Lượt Xem</td>
-                    <td>Mã Danh Mục</td>
-                    <td >
-                        <a href="index.php?act=updatesp"><button class=" btn status completed">Sửa </button></a>
-                    <a href="index.php?act=deletesp"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                     1
-                    </td>
-                    <td >Quần Đùi</td>
-                    <td colspan="2">Ảnh</td>
-                    <td>Giá</td>
-                    <td>Mô Tả</td>
-                    <td>Số Lượng</td>
-                    <td>Lượt Xem</td>
-                    <td>Mã Danh Mục</td>
-                    <td >
-                        <a href="index.php?act=updatesp"><button class=" btn status completed">Sửa </button></a>
-                    <a href="index.php?act=deletesp"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
+               
+            <?php 
+
+                        foreach ($listsanpham as $sanpham) {
+                            extract($sanpham);
+                            $suasp = "index.php?act=updatesp&id_sp=".$product_id;
+                            $xoasp = "index.php?act=deletesp&id_sp=".$product_id; // đường liên kết 
+                           echo '<tr class="tr-shadow">
+                           <td>
+                            '.$product_id.'
+                           </td>
+                           <td >'.$product_name.'</td>
+                           <td colspan="2"> <img src="./imgad/'.$image.'" width="200p"></td>
+                           <td>'.$price.'</td>
+                           <td>'.$description.'</td>
+                           <td>Số Lượng</td>
+                           <td>Lượt Xem</td>
+                           <td>'.$category_id.'</td>
+                           <td >
+                               <a href="'.$suasp.'"><button class=" btn status completed">Sửa </button></a>
+                           <a href=" '.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa?\')"><button class="btn status pending">xóa</button></a>
+                           </td>
+                       </tr>'
+                       ;}
+            ?>
+             
+                
               
+
                 
              
             </tbody>    

@@ -72,7 +72,7 @@
 
                     <label for="" class="pt-3">Danh Mục</label><br />
                     <select name="category_id" id="" class="rounded-2 ">
-                        <option value="">
+                        <!-- <option value="">
                             Danh Mục 1
                         </option>
                         <option value="">
@@ -80,7 +80,13 @@
                         </option>
                         <option value="">
                             Danh Mục 3
-                        </option>
+                        </option> -->
+                        <?php 
+                            foreach ($sellect_categories as $danhmuc) {
+                                extract($danhmuc);
+                                echo '   <option value="'.$category_id .'">'.$category_name.'</option>';
+                            }
+                            ?>
                     </select>
                     <div class="notification">
                         <?php
