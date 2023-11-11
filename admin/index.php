@@ -97,7 +97,7 @@ if (isset($_GET['act'])) {
             $description =$_POST['description'];
             $category_id =$_POST['category_id'];
             $image = $_FILES['image']['name'];
-            $target_dir = "./imgad/";
+            $target_dir = "../image/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";

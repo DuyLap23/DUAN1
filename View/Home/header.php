@@ -12,7 +12,8 @@
 	<!-- Favicons-->
 	<link rel="shortcut icon" href="View/img/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" type="image/x-icon" href="View/img/apple-touch-icon-57x57-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="View/img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+		href="View/img/apple-touch-icon-72x72-precomposed.png">
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
 		href="View/img/apple-touch-icon-114x114-precomposed.png">
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
@@ -138,8 +139,8 @@
 													<div class="banner_menu">
 														<a href="#0">
 															<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-																data-src="View/img/banner_menu.jpg" width="400" height="550"
-																alt="" class="img-fluid lazy">
+																data-src="View/img/banner_menu.jpg" width="400"
+																height="550" alt="" class="img-fluid lazy">
 														</a>
 													</div>
 												</div>
@@ -197,70 +198,24 @@
 														<span class="hamburger-inner"></span>
 													</span>
 												</span>
-												Categories
+												Danh Mục Sản Phẩm
 											</a>
 										</span>
 										<div id="menu">
 											<ul>
-												<li><span><a href="#0">Collections</a></span>
-													<ul>
-														<li><a href="listing-grid-1-full.html">Trending</a></li>
-														<li><a href="listing-grid-2-full.html">Life style</a></li>
-														<li><a href="listing-grid-3.html">Running</a></li>
-														<li><a href="listing-grid-4-sidebar-left.html">Training</a></li>
-														<li><a href="listing-grid-5-sidebar-right.html">View all
-																Collections</a></li>
-													</ul>
-												</li>
-												<li><span><a href="#">Men</a></span>
-													<ul>
-														<li><a href="listing-grid-6-sidebar-left.html">Offers</a></li>
-														<li><a href="listing-grid-7-sidebar-right.html">Shoes</a></li>
-														<li><a href="listing-row-1-sidebar-left.html">Clothing</a></li>
-														<li><a href="listing-row-3-sidebar-left.html">Accessories</a>
-														</li>
-														<li><a href="listing-row-4-sidebar-extended.html">Equipment</a>
-														</li>
-													</ul>
-												</li>
-												<li><span><a href="#">Women</a></span>
-													<ul>
-														<li><a href="listing-grid-1-full.html">Best Sellers</a></li>
-														<li><a href="listing-grid-2-full.html">Clothing</a></li>
-														<li><a href="listing-grid-3.html">Accessories</a></li>
-														<li><a href="listing-grid-4-sidebar-left.html">Shoes</a></li>
-													</ul>
-												</li>
-												<li><span><a href="#">Boys</a></span>
-													<ul>
-														<li><a href="listing-grid-6-sidebar-left.html">Easy On Shoes</a>
-														</li>
-														<li><a href="listing-grid-7-sidebar-right.html">Clothing</a>
-														</li>
-														<li><a href="listing-row-3-sidebar-left.html">Must Have</a></li>
-														<li><a href="listing-row-4-sidebar-extended.html">All Boys</a>
-														</li>
-													</ul>
-												</li>
-												<li><span><a href="#">Girls</a></span>
-													<ul>
-														<li><a href="listing-grid-1-full.html">New Releases</a></li>
-														<li><a href="listing-grid-2-full.html">Clothing</a></li>
-														<li><a href="listing-grid-3.html">Sale</a></li>
-														<li><a href="listing-grid-4-sidebar-left.html">Best Sellers</a>
-														</li>
-													</ul>
-												</li>
-												<li><span><a href="#">Customize</a></span>
-													<ul>
-														<li><a href="listing-row-1-sidebar-left.html">For Men</a></li>
-														<li><a href="listing-row-2-sidebar-right.html">For Women</a>
-														</li>
-														<li><a href="listing-row-4-sidebar-extended.html">For Boys</a>
-														</li>
-														<li><a href="listing-grid-1-full.html">For Girls</a></li>
-													</ul>
-												</li>
+												<?php
+												
+												foreach ($sellect_categories as $show) {
+													extract($show);
+													print_r($show);
+													$category_detail = "index.php?act=chitietdm&id_cate=" . $category_id;
+													echo '<li>
+													<span><a href="' . $category_detail . '">' . $category_name . '</a></span>
+												</li>';
+												}
+												?>
+												
+
 											</ul>
 										</div>
 									</li>
@@ -269,7 +224,7 @@
 						</div>
 						<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 							<div class="custom-search-input">
-								<input type="text" placeholder="Search over 10.000 products">
+								<input type="text" placeholder="Search over 10.000 products " name="key">
 								<button type="submit"><i class="header-icon_search_custom"></i></button>
 							</div>
 						</div>
@@ -324,10 +279,12 @@
 														Order</a>
 												</li>
 												<li>
-													<a href="index.php?act=account"><i class="ti-package"></i>My Orders</a>
+													<a href="index.php?act=account"><i class="ti-package"></i>My
+														Orders</a>
 												</li>
 												<li>
-													<a href="index.php?act=account"><i class="ti-user"></i>My Profile</a>
+													<a href="index.php?act=account"><i class="ti-user"></i>My
+														Profile</a>
 												</li>
 												<li>
 													<a href="help.html"><i class="ti-help-alt"></i>Help and Faq</a>

@@ -71,7 +71,7 @@
                             '.$product_id.'
                            </td>
                            <td >'.$product_name.'</td>
-                           <td colspan="2"> <img src="./imgad/'.$image.'" width="200p"></td>
+                           <td colspan="2"> <img src="../image/'.$image.'" ></td>
                            <td>'.$price.'</td>
                            <td>'.$description.'</td>
                            <td>Số Lượng</td>

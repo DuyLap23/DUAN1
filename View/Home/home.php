@@ -2,7 +2,7 @@
 	<!-- banner full  -->
 	<div id="carousel-home">
 		<div class="owl-carousel owl-theme">
-			<div class="owl-slide cover" style="background-image: url(img/slides/slide_home_2.jpg);">
+			<div class="owl-slide cover" style="background-image: url(View/img/banner5.jpg);">
 				<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<div class="container">
 						<div class="row justify-content-center justify-content-md-end">
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<!--/owl-slide-->
-			<div class="owl-slide cover" style="background-image: url(img/slides/slide_home_1.jpg);">
+			<div class="owl-slide cover" style="background-image: url(View/img/banner2.jpg);">
 				<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<div class="container">
 						<div class="row justify-content-center justify-content-md-start">
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			<!--/owl-slide-->
-			<div class="owl-slide cover" style="background-image: url(img/slides/slide_home_3.jpg);">
+			<div class="owl-slide cover" style="background-image: url(View/img/banner6.jpg);">
 				<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
 					<div class="container">
 						<div class="row justify-content-center justify-content-md-start">
@@ -71,7 +71,7 @@
 	<ul id="banners_grid" class="clearfix">
 		<li>
 			<a href="#0" class="img_container">
-				<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_1.jpg" alt="" class="lazy">
+				<img src="View/img/banner1.jpg" data-src="View/img/banner1.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<h3>Men's Collection</h3>
 					<div><span class="btn_1">Shop Now</span></div>
@@ -80,7 +80,7 @@
 		</li>
 		<li>
 			<a href="#0" class="img_container">
-				<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_2.jpg" alt="" class="lazy">
+				<img src="View/img/banner3.jpg" data-src="View/img/banner3.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<h3>Womens's Collection</h3>
 					<div><span class="btn_1">Shop Now</span></div>
@@ -89,7 +89,7 @@
 		</li>
 		<li>
 			<a href="#0" class="img_container">
-				<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_3.jpg" alt="" class="lazy">
+				<img src="View/img/banner4.jpg" data-src="View/img/banner4.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<h3>Kids's Collection</h3>
 					<div><span class="btn_1">Shop Now</span></div>
@@ -99,166 +99,63 @@
 	</ul>
 	<!-- hết banner grid  -->
 
-	<!-- sp bán chạy  -->
+	<!-- sp mới  -->
 	<div class="container margin_60_35">
 		<div class="main_title">
-			<h2>Top Selling</h2>
-			<p>Cum doctus civibus efficiantur in imperdiet deterruisset</p>
+			<h2>Sản Phẩm Mới</h2>
+			<p>Chúng tôi luôn cập nhật những sản phẩm mới cho quý khách hàng lựa chọn</p>
 		</div>
 		<div class="row small-gutters">
-			<div class="col-6 col-md-4 col-xl-3">
-				<div class="grid_item">
-					<figure>
-						<span class="ribbon off">-30%</span>
-						<a href="index.php?act=chitietsp">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1.jpg" alt="">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1_b.jpg" alt="">
-						</a>
-						<div data-countdown="2019/05/15" class="countdown"></div>
-					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
-					<a href="index.php?act=chitietsp">
-						<h3>Armor Air x Fear</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$48.00</span>
-						<span class="old_price">$60.00</span>
-					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
-				</div>
+			<?php foreach ($loadall_sanpham as $key => $value): ?>
+				<?php extract($value);
+				?>
+				<div class="col-6 col-md-4 col-xl-3">
 
-			</div>
-			<!-- /col -->
-			<div class="col-6 col-md-4 col-xl-3">
-				<div class="grid_item">
-					<figure>
-						<span class="ribbon off">-30%</span>
-						<a href="index.php?act=chitietsp">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1.jpg" alt="">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1_b.jpg" alt="">
-						</a>
-						<div data-countdown="2019/05/15" class="countdown"></div>
-					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
-					<a href="index.php?act=chitietsp">
-						<h3>Armor Air x Fear</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$48.00</span>
-						<span class="old_price">$60.00</span>
-					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
-				</div>
+					<div class="grid_item">
+						<span class="ribbon new">New</span>
+						<figure>
 
-			</div>
-			<!-- /col -->
-			<div class="col-6 col-md-4 col-xl-3">
-				<div class="grid_item">
-					<figure>
-						<span class="ribbon off">-30%</span>
-						<a href="index.php?act=chitietsp">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1.jpg" alt="">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1_b.jpg" alt="">
-						</a>
-						<div data-countdown="2019/05/15" class="countdown"></div>
-					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
-					<a href="index.php?act=chitietsp">
-						<h3>Armor Air x Fear</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$48.00</span>
-						<span class="old_price">$60.00</span>
-					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
-				</div>
+							<a href="index.php?act=chitietsp">
+								<img class="img-fluid lazy " src="../image/<?= $image ?>" data-src="../image/<?= $image ?>" 
+									alt="">
+								<img class="img-fluid lazy" src="../image/<?= $image ?>" data-src="../image/<?= $image ?>" 
+									alt="">
+							</a>
 
-			</div>
-			<!-- /col -->
-			<div class="col-6 col-md-4 col-xl-3">
-				<div class="grid_item">
-					<figure>
-						<span class="ribbon off">-30%</span>
+						</figure>
+						<div class="rating"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i
+								class="icon-star voted"></i><i class="icon-star"></i>
+						</div>
 						<a href="index.php?act=chitietsp">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1.jpg" alt="">
-							<img class="img-fluid lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/1_b.jpg" alt="">
+							<h3>
+								<?= $product_name ?>
+							</h3>
 						</a>
-						<div data-countdown="2019/05/15" class="countdown"></div>
-					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
-					<a href="index.php?act=chitietsp">
-						<h3>Armor Air x Fear</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$48.00</span>
-						<span class="old_price">$60.00</span>
-					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
-				</div>
+						<div class="price_box">
+							<span class="new_price">$
+								<?= $price ?>
+							</span>
+							<span class="old_price">$60.00</span>
+						</div>
+						<ul>
 
-			</div>
-			<!-- /col -->
+							<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
+									title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
+										compare</span></a></li>
+							<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
+									title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<!-- /col -->
+			<?php endforeach; ?>
 
 		</div>
 		<!-- /row -->
 	</div>
-	<!-- hết sp bán chạy  -->
+	<!-- hết sp mới  -->
 
 	<!-- sản phẩm đặc sắc  -->
 	<div class="container margin_60_35">
@@ -273,13 +170,11 @@
 					<span class="ribbon new">New</span>
 					<figure>
 						<a href="index.php?act=chitietsp">
-							<img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg"
+							<img class="owl-lazy lazy" src="View/img/products/product_placeholder_square_medium.jpg"
 								data-src="View/img/products/shoes/4.jpg" alt="">
 						</a>
 					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
+				
 					<a href="product-detail-1.html">
 						<h3>ACG React Terra</h3>
 					</a>
@@ -287,9 +182,7 @@
 						<span class="new_price">$110.00</span>
 					</div>
 					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
+				
 						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
 								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
 									compare</span></a></li>
@@ -301,109 +194,9 @@
 				<!-- /grid_item -->
 			</div>
 			<!-- /item -->
+
 		
-			<div class="item">
-				<div class="grid_item">
-					<span class="ribbon new">New</span>
-					<figure>
-						<a href="index.php?act=chitietsp">
-							<img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/4.jpg" alt="">
-						</a>
-					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
-					<a href="product-detail-1.html">
-						<h3>ACG React Terra</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$110.00</span>
-					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
-				</div>
-				<!-- /grid_item -->
-			</div>
-			<!-- /item -->
-		
-			<div class="item">
-				<div class="grid_item">
-					<span class="ribbon new">New</span>
-					<figure>
-						<a href="index.php?act=chitietsp">
-							<img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/4.jpg" alt="">
-						</a>
-					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
-					<a href="product-detail-1.html">
-						<h3>ACG React Terra</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$110.00</span>
-					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
-				</div>
-				<!-- /grid_item -->
-			</div>
-			<!-- /item -->
-		
-			<div class="item">
-				<div class="grid_item">
-					<span class="ribbon new">New</span>
-					<figure>
-						<a href="index.php?act=chitietsp">
-							<img class="owl-lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/4.jpg" alt="">
-						</a>
-					</figure>
-					<div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
-					</div>
-					<a href="product-detail-1.html">
-						<h3>ACG React Terra</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$110.00</span>
-					</div>
-					<ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to
-									favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
-				</div>
-				<!-- /grid_item -->
-			</div>
-			<!-- /item -->
-		
+
 		</div>
 	</div>
 	<!-- hết sp đặc sắc  -->

@@ -47,19 +47,6 @@
                     <input type="number" name="price" id="" value="" placeholder="Nhập số lượng "
                         class="input w-75 rounded-2"><br />
 
-                    <!-- <label for="product_size" class="label pt-2">
-                        Size:</label>
-                    <select id="product_size" name="product_size">
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                    </select><br />
-
-                    <label for="product_color" class="label pt-2">Màu sắc:</label><br />
-                    <input type="radio" id="red" name="product_color" value="Red">
-                    <label for="red">Đỏ</label>
-                    <input type="radio" id="blue" name="product_color" value="Blue">
-                    <label for="blue">Xanh</label><br /> -->
                     <label for="" class="label pt-2">
                         Mô Tả
                     </label><br />

@@ -39,37 +39,40 @@
                     <tr>
                         <th>Mã Danh Mục</th>
                         <th colspan="5">Tên Danh Mục</th>
-                        <th>Thao Tác</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($sellect_categories as $category) {
-                        extract($category);
+                    foreach ($sellect_categories as $category) :?>
+                       <?php extract($category);
                         $category_id = $category['category_id'];
                         $edit = "index.php?act=editdm&id_cate=" . $category_id;
                         $delete = "index.php?act=deletedm&id_cate=" . $category_id;
-                        echo '
+                        // $hide = "index.php?act=hidedm&id_cate=" . $category_id;
+                     ?>
                         
                         <tr class="tr-shadow">
                         <td colspan="2">
-                          ' . $category_id . '
+                          <?=$category_id?> 
                         </td>
-                        <td colspan="5"> ' . $category_name . '</td>
+                        <td colspan="5"> <?= $category_name?></td>
     
                         <td >
-                            <a href="' . $edit . '"><button class=" btn status completed">Sửa </button></a>
-                        <a href="' . $delete . '" onclick="return confirm(\'Bạn có chắc muốn xóa?\')"><button class="btn status pending">xóa</button></a>
+                            <a href="<?=$edit ?>"><button class=" btn status completed">Sửa </button></a>
+                        
+                        </td>
+                        <td><a href=" <?=$delete ?>" onclick="return confirm('Bạn có chắc muốn xóa?')"><button class="btn status pending">xóa</button></a>
+                        <!-- <a href="<?=$hide ?>"><button class=" btn status process">Ẩn</button></a> -->
                         </td>
                     </tr>
                     
                         
-                        '
-                        ;
-                    }
+                    
 
 
-                    ?>
+                    <?php endforeach;?>
 
                     
 

@@ -3,7 +3,6 @@
 //  láy ra toàn bộ danh mục 
 function sellect_all_categories()
 {
-
     $sql = "SELECT * FROM categories order by category_id asc";
     return pdo_query($sql);
 }
@@ -31,7 +30,18 @@ function delete_categories($category_id)
     pdo_execute($sql, $category_id);
 }
 
+// // kiểm tra trạng thái ẩn hoặc đã xóa 
+// function hide($category_id){
+//     if ($category_id) {
+//         $sql ="UPDATE categories SET status = 'hidden' WHERE category_id = $category_id";
 
+//     }
+// }
+// function delete($category_id){
+//     if ($category_id) {
+//         $sql ="UPDATE categories SET status = 'deleted' WHERE category_id = $category_id";
+//     }
+// }
 
 //  sửa 1 danh mục 
 function update_categories($category_id, $category_name)

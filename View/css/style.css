@@ -4635,6 +4635,7 @@ body.modal-open .mm-slideout {
   visibility: visible;
   opacity: 1;
   transform: translateZ(0);
+
 }
 .grid_item figure img:nth-child(2) {
   position: absolute;
@@ -4642,6 +4643,7 @@ body.modal-open .mm-slideout {
   left: 0;
   visibility: hidden;
   opacity: 0;
+
 }
 .grid_item figure:hover {
   -webkit-box-shadow: 0 20px 20px -20px rgba(0, 0, 0, 0.25);
@@ -4653,11 +4655,13 @@ body.modal-open .mm-slideout {
   transition: opacity 0.5s ease, -webkit-transform 1.5s cubic-bezier(0, 0, 0.44, 1.18);
   transition: opacity 0.5s ease, transform 1.5s cubic-bezier(0, 0, 0.44, 1.18);
   transition: opacity 0.5s ease, transform 1.5s cubic-bezier(0, 0, 0.44, 1.18), -webkit-transform 2s cubic-bezier(0, 0, 0.44, 1.18);
+
 }
 .grid_item figure:hover img:nth-child(2) {
   visibility: visible;
   opacity: 1;
   transform: scale(1.05);
+
 }
 .grid_item ul {
   margin: 0;
@@ -4670,6 +4674,11 @@ body.modal-open .mm-slideout {
   font-size: 1.125rem;
   line-height: 1;
   z-index: 2;
+}
+.grid_item figure .lazy{
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
 }
 @media (max-width: 991px) {
   .grid_item ul {
