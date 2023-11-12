@@ -2,54 +2,58 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
-						<h3 data-bs-target="#collapse_1">Quick Links</h3>
+						<h3 data-bs-target="#collapse_1">Truy Cập Nhanh</h3>
 						<div class="collapse dont-collapse-sm links" id="collapse_1">
 							<ul>
-								<li><a href="about.html">About us</a></li>
-								<li><a href="help.html">Faq</a></li>
-								<li><a href="help.html">Help</a></li>
-								<li><a href="account.html">My account</a></li>
+								<li><a href="about.html">Về Chúng Tôi</a></li>
+								<li><a href="help.html">Câu Hỏi Thường Gặp </a></li>
+								<li><a href="help.html">Giúp Đỡ</a></li>
+								<li><a href="account.html">Tài Khoản</a></li>
 								<li><a href="blog.html">Blog</a></li>
-								<li><a href="contacts.html">Contacts</a></li>
+								<li><a href="contacts.html">Liên Hệ</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
-						<h3 data-bs-target="#collapse_2">Categories</h3>
+						<h3 data-bs-target="#collapse_2">Danh Mục</h3>
 						<div class="collapse dont-collapse-sm links" id="collapse_2">
 							<ul>
-								<li><a href="listing-grid-1-full.html">Clothes</a></li>
-								<li><a href="listing-grid-2-full.html">Electronics</a></li>
-								<li><a href="listing-grid-1-full.html">Furniture</a></li>
-								<li><a href="listing-grid-3.html">Glasses</a></li>
-								<li><a href="listing-grid-1-full.html">Shoes</a></li>
-								<li><a href="listing-grid-1-full.html">Watches</a></li>
+								
+								<?php
+												foreach ($sellect_categories as $show) :?>
+												<?php	extract($show);?>
+											
+													
+												<?php	$category_detail = "index.php?act=chitietdm&id_cate=" . $category_id;?>
+												<li><a href="<?=$category_detail?>"><?=$category_name?></a></li>
+												
+												<?php endforeach ;?>
 							</ul>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
-						<h3 data-bs-target="#collapse_3">Contacts</h3>
+						<h3 data-bs-target="#collapse_3">Liên Hệ</h3>
 						<div class="collapse dont-collapse-sm contacts" id="collapse_3">
 							<ul>
-								<li><i class="ti-home"></i>97845 Baker st. 567<br>Los Angeles - US</li>
-								<li><i class="ti-headphone-alt"></i>+94 423-23-221</li>
-								<li><i class="ti-email"></i><a href="#0">info@allaia.com</a></li>
+								<li><i class="ti-home"></i>Trinh Van Bo street ,Nam Tu Liem<br>Ha Noi -Viet Nam</li>
+								<li><i class="ti-headphone-alt"></i>+84 343 014 882</li>
+								<li><i class="ti-email"></i><a href="#0">hoangduylap124@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
-						<h3 data-bs-target="#collapse_4">Keep in touch</h3>
+						<h3 data-bs-target="#collapse_4">Liên Hệ Với Chúng Tôi</h3>
 						<div class="collapse dont-collapse-sm" id="collapse_4">
 							<div id="newsletter">
 								<div class="form-group">
 									<input type="email" name="email_newsletter" id="email_newsletter"
-										class="form-control" placeholder="Your email">
+										class="form-control" placeholder="Email Của Bạn">
 									<button type="submit" id="submit-newsletter"><i
 											class="ti-angle-double-right"></i></button>
 								</div>
 							</div>
 							<div class="follow_us">
-								<h5>Follow Us</h5>
+								<h5>Theo dõi chúng tôi </h5>
 								<ul>
 									<li><a href="#0"><img
 												src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
@@ -76,18 +80,18 @@
 							<li>
 								<div class="styled-select lang-selector">
 									<select>
-										<option value="English" selected>English</option>
+										<option value="English" selected>VietNam</option>
 										<option value="French">French</option>
 										<option value="Spanish">Spanish</option>
-										<option value="Russian">Russian</option>
+										<option value="Russian">English</option>
 									</select>
 								</div>
 							</li>
 							<li>
 								<div class="styled-select currency-selector">
 									<select>
-										<option value="US Dollars" selected>US Dollars</option>
-										<option value="Euro">Euro</option>
+										<option value="US Dollars" selected>VND</option>
+										<option value="Euro">Us Dolar</option>
 									</select>
 								</div>
 							</li>
@@ -97,9 +101,9 @@
 					</div>
 					<div class="col-lg-6">
 						<ul class="additional_links">
-							<li><a href="#0">Terms and conditions</a></li>
-							<li><a href="#0">Privacy</a></li>
-							<li><span>© 2022 Allaia</span></li>
+							<li><a href="#0">Các Điều Khoản Và Điều Kiện</a></li>
+							<li><a href="#0">Riêng Tư</a></li>
+							<li><span>© 2023 VIETNAM</span></li>
 						</ul>
 					</div>
 				</div>

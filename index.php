@@ -30,7 +30,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $key ="";
             }
             // Hiển thị sp theo danh mục và tìm kiếm tên sp
-            $slect_ma_loai = hang_hoa_selectAll($key, $category_id);
+            $slect_ma_loai = loadall_sanpham($key, $category_id);
             $danhmucsp = load_ten_dm($category_id);
 
             include "View/home/header.php";
@@ -48,8 +48,27 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             break;
 
         //giỏ hàng
-        case "cart":
-            include "View/Giohang/cart.php";
+        // case 'addtocard':
+        //     if (isset($_POST['addtocard']) && $_POST['addtocard']) {
+        //         $product_id = $_POST['product_id'];
+        //         $product_name = $_POST['product_name'];
+        //         $price = $_POST['price'];
+        //         $image = $_POST['image'];
+        //         $quantity = 1;
+        //         $tong_tien = $quantity * $price;
+        //         $addToCart = [$product_id, $product_name, $price, $image, $quantity, $tong_tien];
+        //         array_push($_SESSION['mycard'], $spadd);
+        //     }
+        //     include "View/Giohang/cart.php";
+        //     break;
+
+        case 'deletecard':
+            if (isset($_GET['idcarfd'])) {
+                array_splice($_SESSION['mycard'], $_GET['idcarfd'], 1);
+            }else{
+                $_SESSION['mycard'] = [];
+            }
+            header('location: index.php?act=viewcard');
             break;
 
         // tất cả sản phẩm

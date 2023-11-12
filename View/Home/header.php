@@ -225,8 +225,10 @@
 						</div>
 						<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 							<div class="custom-search-input">
-								<input type="text" placeholder="Search over 10.000 products " name="key">
-								<button type="submit"><i class="header-icon_search_custom"></i></button>
+								<form action="index.php?act=chitietdm">
+								<input type="text" placeholder="Search ... " name="key">
+								<button type="submit" name="timkiem"><i class="header-icon_search_custom"></i></button>
+								</form>
 							</div>
 						</div>
 						<div class="col-xl-3 col-lg-2 col-md-3">

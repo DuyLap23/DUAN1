@@ -1,5 +1,5 @@
 <main>
-	
+
 	<!-- banner full  -->
 	<div id="carousel-home">
 		<div class="owl-carousel owl-theme">
@@ -15,7 +15,7 @@
 										Limited items available at this price
 									</p>
 									<div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
-											href="listing-grid-1-full.html" role="button">Shop Now</a></div>
+											href="listing-grid-1-full.html" role="button">Mua Sắm Ngay</a></div>
 								</div>
 							</div>
 						</div>
@@ -35,7 +35,7 @@
 										Limited items available at this price
 									</p>
 									<div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
-											href="listing-grid-1-full.html" role="button">Shop Now</a></div>
+											href="listing-grid-1-full.html" role="button">Mua Sắm Ngay</a></div>
 								</div>
 							</div>
 						</div>
@@ -55,7 +55,7 @@
 										Lightweight cushioning and durable support with a Phylon midsole
 									</p>
 									<div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
-											href="listing-grid-1-full.html" role="button">Shop Now</a></div>
+											href="listing-grid-1-full.html" role="button">Mua Sắm Ngay</a></div>
 								</div>
 							</div>
 						</div>
@@ -74,8 +74,8 @@
 			<a href="#0" class="img_container">
 				<img src="View/img/banner1.jpg" data-src="View/img/banner1.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-					<h3>Men's Collection</h3>
-					<div><span class="btn_1">Shop Now</span></div>
+					<h3>Bộ Sưu Tập Mới</h3>
+					<div><span class="btn_1">Mua Sắm Ngay</span></div>
 				</div>
 			</a>
 		</li>
@@ -83,8 +83,8 @@
 			<a href="#0" class="img_container">
 				<img src="View/img/banner3.jpg" data-src="View/img/banner3.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-					<h3>Womens's Collection</h3>
-					<div><span class="btn_1">Shop Now</span></div>
+					<h3>Bộ Sưu Tập Nàng Thơ</h3>
+					<div><span class="btn_1">Mua Sắm Ngay</span></div>
 				</div>
 			</a>
 		</li>
@@ -92,8 +92,8 @@
 			<a href="#0" class="img_container">
 				<img src="View/img/banner4.jpg" data-src="View/img/banner4.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-					<h3>Kids's Collection</h3>
-					<div><span class="btn_1">Shop Now</span></div>
+					<h3>Bộ Sưu Tập Xanh</h3>
+					<div><span class="btn_1">Mua Sắm Ngay</span></div>
 				</div>
 			</a>
 		</li>
@@ -117,9 +117,9 @@
 						<figure>
 
 							<a href="index.php?act=chitietsp">
-								<img class="img-fluid lazy " src="../image/<?= $image ?>" data-src="../image/<?= $image ?>" 
+								<img class="img-fluid lazy " src="../image/<?= $image ?>" data-src="../image/<?= $image ?>"
 									alt="">
-								<img class="img-fluid lazy" src="../image/<?= $image ?>" data-src="../image/<?= $image ?>" 
+								<img class="img-fluid lazy" src="../image/<?= $image ?>" data-src="../image/<?= $image ?>"
 									alt="">
 							</a>
 
@@ -143,9 +143,19 @@
 							<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
 									title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
 										compare</span></a></li>
-							<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-									title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
+							<li>
+							<form action="index.php?act=addtocard" method="POST">
+								<input type="hidden" name="product_id" value="'.$product_id.'">
+								<input type="hidden" name="product_name" value="'.$product_name.'">
+								<input type="hidden" name="price" value="'.$price.'">
+								<input type="hidden" name="image" value="'.$image.'">
+								<input type="hidden" name="so_luong" value="'.$so_luong.'">
+								
+								<a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
+									title="Add to cart"><i class="ti-shopping-cart"><input type="hidden" name="addtocard"  ></i></a>
+							</form>
 							</li>
+							
 						</ul>
 					</div>
 
@@ -162,7 +172,7 @@
 	<div class="container margin_60_35">
 		<div class="main_title">
 			<h2>Featured</h2>
-			<span>Products</span>
+
 			<p>Cum doctus civibus efficiantur in imperdiet deterruisset</p>
 		</div>
 		<div class="owl-carousel owl-theme products_carousel">
@@ -175,7 +185,7 @@
 								data-src="View/img/products/shoes/4.jpg" alt="">
 						</a>
 					</figure>
-				
+
 					<a href="product-detail-1.html">
 						<h3>ACG React Terra</h3>
 					</a>
@@ -183,7 +193,7 @@
 						<span class="new_price">$110.00</span>
 					</div>
 					<ul>
-				
+
 						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
 								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
 									compare</span></a></li>
@@ -196,7 +206,7 @@
 			</div>
 			<!-- /item -->
 
-		
+
 
 		</div>
 	</div>
