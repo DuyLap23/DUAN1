@@ -1,15 +1,16 @@
 <?php
-require "View/Home/header.php";
+
 require "Models/connect.php";
-require "./Models/danhmuc.php";
-require "./Models/sanpham.php";
+require "Models/danhmuc.php";
+require "Models/sanpham.php";
 require "Models/binhluan.php";
 require "Models/cart.php";
 require "Models/khachhang.php";
 
-$loadall_sanpham=loadall_sanpham();
+$loadall_sanpham=loadall_sanpham_home();
 $sellect_categories = sellect_all_categories();
 
+require "View/Home/header.php";
 if (isset($_GET['act']) && ($_GET['act']) != "") {
     $act = $_GET['act'];
     switch ($act) {

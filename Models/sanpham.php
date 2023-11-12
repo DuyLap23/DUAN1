@@ -40,4 +40,8 @@ function loadone_sanpham($product_id){
     $sanpham=pdo_query_one($sql);
     return  $sanpham;
 }
+function loadall_sanpham_home(){
+    $sql="select * from product order by product_id desc limit 0,8";
+    return pdo_query($sql);
+}
 ?>

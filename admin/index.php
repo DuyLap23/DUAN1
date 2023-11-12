@@ -7,8 +7,6 @@ require "../Models/binhluan.php";
 require "../Models/thongke.php";
 require "../Models/cart.php";
 
-
-
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {

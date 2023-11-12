@@ -204,16 +204,17 @@
 										<div id="menu">
 											<ul>
 												<?php
+												foreach ($sellect_categories as $show) :?>
+												<?php	extract($show);?>
+											
+													
+												<?php	$category_detail = "index.php?act=chitietdm&id_cate=" . $category_id;?>
+												<li>
+													<span><a href="<?=$category_detail?>"><?=$category_name ?></a></span>
+												</li>
 												
-												foreach ($sellect_categories as $show) {
-													extract($show);
-													print_r($show);
-													$category_detail = "index.php?act=chitietdm&id_cate=" . $category_id;
-													echo '<li>
-													<span><a href="' . $category_detail . '">' . $category_name . '</a></span>
-												</li>';
-												}
-												?>
+												<?php endforeach ;?>
+												
 												
 
 											</ul>
