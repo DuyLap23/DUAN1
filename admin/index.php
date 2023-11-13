@@ -67,7 +67,6 @@ if (isset($_GET['act'])) {
             $sellect_categories = sellect_all_categories();
             include "Danhmuc/list.php";
             break;
-
                
 
         // Sản phẩm 
@@ -87,7 +86,6 @@ if (isset($_GET['act'])) {
 
         // add sp 
         case "createsp":
-
              // kiểm tra xem người dùng có click vào nút add hay ko
         if (isset($_POST['submitsp'])&&($_POST['submitsp']) ) {
             $product_id =$_POST['product_id'];
@@ -96,15 +94,8 @@ if (isset($_GET['act'])) {
             $description =$_POST['description'];
             $category_id =$_POST['category_id'];
             require 'imageArray.php';
-            uploadImages();
-        //     $image = $_FILES['image']['name'];
-        //     $target_dir = "../image/";
-        // $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        // if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-        //     // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
-        // } else {
-        //     // echo "Sorry, there was an error uploading your file.";
-        // }
+        
+      
         insert_sanpham($product_id,$product_name,uploadImages(),$price,$description,$category_id);
             $Notification ="Thêm thành công";
             }

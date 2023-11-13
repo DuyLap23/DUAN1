@@ -117,9 +117,9 @@
 						<figure>
 
 							<a href="index.php?act=chitietsp">
-								<img class="img-fluid lazy " src="../image/<?= $image ?>" data-src="../image/<?= $image ?>"
+								<img class="img-fluid lazy " src="../image/<?= explode(',',$image)[0] ?>" data-src="../image/<?= explode(',',$image)[0] ?>"
 									alt="">
-								<img class="img-fluid lazy" src="../image/<?= $image ?>" data-src="../image/<?= $image ?>"
+								<img class="img-fluid lazy" src="../image/<?= explode(',',$image)[0] ?>" data-src="../image/<?= explode(',',$image)[0]?>"
 									alt="">
 							</a>
 
@@ -145,14 +145,13 @@
 										compare</span></a></li>
 							<li>
 							<form action="index.php?act=addtocard" method="POST">
-								<input type="hidden" name="product_id" value="'.$product_id.'">
-								<input type="hidden" name="product_name" value="'.$product_name.'">
-								<input type="hidden" name="price" value="'.$price.'">
-								<input type="hidden" name="image" value="'.$image.'">
-								<input type="hidden" name="so_luong" value="'.$so_luong.'">
+								<input type="hidden" name="product_id" value="<?=$product_id?>">
+								<input type="hidden" name="product_name" value="<?=$product_name?>">
+								<input type="hidden" name="price" value="<?=$price?>">
+								<input type="hidden" name="so_luong" value="<?=$so_luong?>">
 								
 								<a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-									title="Add to cart"><i class="ti-shopping-cart"><input type="hidden" name="addtocard"  ></i></a>
+									title="Add to cart">	<button name="addtocard" style="border: none ; outline: none"><i class="ti-shopping-cart"></i></button></a>
 							</form>
 							</li>
 							

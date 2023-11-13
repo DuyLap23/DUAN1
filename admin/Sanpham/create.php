@@ -60,11 +60,12 @@
                     <select name="category_id" id="" class="rounded-2 ">
                     
                             <?php 
-                            foreach ($sellect_categories as $danhmuc) {
-                                extract($danhmuc);
-                                echo '   <option value="'.$category_id .'">'.$category_name.'</option>';
-                            }
-                            ?>
+                            foreach ($sellect_categories as $danhmuc) :?>
+                               <?php extract($danhmuc);?>
+                                 <option value="<?= $category_id ?>"><?= $category_name?></option>
+                            
+                         <?php endforeach;
+                         ?>
                          
                        
                     </select>
