@@ -96,15 +96,8 @@ if (isset($_GET['act'])) {
             $description =$_POST['description'];
             $category_id =$_POST['category_id'];
             require 'imageArray.php';
-            uploadImages();
-        //     $image = $_FILES['image']['name'];
-        //     $target_dir = "../image/";
-        // $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        // if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-        //     // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
-        // } else {
-        //     // echo "Sorry, there was an error uploading your file.";
-        // }
+   
+       
         insert_sanpham($product_id,$product_name,uploadImages(),$price,$description,$category_id);
             $Notification ="Thêm thành công";
             }
@@ -124,12 +117,44 @@ if (isset($_GET['act'])) {
 
         // edit sp 
         case 'editsp':
-            include "Sanpham/update.php";
-            break;
-        // update sp 
-        case 'updatesp':
-            include "Sanpham/update.php";
-            break;
+           
+            if (isset($_GET['id_sp'])&&($_GET['id_sp']>0)) {
+                $id_sp = $_GET['id_sp'];
+                
+                $sanpham=loadone_sanpham($id_sp);
+
+               
+            }
+            $sellect_categories = sellect_all_categories();
+           
+        include "Sanpham/update.php";
+        break;
+    // update sp 
+    case 'updatesp':
+        if (isset($_POST['updatesp'])){
+            $product_id =$_POST['product_id'];
+            $category_id =$_POST['category_id'];  
+            $price =$_POST['price'];
+            $product_name = $_POST['product_name'];
+            $description =$_POST['description'];
+            require 'imageArray.php';
+          
+            // $category_id =$_POST['category_id'];$image = $_FILES['image']['name'];
+        //     $target_dir = "../image/";
+        // $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        // if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+        //     // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
+        // } else {
+        //     // echo "Sorry, there was an error uploading your file.";
+        // }
+            update_sanpham($product_id,$product_name,uploadImages(),$price,$description,$category_id);
+            $Notification ="Sửa thành công";
+        }
+
+        $sellect_categories = sellect_all_categories();
+        $listsanpham =  loadall_sanpham("",0);
+        include "Sanpham/list.php";
+        break;
 
 
         // Bình Luận

@@ -64,14 +64,14 @@
 
                         foreach ($listsanpham as $sanpham) {
                             extract($sanpham);
-                            $suasp = "index.php?act=updatesp&id_sp=".$product_id;
+                            $suasp = "index.php?act=editsp&id_sp=".$product_id;
                             $xoasp = "index.php?act=deletesp&id_sp=".$product_id; // đường liên kết 
                            echo '<tr class="tr-shadow">
                            <td>
                             '.$product_id.'
                            </td>
                            <td >'.$product_name.'</td>
-                           <td colspan="2"> <img src="../image/'.$image.'" ></td>
+                           <td colspan="2"> <img src="../image/'.explode(',', $image)[0].'" ></td>
                            <td>'.$price.'</td>
                            <td>'.$description.'</td>
                            <td>Số Lượng</td>
