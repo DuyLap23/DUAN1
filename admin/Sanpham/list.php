@@ -38,7 +38,7 @@
                             }
                             ?>
                     </select>
-              <input type="submit" name="locsp" value="Lọc " class=" btn btn-insert px-2">
+              <input type="submit" name="locsp" value="Lọc " class=" btn btn-insert mx-2">
               </div>
           </form>
       </div>

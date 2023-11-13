@@ -39,8 +39,8 @@
                     <label for="" class="label pt-2">
                         Ảnh
                     </label><br />
-                    <input type="file" name="image" id="" value="" width="150px" class="input w-75 rounded-2"><br />
-
+                    <input type="file" name="images[]" multiple accept="image/*" width="150px" class="input w-75 rounded-2"><br />
+                  
                     <label for="" class="label pt-2">
                         Giá
                     </label><br />
@@ -86,4 +86,23 @@
         </div>
 
     </div>
-</main>
+</main><?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['images'])) {
+    $uploadDirectory = '../image/'; // Thư mục lưu trữ ảnh
+    
+    // Loop qua từng file được chọn
+    foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+        $file_name = $_FILES['images']['name'][$key];
+        $file_tmp = $_FILES['images']['tmp_name'][$key];
+        
+        $uploadPath = $uploadDirectory . $file_name;
+
+        // Di chuyển file từ thư mục tạm sang thư mục upload
+        if (move_uploaded_file($file_tmp, $uploadPath)) {
+            echo "File $file_name uploaded successfully.<br>";
+        } else {
+            echo "Error uploading $file_name.<br>";
+        }
+    }
+}
+?>

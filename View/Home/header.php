@@ -235,7 +235,7 @@
 							<ul class="top_tools">
 								<li>
 									<div class="dropdown dropdown-cart">
-										<a href="index.php?act=cart" class="cart_bt"><strong>2</strong></a>
+										<a href="index.php?act=addtocard" class="cart_bt"><strong>2</strong></a>
 										<div class="dropdown-menu">
 											<ul>
 												<li>
@@ -261,7 +261,7 @@
 											</ul>
 											<div class="total_drop">
 												<div class="clearfix"><strong>Total</strong><span>$200.00</span></div>
-												<a href="index.php?act=cart" class="btn_1 outline">View Cart</a><a
+												<a href="index.php?act=addtocard" class="btn_1 outline">View Cart</a><a
 													href="checkout.php" class="btn_1">Checkout</a>
 											</div>
 										</div>

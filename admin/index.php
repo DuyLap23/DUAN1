@@ -79,8 +79,9 @@ if (isset($_GET['act'])) {
                 $search='';
                 $category_id=0;
             }
-            $sellect_categories = sellect_all_categories();
             $listsanpham =  loadall_sanpham($search,$category_id);
+            $sellect_categories = sellect_all_categories();
+
             include "Sanpham/list.php";
             break;
 
@@ -94,15 +95,17 @@ if (isset($_GET['act'])) {
             $price =$_POST['price'];
             $description =$_POST['description'];
             $category_id =$_POST['category_id'];
-            $image = $_FILES['image']['name'];
-            $target_dir = "../image/";
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
-        } else {
-            // echo "Sorry, there was an error uploading your file.";
-        }
-        insert_sanpham($product_id,$product_name,$image,$price,$description,$category_id);
+            require 'imageArray.php';
+            uploadImages();
+        //     $image = $_FILES['image']['name'];
+        //     $target_dir = "../image/";
+        // $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        // if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+        //     // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
+        // } else {
+        //     // echo "Sorry, there was an error uploading your file.";
+        // }
+        insert_sanpham($product_id,$product_name,uploadImages(),$price,$description,$category_id);
             $Notification ="Thêm thành công";
             }
 
