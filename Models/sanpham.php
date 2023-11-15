@@ -44,11 +44,11 @@ function loadall_sanpham_home(){
     $sql="select * from product order by product_id desc limit 0,8";
     return pdo_query($sql);
 }
-function  update_sanpham($product_id,$product_name,$image,$price,$description,$category_id){
+function  update_sanpham($product_id,$product_name,$category_id,$price,$description,$image){
     if ($image!="") 
-        $sql = "update product set product_id='".$product_id."', product_name='".$product_name."', price='".$price."',description='".$description."',image='".$image."' where category_id=".$category_id;
+        $sql = "update product set product_name='".$product_name."',category_id = '".$category_id."', price='".$price."',description='".$description."',image='".$image."' where product_id=".$product_id;
     else
-        $sql = "update product set product_id='".$product_id."', product_name='".$product_name."', price='".$price."',description='".$description."' where category_id=".$category_id;
+        $sql = "update product set product_name='".$product_name."',category_id = '".$category_id."', price='".$price."',description='".$description."' where product_id=".$product_id;
     pdo_execute($sql);
 }
 

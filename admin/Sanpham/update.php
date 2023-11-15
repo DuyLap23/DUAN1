@@ -1,5 +1,6 @@
 <?php
 if (isset($sanpham)) {
+
     extract($sanpham);
  
 }
@@ -45,7 +46,9 @@ if (isset($sanpham)) {
                     <label for="" class="label pt-2">
                         Ảnh
                     </label><br />
-                    <input type="file" name="image" id="" value="<?= $image ?>" width="150px" class="input w-75 rounded-2"><br />
+                    <input type="file" name="image" width="150px" class="input w-75 rounded-2"><br />
+                    <img width="120px" src="../image/<?= $image ?>" alt=""> <br>
+                    
 
                     <label for="" class="label pt-2">
                         Giá
@@ -64,10 +67,11 @@ if (isset($sanpham)) {
                     <input type="radio" id="red" name="product_color" value="Red">
                     <label for="red">Đỏ</label>
                     <input type="radio" id="blue" name="product_color" value="Blue">
-                    <label for="blue">Xanh</label><br />
+                    <label for="blue">Xanh</label><br /> -->
                     <label for="" class="label pt-2">S
                         Mô Tả
-                    </label><br /> -->
+                    </label><br />
+                    
                     <textarea name="description" id="" cols="30" rows="10"><?= $description ?></textarea><br />
                     <!-- <label for="" class="label pt-2">
                         Số Lượng
@@ -91,7 +95,7 @@ if (isset($sanpham)) {
                         foreach ($sellect_categories as $danhmuc) {
                             extract($danhmuc);
                             print_r($danhmuc );
-                            if ($category_id == $category_id) {
+                            if ($category_id == $madanhmuc) {
                                 echo '   <option  value="' . $madanhmuc . '" selected>' . $category_name . '</option>';
                             } else {
                                 echo '   <option  value="' . $madanhmuc . '">' . $category_name . '</option>';
@@ -121,3 +125,5 @@ if (isset($sanpham)) {
 
     </div>
 </main>
+<img src="/imgad/''" alt="">
+

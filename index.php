@@ -39,6 +39,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
         // chi tiết sp 
         case "chitietsp":
+            
             include "View/Sanpham/spchitiet.php";
             break;
 
@@ -47,20 +48,20 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             include "View/Account/account.php";
             break;
 
-        //giỏ hàng
-        // case 'addtocard':
-        //     if (isset($_POST['addtocard']) && $_POST['addtocard']) {
-        //         $product_id = $_POST['product_id'];
-        //         $product_name = $_POST['product_name'];
-        //         $price = $_POST['price'];
-        //         $image = $_POST['image'];
-        //         $quantity = 1;
-        //         $tong_tien = $quantity * $price;
-        //         $addToCart = [$product_id, $product_name, $price, $image, $quantity, $tong_tien];
-        //         array_push($_SESSION['mycard'], $spadd);
-        //     }
-        //     include "View/Giohang/cart.php";
-        //     break;
+        // giỏ hàng
+        case 'addtocard':
+            if (isset($_POST['addtocard']) && $_POST['addtocard']) {
+                $product_id = $_POST['product_id'];
+                $product_name = $_POST['product_name'];
+                $price = $_POST['price'];
+              
+                $quantity = 1;
+                $tong_tien = $quantity * $price;
+                $addToCart = [$product_id, $product_name, $price, $quantity, $tong_tien];
+                array_push($_SESSION['mycard'], $spadd);
+            }
+            include "View/Giohang/cart.php";
+            break;
 
         case 'deletecard':
             if (isset($_GET['idcarfd'])) {
