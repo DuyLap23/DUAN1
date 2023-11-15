@@ -64,7 +64,7 @@
 
                     foreach ($listsanpham as $sanpham) {
                         extract($sanpham);
-                        $suasp = "index.php?act=updatesp&id_sp=" . $product_id;
+                        $suasp = "index.php?act=editsp&id_sp=" . $product_id;
                         $xoasp = "index.php?act=deletesp&id_sp=" . $product_id; // đường liên kết 
                         echo '<tr class="tr-shadow">
                            <td>

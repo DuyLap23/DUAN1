@@ -27,10 +27,10 @@
             </div>
             <form action="index.php?act=createsp" class="form-input" method="post" enctype="multipart/form-data">
                 <div class="form-group pb-4">
-                    <label for="">
+                    <!-- <label for="">
                         Mã Sản Phẩm
                     </label> <br />
-                    <input type="text" name="product_id" id="" value="" readonly class="rounded-2 w-75" > <br />
+                    <input type="text" name="product_id" id="" value="" readonly class="rounded-2 w-75" > <br /> -->
                     <label for="" class="label pt-2">
                         Tên Sản Phẩm
                     </label><br />
@@ -84,26 +84,9 @@
                         class="btn btn-insert  status completed "> </a>
                 <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
             </form>
+            <a href="index.php?act=listsp"><button class="btn btn-insert  status completed mt-4">Về Trang Danh Sách </button></button></a>
+            <div class="notification">
         </div>
 
     </div>
-</main><?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['images'])) {
-    $uploadDirectory = '../image/'; // Thư mục lưu trữ ảnh
-    
-    // Loop qua từng file được chọn
-    foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
-        $file_name = $_FILES['images']['name'][$key];
-        $file_tmp = $_FILES['images']['tmp_name'][$key];
-        
-        $uploadPath = $uploadDirectory . $file_name;
-
-        // Di chuyển file từ thư mục tạm sang thư mục upload
-        if (move_uploaded_file($file_tmp, $uploadPath)) {
-            echo "File $file_name uploaded successfully.<br>";
-        } else {
-            echo "Error uploading $file_name.<br>";
-        }
-    }
-}
-?>
+</main>

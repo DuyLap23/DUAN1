@@ -116,7 +116,7 @@
 						<span class="ribbon new">New</span>
 						<figure>
 
-							<a href="index.php?act=chitietsp">
+							<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
 								<img class="img-fluid lazy " src="../image/<?= explode(',',$image)[0] ?>" data-src="../image/<?= explode(',',$image)[0] ?>"
 									alt="">
 								<img class="img-fluid lazy" src="../image/<?= explode(',',$image)[0] ?>" data-src="../image/<?= explode(',',$image)[0]?>"
@@ -127,7 +127,7 @@
 						<div class="rating"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i
 								class="icon-star voted"></i><i class="icon-star"></i>
 						</div>
-						<a href="index.php?act=chitietsp">
+						<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
 							<h3>
 								<?= $product_name ?>
 							</h3>

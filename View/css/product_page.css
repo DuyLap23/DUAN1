@@ -77,6 +77,16 @@
   visibility: visible;
   opacity: 1;
 }
+.slider img{
+  object-fit: contain;
+  width: 583px !important;
+  height: 450px !important;
+}
+.slider-two img{
+  object-fit: cover;
+  width: 105px !important;
+  height: 100px !important;
+}
 .all .slider:hover .left,
 .all .slider-two:hover .left {
   left: 20px;

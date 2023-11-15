@@ -18,10 +18,10 @@ if (isset($_GET['act'])) {
 
         // Danh mục
         case 'listdm':
-            if (isset($_POST['search'])&&($_POST['search']) ) {
-                $sea=$_POST['sea'];
-            }else{
-                $sea='';
+            if (isset($_POST['search']) && ($_POST['search'])) {
+                $sea = $_POST['sea'];
+            } else {
+                $sea = '';
             }
             $sellect_categories = sellect_all_categories();
             include "Danhmuc/list.php";
@@ -67,18 +67,18 @@ if (isset($_GET['act'])) {
             $sellect_categories = sellect_all_categories();
             include "Danhmuc/list.php";
             break;
-               
+
 
         // Sản phẩm 
         case 'listsp':
-            if (isset($_POST['locsp'])&&($_POST['locsp']) ) {
-                $search=$_POST['search'];
-                $category_id=$_POST['category_id'];
-            }else{
-                $search='';
-                $category_id=0;
+            if (isset($_POST['locsp']) && ($_POST['locsp'])) {
+                $search = $_POST['search'];
+                $category_id = $_POST['category_id'];
+            } else {
+                $search = '';
+                $category_id = 0;
             }
-            $listsanpham =  loadall_sanpham($search,$category_id);
+            $listsanpham = loadall_sanpham($search, $category_id);
             $sellect_categories = sellect_all_categories();
 
             include "Sanpham/list.php";
@@ -86,18 +86,17 @@ if (isset($_GET['act'])) {
 
         // add sp 
         case "createsp":
-             // kiểm tra xem người dùng có click vào nút add hay ko
-        if (isset($_POST['submitsp'])&&($_POST['submitsp']) ) {
-            $product_id =$_POST['product_id'];
-            $product_name =$_POST['product_name'];
-            $price =$_POST['price'];
-            $description =$_POST['description'];
-            $category_id =$_POST['category_id'];
             require 'imageArray.php';
-        
-      
-        insert_sanpham($product_id,$product_name,uploadImages(),$price,$description,$category_id);
-            $Notification ="Thêm thành công";
+            // kiểm tra xem người dùng có click vào nút add hay ko
+            if (isset($_POST['submitsp']) && ($_POST['submitsp'])) {
+                
+                $product_name = $_POST['product_name'];
+                $price = $_POST['price'];
+                $description = $_POST['description'];
+                $category_id = $_POST['category_id'];
+                
+                insert_sanpham($product_name, uploadImages(), $price, $description, $category_id);
+                $Notification = "Thêm thành công";
             }
 
             $sellect_categories = sellect_all_categories();
@@ -106,20 +105,53 @@ if (isset($_GET['act'])) {
 
         //xoa sp
         case 'deletesp':
-            if (isset($_GET['id_sp'])&&($_GET['id_sp']>0)) {
+            if (isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
                 delete_sanpham($_GET['id_sp']);
             }
-            $listsanpham =  loadall_sanpham("",0);;
+            $listsanpham = loadall_sanpham("", 0);
+            ;
             include "Sanpham/list.php";
             break;
 
         // edit sp 
         case 'editsp':
+
+            if (isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
+                $id_sp = $_GET['id_sp'];
+
+                $sanpham = loadone_sanpham($id_sp);
+
+
+            }
+            $sellect_categories = sellect_all_categories();
+
             include "Sanpham/update.php";
             break;
         // update sp 
         case 'updatesp':
-            include "Sanpham/update.php";
+            if (isset($_POST['updatesp'])) {
+                $product_id = $_POST['product_id'];
+                $category_id = $_POST['category_id'];
+                $price = $_POST['price'];
+                $product_name = $_POST['product_name'];
+                $description = $_POST['description'];
+                require 'imageArray.php';
+
+                // $category_id =$_POST['category_id'];$image = $_FILES['image']['name'];
+                //     $target_dir = "../image/";
+                // $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                // if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                //     // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
+                // } else {
+                //     // echo "Sorry, there was an error uploading your file.";
+                // }
+                update_sanpham($product_id, $product_name, uploadImages(), $price, $description, $category_id);
+                $Notification = "Sửa thành công";
+            }
+
+            $sellect_categories = sellect_all_categories();
+            $listsanpham = loadall_sanpham("", 0);
+            include "Sanpham/list.php";
             break;
 
 
@@ -166,7 +198,7 @@ if (isset($_GET['act'])) {
             include "Thongke/bieudo.php";
             break;
 
-            
+
 
         default:
             include "home.php";

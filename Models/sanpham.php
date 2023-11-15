@@ -1,8 +1,8 @@
 <?php
-function insert_sanpham($product_id, $product_name, $image, $price, $description, $category_id)
+function insert_sanpham ( $product_name, $image, $price, $description, $category_id)
 {
-    $sql = "INSERT INTO product(product_id,product_name,image,price,description,category_id) value (? ,? ,? ,? ,? ,?)";
-    pdo_execute($sql, $product_id, $product_name, $image, $price, $description, $category_id);
+    $sql = "INSERT INTO product(product_name, image, price, description, category_id) values(?,?,?,?,?)";
+    pdo_execute($sql, $product_name, $image, $price, $description, $category_id);
 }
 function loadall_sanpham($search = "", $category_id = 0)
 {
@@ -43,5 +43,9 @@ function loadone_sanpham($product_id){
 function loadall_sanpham_home(){
     $sql="select * from product order by product_id desc limit 0,8";
     return pdo_query($sql);
+}
+function select_sp_cungloai($product_id){
+    $sql = "SELECT * FROM product WHERE category_id = category_id   AND product_id <> ?";
+    return pdo_query($sql, $product_id);
 }
 ?>

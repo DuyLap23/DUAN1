@@ -39,7 +39,20 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
         // chi tiết sp 
         case "chitietsp":
-            include "View/Sanpham/spchitiet.php";
+          
+                if(isset($_GET['idct_sp'])&&($_GET['idct_sp'] > 0)){
+                    
+                    $product_id = $_GET['idct_sp'];
+                    $chitietsp = loadone_sanpham($product_id);
+                    extract($chitietsp);
+                    // lấy mã danh mục
+                    // require "Admin/imageArray.php";
+                    // uploadImages();
+                    $sp_cung_loai = select_sp_cungloai($product_id);
+                    include "View/Sanpham/spchitiet.php";  
+                }else{
+                    include "View/Home/home.php";
+                }
             break;
 
         // đăng nhập đăng kí 
