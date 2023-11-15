@@ -78,12 +78,12 @@
   opacity: 1;
 }
 .slider img{
-  object-fit: contain;
+  
   width: 583px !important;
-  height: 450px !important;
+  object-fit:contain;
 }
 .slider-two img{
-  object-fit: cover;
+  object-fit: contain;
   width: 105px !important;
   height: 100px !important;
 }
@@ -684,4 +684,8 @@
 .table.sizes td,
 .table.sizes tr th {
   white-space: nowrap;
+}
+.lazy{
+  border-radius: 15px ;
+  overflow: hidden;
 }

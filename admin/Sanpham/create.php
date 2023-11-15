@@ -1,3 +1,10 @@
+<style>
+    .list-img>img{
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+    }
+</style>
 <main>
     <div class="head-title">
         <div class="left">
@@ -36,11 +43,34 @@
                     </label><br />
                     <input type="text" name="product_name" id="" value="" placeholder="Nhập tên sản phẩm "
                         class="input w-75 rounded-2"><br />
+
+
+
+
                     <label for="" class="label pt-2">
                         Ảnh
                     </label><br />
-                    <input type="file" name="images[]" multiple accept="image/*" width="150px" class="input w-75 rounded-2"><br />
-                  
+                    <input type="file" name="images[]" multiple accept="image/*" width="150px" class="input w-75 rounded-2 fileImage"><br />
+                    <div class="list-img">
+                        
+                    </div>
+                    <script>
+                        let listImg=document.querySelector('.list-img');
+                        let fileImage=document.querySelector('.fileImage');
+                        fileImage.onchange=function(){
+                        let file=fileImage.files;
+                        console.log(file);
+                        for(let i=0;i<file.length;i++){
+                            let img=document.createElement('img');
+                            img.src=URL.createObjectURL(file[i]);
+                            listImg.appendChild(img);
+                        }
+                            
+                        }
+                    </script>
+
+
+
                     <label for="" class="label pt-2">
                         Giá
                     </label><br />
@@ -50,12 +80,69 @@
                     <label for="" class="label pt-2">
                         Mô Tả
                     </label><br />
-                    <textarea name="description" id="" cols="30" rows="10"></textarea><br />
+                    <textarea name="description" id="" cols="105" rows="5" class="rounded-2"></textarea><br />
+
+                    <!-- biến thể  -->
                     <label for="" class="label pt-2">
+                       Biến Thể
+                    </label><br />
+                   <div class="variant d-flex pb-2">
+                   <label for="" class="label px-3">
+                      Size
+                    </label><br />
+                    <input type="text" name="size" id="" value="S" placeholder="Nhập số lượng "
+                        class=" rounded-2 px-3"><br />
+                    <label for="" class="label px-3">
                         Số Lượng
                     </label><br />
-                    <!-- <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
-                        class="input w-75 rounded-2 "><br /> -->
+                    <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
+                        class=" rounded-2 "><br />
+                   </div>
+
+                   <div class="variant d-flex pb-2">
+                   <label for="" class="label px-3">
+                      Size
+                    </label><br />
+                    <input type="text" name="size" id="" value="M" placeholder="Nhập số lượng "
+                        class=" rounded-2 px-3"><br />
+                    <label for="" class="label px-3">
+                        Số Lượng
+                    </label><br />
+                    <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
+                        class=" rounded-2 "><br />
+                   </div>
+
+                   <div class="variant d-flex pb-2">
+                   <label for="" class="label px-3">
+                      Size
+                    </label><br />
+                    <input type="text" name="size" id="" value="L" placeholder="Nhập số lượng "
+                        class=" rounded-2 px-3"><br />
+                    <label for="" class="label px-3">
+                        Số Lượng
+                    </label><br />
+                    <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
+                        class=" rounded-2 "><br />
+                   </div>
+
+                   <div class="variant d-flex pb-2">
+                   <label for="" class="label px-3">
+                      Size
+                    </label><br />
+                    <input type="text" name="size" id="" value="XL" placeholder="Nhập số lượng "
+                        class=" rounded-2 px-3"><br />
+                    <label for="" class="label px-3">
+                        Số Lượng
+                    </label><br />
+                    <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
+                        class=" rounded-2 "><br />
+                   </div>
+
+
+
+
+
+
                     <label for="" class="label pt-3">Danh Mục</label><br />
                     <select name="category_id" id="" class="rounded-2 ">
                     
@@ -89,8 +176,6 @@
         </div>
 
     </div>
-<<<<<<< HEAD
+
 </main>
-=======
-</main>
->>>>>>> c9ff75dc530ba7557f9bc41edc22a6f81b52e8ac
+

@@ -48,7 +48,23 @@ if (isset($sanpham)) {
                     </label><br />
                     <img src="../image/<?= $image?>" width="150px" alt="">
                     <input type="file" name="image" id=""  width="150px" class="input w-75 rounded-2"><br />
-
+                    <div class="list-img">
+                        
+                    </div>
+                    <script>
+                        let listImg=document.querySelector('.list-img');
+                        let fileImage=document.querySelector('.fileImage');
+                        fileImage.onchange=function(){
+                        let file=fileImage.files;
+                        console.log(file);
+                        for(let i=0;i<file.length;i++){
+                            let img=document.createElement('img');
+                            img.src=URL.createObjectURL(file[i]);
+                            listImg.appendChild(img);
+                        }
+                            
+                        }
+                    </script>
 
                     <label for="" class="label pt-2">
                         Giá

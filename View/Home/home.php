@@ -124,9 +124,7 @@
 							</a>
 
 						</figure>
-						<div class="rating"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-								class="icon-star voted"></i><i class="icon-star"></i>
-						</div>
+						
 						<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
 							<h3>
 								<?= $product_name ?>
@@ -136,7 +134,6 @@
 							<span class="new_price">$
 								<?= $price ?>
 							</span>
-							<span class="old_price">$60.00</span>
 						</div>
 						<ul>
 

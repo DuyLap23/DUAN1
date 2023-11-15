@@ -3,10 +3,7 @@
 //  láy ra toàn bộ danh mục 
 function sellect_all_categories()
 {
-    $sql = "SELECT 
-    categories.category_id as madanhmuc,
-    categories.category_name
-     FROM categories order by madanhmuc asc";
+    $sql = "SELECT * FROM categories order by category_id asc";
     return pdo_query($sql);
 }
 
