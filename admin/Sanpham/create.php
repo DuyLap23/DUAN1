@@ -62,7 +62,7 @@
                             <?php 
                             foreach ($sellect_categories as $danhmuc) :?>
                                <?php extract($danhmuc);?>
-                                 <option value="<?= $category_id ?>"><?= $category_name?></option>
+                                 <option value="<?= $madanhmuc ?>"><?= $category_name?></option>
                             
                          <?php endforeach;
                          ?>
@@ -89,4 +89,8 @@
         </div>
 
     </div>
+<<<<<<< HEAD
 </main>
+=======
+</main>
+>>>>>>> c9ff75dc530ba7557f9bc41edc22a6f81b52e8ac

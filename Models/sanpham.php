@@ -48,4 +48,14 @@ function select_sp_cungloai($product_id){
     $sql = "SELECT * FROM product WHERE category_id = category_id   AND product_id <> ?";
     return pdo_query($sql, $product_id);
 }
+
+function  update_sanpham($product_id,$product_name,$category_id,$price,$description,$image){
+    if ($image!="") 
+        $sql = "update product set product_name='".$product_name."',category_id = '".$category_id."', price='".$price."',description='".$description."',image='".$image."' where product_id=".$product_id;
+    else
+        $sql = "update product set product_name='".$product_name."',category_id = '".$category_id."', price='".$price."',description='".$description."' where product_id=".$product_id;
+    pdo_execute($sql);
+}
+
+
 ?>
