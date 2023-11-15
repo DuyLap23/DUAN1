@@ -41,7 +41,6 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
         case "chitietsp":
           
                 if(isset($_GET['idct_sp'])&&($_GET['idct_sp'] > 0)){
-                    
                     $product_id = $_GET['idct_sp'];
                     $chitietsp = loadone_sanpham($product_id);
                     extract($chitietsp);
