@@ -78,6 +78,12 @@
 					<span class="text">Biểu Đồ</span>
 				</a>
 			</li>
+            <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'view') ? 'active' : ''; ?>">
+				<a href="index.php?act=view">
+					<i class='bx bxs-user' ></i>
+					<span class="text">Trang Người Dùng</span>
+				</a>
+			</li>
 		
 		</ul>
 		

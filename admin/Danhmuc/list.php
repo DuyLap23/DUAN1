@@ -48,14 +48,14 @@
                     foreach ($sellect_categories as $category) :?>
                        <?php extract($category);
                         // $category_id = $category['category_id'];
-                        $edit = "index.php?act=editdm&id_cate=" . $madanhmuc;
-                        $delete = "index.php?act=deletedm&id_cate=" . $madanhmuc;
+                        $edit = "index.php?act=editdm&id_cate=" . $category_id;
+                        $delete = "index.php?act=deletedm&id_cate=" . $category_id;
                         // $hide = "index.php?act=hidedm&id_cate=" . $category_id;
                      ?>
                         
                         <tr class="tr-shadow">
                         <td colspan="2">
-                          <?=$madanhmuc?> 
+                          <?=$category_id?> 
                         </td>
                         <td colspan="5"> <?= $category_name?></td>
     

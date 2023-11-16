@@ -95,7 +95,7 @@ if (isset($_GET['act'])) {
                 $description = $_POST['description'];
                 $category_id = $_POST['category_id'];
                 
-                insert_sanpham($product_name, uploadImages(), $price, $description, $category_id);
+                insert_sanpham($product_name , uploadImages(), $price, $description, $category_id);
                 $Notification = "Thêm thành công";
             }
 
@@ -196,6 +196,10 @@ if (isset($_GET['act'])) {
         //  Biểu đồ 
         case 'bieudo':
             include "Thongke/bieudo.php";
+            break;
+
+        case 'view':
+            include "./index.php";
             break;
 
 

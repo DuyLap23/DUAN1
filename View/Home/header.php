@@ -35,11 +35,11 @@
 
 	<!-- YOUR CUSTOM CSS -->
 	<link href="./View/css/custom.css" rel="stylesheet">
-	<link rel="stylesheet" href="View/css/cart.css">
+	<link rel="stylesheet" href="./View/css/cart.css">
 	<!-- <link rel="stylesheet" href=".View/css/account.css"> -->
 	<!-- <link rel="stylesheet" href=".View/css/home_1.css"> -->
-	<link rel="stylesheet" href="View/css/product_page.css">
-	<!-- <link rel="stylesheet" href=".View/css/listing.css"> -->
+	<link rel="stylesheet" href="./View/css/product_page.css">
+	<link rel="stylesheet" href="./View/css/listing.css">
 
 
 
@@ -208,7 +208,7 @@
 												<?php	extract($show);?>
 											
 													
-												<?php	$category_detail = "index.php?act=chitietdm&id_cate=" . $category_id;?>
+												<?php	$category_detail = "index.php?act=sanpham&id_cate=" . $category_id;?>
 												<li>
 													<span><a href="<?=$category_detail?>"><?=$category_name ?></a></span>
 												</li>
@@ -225,7 +225,7 @@
 						</div>
 						<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 							<div class="custom-search-input">
-								<form action="index.php?act=chitietdm" method="post">
+								<form action="index.php?act=sanpham" method="post">
 								<input type="text" placeholder="Search ... " name="key">
 								<button type="submit" name="timkiem"><i class="header-icon_search_custom"></i></button>
 								</form>

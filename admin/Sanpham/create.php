@@ -82,15 +82,16 @@
                     </label><br />
                     <textarea name="description" id="" cols="105" rows="5" class="rounded-2"></textarea><br />
 
+                    
                     <!-- biến thể  -->
-                    <label for="" class="label pt-2">
+                    <!-- <label for="" class="label pt-2">
                        Biến Thể
                     </label><br />
                    <div class="variant d-flex pb-2">
                    <label for="" class="label px-3">
                       Size
                     </label><br />
-                    <input type="text" name="size" id="" value="S" placeholder="Nhập số lượng "
+                    <input type="text" name="size" id="" value="S" 
                         class=" rounded-2 px-3"><br />
                     <label for="" class="label px-3">
                         Số Lượng
@@ -103,7 +104,7 @@
                    <label for="" class="label px-3">
                       Size
                     </label><br />
-                    <input type="text" name="size" id="" value="M" placeholder="Nhập số lượng "
+                    <input type="text" name="size" id="" value="M" 
                         class=" rounded-2 px-3"><br />
                     <label for="" class="label px-3">
                         Số Lượng
@@ -116,7 +117,7 @@
                    <label for="" class="label px-3">
                       Size
                     </label><br />
-                    <input type="text" name="size" id="" value="L" placeholder="Nhập số lượng "
+                    <input type="text" name="size" id="" value="L"
                         class=" rounded-2 px-3"><br />
                     <label for="" class="label px-3">
                         Số Lượng
@@ -129,14 +130,14 @@
                    <label for="" class="label px-3">
                       Size
                     </label><br />
-                    <input type="text" name="size" id="" value="XL" placeholder="Nhập số lượng "
+                    <input type="text" name="size" id="" value="XL" 
                         class=" rounded-2 px-3"><br />
                     <label for="" class="label px-3">
                         Số Lượng
                     </label><br />
                     <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
                         class=" rounded-2 "><br />
-                   </div>
+                   </div> -->
 
 
 
@@ -149,7 +150,7 @@
                             <?php 
                             foreach ($sellect_categories as $danhmuc) :?>
                                <?php extract($danhmuc);?>
-                                 <option value="<?= $madanhmuc ?>"><?= $category_name?></option>
+                                 <option value="<?= $category_id ?>"><?= $category_name?></option>
                             
                          <?php endforeach;
                          ?>
