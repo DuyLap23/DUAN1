@@ -25,14 +25,14 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 	<!-- BASE CSS -->
-
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link href="./View/css/bootstrap.css" rel="stylesheet">
 	<link href="./View/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./View/css/style.css" rel="stylesheet">
 
 	<!-- SPECIFIC CSS -->
 	<link href="./View/css/home_1.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="./View/css/leave_review.css">
 	<!-- YOUR CUSTOM CSS -->
 	<link href="./View/css/custom.css" rel="stylesheet">
 	<link rel="stylesheet" href="./View/css/cart.css">
@@ -204,18 +204,20 @@
 										<div id="menu">
 											<ul>
 												<?php
-												foreach ($sellect_categories as $show) :?>
-												<?php	extract($show);?>
-											
-													
-												<?php	$category_detail = "index.php?act=sanpham&id_cate=" . $category_id;?>
-												<li>
-													<span><a href="<?=$category_detail?>"><?=$category_name ?></a></span>
-												</li>
-												
-												<?php endforeach ;?>
-												
-												
+												foreach ($sellect_categories as $show): ?>
+													<?php extract($show); ?>
+
+
+													<?php $category_detail = "index.php?act=sanpham&id_cate=" . $category_id; ?>
+													<li>
+														<span><a href="<?= $category_detail ?>">
+																<?= $category_name ?>
+															</a></span>
+													</li>
+
+												<?php endforeach; ?>
+
+
 
 											</ul>
 										</div>
@@ -226,8 +228,9 @@
 						<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 							<div class="custom-search-input">
 								<form action="index.php?act=sanpham" method="post">
-								<input type="text" placeholder="Search ... " name="key">
-								<button type="submit" name="timkiem"><i class="header-icon_search_custom"></i></button>
+									<input type="text" placeholder="Search ... " name="key">
+									<button type="submit" name="timkiem"><i
+											class="header-icon_search_custom"></i></button>
 								</form>
 							</div>
 						</div>

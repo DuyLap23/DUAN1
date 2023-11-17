@@ -84,7 +84,7 @@
 
                     
                     <!-- biến thể  -->
-                    <!-- <label for="" class="label pt-2">
+                    <label for="" class="label pt-2">
                        Biến Thể
                     </label><br />
                    <div class="variant d-flex pb-2">
@@ -137,7 +137,7 @@
                     </label><br />
                     <input type="number" name="quantity" id="" value="" placeholder="Nhập số lượng "
                         class=" rounded-2 "><br />
-                   </div> -->
+                   </div>
 
 
 

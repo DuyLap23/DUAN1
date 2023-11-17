@@ -129,23 +129,18 @@ if (isset($_GET['act'])) {
             break;
         // update sp 
         case 'updatesp':
-            if (isset($_POST['updatesp'])) {
+            if(isset($_POST['updatesp']) && $_POST['updatesp']){
                 $product_id = $_POST['product_id'];
                 $category_id = $_POST['category_id'];
                 $price = $_POST['price'];
                 $product_name = $_POST['product_name'];
                 $description = $_POST['description'];
                 require 'imageArray.php';
-
-                // $category_id =$_POST['category_id'];$image = $_FILES['image']['name'];
-                //     $target_dir = "../image/";
-                // $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                // if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                //     // echo "The file ". htmlspecialchars( basename( $_FILES["hinh"]["name"])). " has been uploaded.";
-                // } else {
-                //     // echo "Sorry, there was an error uploading your file.";
-                // }
-                update_sanpham($product_id, $product_name, uploadImages(), $price, $description, $category_id);
+            
+                $imgUpdate= array_merge($_FILES['image']['name'],explode(',',$_POST['img']));
+                $imgUpdate =implode(',', $imgUpdate);
+               
+                update_sanpham($category_id,$product_name , $price, $description , $imgUpdate,  $product_id);
                 $Notification = "Sửa thành công";
             }
 

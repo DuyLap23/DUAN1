@@ -17,10 +17,12 @@ function uploadImages()
             } else {
                 echo "Error uploading $file_name.<br>";
             }
+            
         }
-       
+     
 
         return implode(',', $_FILES['images']['name']);
+        
     }
 }
 ?>

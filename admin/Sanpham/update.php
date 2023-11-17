@@ -32,12 +32,14 @@ if (isset($sanpham)) {
                 <h3>Sản Phẩm</h3>
 
             </div>
-            <form action="index.php?act=updatesp" class="form-input" method="post">
+            <form action="index.php?act=updatesp" class="form-input" method="post" enctype="multipart/form-data">
                 <div class="form-group pb-4">
                     <label for="">
                         Mã Sản Phẩm
                     </label> <br />
-                    <input type="text" name="product_id" id="" value="<?= $product_id ?>" readonly
+                    
+                   
+                    <input type="hidden" name="product_id" id="" value="<?= $product_id ?>" readonly
                         class="rounded-2 w-75"> <br />
                     <label for="" class="label pt-2">
                         Tên Sản Phẩm
@@ -47,10 +49,15 @@ if (isset($sanpham)) {
                     <label for="" class="label pt-2">
                         Ảnh
                     </label><br />
-                    <img src="../image/<?=implode(',', $image) ?>" width="150px" alt="">
-                    <input type="file" name="image" id="" width="150px" class="input w-75 rounded-2 fileImage"><br />
-                    <div class="list-img">
-                
+                  <input type="text" value="<?= $image?>" name="img">
+                    <input type="file" name="image[]" multiple accept="image/*" width="50px" height="50px" class="input w-75 rounded-2 fileImage"><br />
+                    <?php 
+                    $images = explode(',', $image);
+                    foreach ($images as $key => $value): ?>
+                        <img src="../image/<?= $value ?>"  width="80px"height="80px" alt="">
+                    <?php endforeach; ?>
+                    <div class="list-img ">
+                   
                     </div>
                     <script>
                         let listImg = document.querySelector('.list-img');
@@ -73,12 +80,12 @@ if (isset($sanpham)) {
                     <input type="number" name="price" id="" value="<?= $price ?>" placeholder="Nhập số lượng "
                         class="input w-75 rounded-2"><br />
 
-                  
+
                     <label for="" class="label pt-2">
                         Mô Tả
                     </label><br />
                     <textarea name="description" id="" cols="30" rows="10"><?= $description ?></textarea><br />
-                  
+
 
                     <label for="" class="pt-3">Danh Mục</label><br />
                     <select name="category_id" id="" class="rounded-2 ">
@@ -104,7 +111,7 @@ if (isset($sanpham)) {
                 </div>
 
 
-                <a href="index.php?act=listsp"><input type="submit" name="submit" id="" value="Cập Nhật"
+                <a href="index.php?act=listsp"><input type="submit" name="updatesp" id="" value="Cập Nhật"
                         class="btn btn-insert  status completed "> </a>
                 <input type="reset" name="reset" id="" value="Nhập Lại" class=" btn btn-reset ">
             </form>

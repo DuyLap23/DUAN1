@@ -29,7 +29,7 @@
                     <div class="form-input pb-2 d-flex    ">
 
                         <input type="text" name="search" width="50px" placeholder="Search..." class="form-control mx-2">
-                        <select name="category_id">
+                        <select name="category_id" class="rounded-4">
                             <option value="0" selected>Tất cả</option>
                             <?php
                             foreach ($sellect_categories as $danhmuc) {

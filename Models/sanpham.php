@@ -44,16 +44,16 @@ function loadall_sanpham_home(){
     $sql="select * from product order by product_id desc limit 0,8";
     return pdo_query($sql);
 }
-function select_sp_cungloai($product_id){
-    $sql = "SELECT * FROM product WHERE category_id = category_id   AND product_id <> ?";
-    return pdo_query($sql, $product_id);
+function select_sp_cungloai($product_id ,$category_id= ""){
+    $sql = "SELECT * FROM product WHERE category_id = ?  AND product_id <> ?";
+    return pdo_query($sql, $product_id,$category_id);
 }
 
-function  update_sanpham($product_id,$product_name,$category_id,$price,$description,$image){
+function  update_sanpham($category_id,$product_name,$price,$description,$image ,$product_id){
     if ($image!="") 
-        $sql = "update product set product_name='".$product_name."',category_id = '".$category_id."', price='".$price."',description='".$description."',image='".$image."' where product_id=".$product_id;
+        $sql = "update product set category_id='".$category_id."', product_name='".$product_name."', price='".$price."',description='".$description."',image='".$image."' where product_id=".$product_id;
     else
-        $sql = "update product set product_name='".$product_name."',category_id = '".$category_id."', price='".$price."',description='".$description."' where product_id=".$product_id;
+        $sql = "update product set category_id='".$category_id."', product_name='".$product_name."', price='".$price."',description='".$description."' where product_id=".$product_id;
     pdo_execute($sql);
 }
 
