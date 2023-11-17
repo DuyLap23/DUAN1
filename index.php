@@ -9,6 +9,8 @@ require "Models/cart.php";
 require "Models/khachhang.php";
 require "Models/account.php";
 
+$userID = $_SESSION['user_id'] ?? 0;
+$user = select__userByid($userID);
 
 $loadall_sanpham = loadall_sanpham_home();
 $sellect_categories = sellect_all_categories();
@@ -43,11 +45,24 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $product_id = $_GET['idct_sp'];
                 $chitietsp = loadone_sanpham($product_id);
                 extract($chitietsp);
+                // lấy mã danh mục
+                // require "Admin/imageArray.php";
+                // uploadImages();
                 $sp_cung_loai = select_sp_cungloai($product_id);
+                $load_all_binhluan = loadall__comment__Byid($product_id);
                 include "View/Sanpham/spchitiet.php";
             } else {
-                include "View/Home/home.php";
+                $product_id = "";
             }
+
+            if(isset($_POST['guibinhluan'])) {
+                $productId = $_POST["product_id"];
+                $noidung = $_POST['noidung'];
+                insert__comment($userID,$productId,$noidung);
+                header('Location:'.$_SERVER['HTTP_REFERER']);
+            }
+
+            
             break;
         case "sanpham":
             if (isset($_POST['key']) && ($_POST['key'] != "")) {
@@ -66,37 +81,34 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             include "View/Sanpham/product-all.php";
             break;
         // đăng nhập đăng kí 
-        case "account":
+        case"account":
             // Đăng ký
-            if (isset($_POST['signup'])) {
+            if(isset($_POST['signup'])) {
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $name = $_POST['name'];
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
 
-                dangky($name, $email, $password, $phone, $address, 0);
+                dangky($name,$email,$password,$phone,$address,0);
                 echo "<script>alert('Đăng ký thành công!')</script>";
             }
 
             // Đăng nhập
             $err = "";
 
-            if (isset($_POST['login'])) {
+            if(isset($_POST['login'])) {
                 $email = $_POST['emailLogin'];
-                $password = $_POST['passwordLogin']; 
-                $role= 0;
+                $password = $_POST['passwordLogin'];
                 $check = true;
-                $checkTaikhoan = check__taikhoan($email, $password);
 
-                if ($checkTaikhoan) {
+                $checkTaikhoan = check__taikhoan($email,$password);
                 
-                    if (is_array($checkTaikhoan)) {
-                        
-                        $_SESSION['user'] = $checkTaikhoan;
-                        header('Location: index.php');
-                        die;
-                    }
+                if($checkTaikhoan) {
+                    $_SESSION['user_id'] = $checkTaikhoan['user_id'];
+                    // die();
+                    header('Location: index.php');
+                    die;
                 } else {
                     $err = "Tài khoản hoặc mật khẩu không đúng";
                     $check = false;
@@ -104,9 +116,27 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
             }
 
-
+            
             include "View/Account/account.php";
             break;
+        case "logout":
+            logout();
+            break;
+
+        case "user":
+            if(!$user) {
+                header("location:index.php?act=account");
+                die;
+            }
+            
+            if($_SERVER['REQUEST_METHOD'] == "POST") {
+                updateAccount($_POST['name'],$_POST['email'],$_POST['password'],$_POST['phone'],$_POST['address'],$userID);
+                echo "<script>alert('Bạn đã đổi thông tin thành công')</script>";
+            }
+            $load__thontin = select__userByid($userID);
+            include "View/Account/userAccount.php";
+            break;
+
 
 
         // giỏ hàng

@@ -1,7 +1,10 @@
 <?php
+ob_start();
+session_start();
 require "header.php";
 require "../Models/connect.php";
 require "../Models/danhmuc.php";
+require "../Models/account.php";
 require "../Models/sanpham.php";
 require "../Models/binhluan.php";
 require "../Models/thongke.php";
@@ -14,6 +17,7 @@ if (isset($_GET['act'])) {
         case 'home':
             include "home.php";
             break;
+
 
 
         // Danh mục
@@ -152,11 +156,19 @@ if (isset($_GET['act'])) {
 
         // Bình Luận
         case 'listbinhluan':
+            $liastBinhluan = load__all__binhluanadmin();
             include "Binhluan/list.php";
             break;
 
         // xóa bl 
         case 'deletebl':
+            if(isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
+                $idkhachhang = $_GET['id_khachhang'];
+            } else {
+                $idkhachhang = "";
+            }
+            delete_binhluan($idkhachhang);
+            header('Location:'.$_SERVER['HTTP_REFERER']);
             include "Binhluan/delete.php";
             break;
 
@@ -164,15 +176,21 @@ if (isset($_GET['act'])) {
 
         // Khách Hàng 
         case 'listkhachhang':
+            $listkhachhang = listAccount();
             include "Khachhang/list.php";
             break;
 
         // xóa kh 
         case 'deletekh':
-            include "Khachhang/delete.php";
+            if(isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
+                $idkhachhang = $_GET['id_khachhang'];
+            } else {
+
+            }
+            deleteAccount($idkhachhang);
+            header('Location: index.php?act=listkhachhang');
+            die;
             break;
-
-
         // Đơn Hàng
         case 'listdonhang':
             include "Qldonhang/list.php";

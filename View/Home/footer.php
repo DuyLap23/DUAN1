@@ -127,7 +127,7 @@
 	<script src="View/js/carousel-home.js"></script>
     <script  src="View/js/carousel_with_thumbs.js"></script>
     <script  src="View/js/account.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>						
+											
 	<script>
 		// Sticky sidebar
 		$('#sidebar_fixed').theiaStickySidebar({

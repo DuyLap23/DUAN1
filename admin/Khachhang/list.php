@@ -27,49 +27,32 @@
                     <th>Mã Khách Hàng </th>
                     <th>Tên Khách Hàng</th>
                     <th>Email</th>
+                    <th>Mật khẩu</th>
                     <th>Số Điện Thoại</th>
-                    
+                    <th>Role</th>
                     <th >Thao Tác</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> Hoàng Duy Lập</td>
-                    <td>hoangduylap124@gmail.com</td>
-                    <td>0343014882</td>
-                    <td >
-                    <a href="index.php?act=deletekh"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> Hoàng Duy Lập</td>
-                    <td>hoangduylap124@gmail.com</td>
-                    <td>0343014882</td>
-                    <td >
-                    <a href="index.php?act=deletekh"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> Hoàng Duy Lập</td>
-                    <td>hoangduylap124@gmail.com</td>
-                    <td>0343014882</td>
-                    <td >
-                    <a href="index.php?act=deletekh"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                
-               
-                
-             
+                <?php
+                    foreach($listkhachhang as $key => $khachhang) {
+                        ?>
+                            <tr class="tr-shadow">
+                                <td>
+                                    <?= $key + 1 ?>
+                                </td>
+                                <td><?= $khachhang['user_name'] ?></td>
+                                <td><?= $khachhang['email'] ?></td>
+                                <td><?= $khachhang['password'] ?></td>
+                                <td><?= $khachhang['tel'] ?></td>
+                                <td><?= $khachhang['role'] ?></td>
+                                <td >
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa khách hàng này không?')" href="index.php?act=deletekh&id_khachhang=<?= $khachhang['user_id'] ?>"><button class="btn status pending">xóa</button></a>
+                                </td>
+                            </tr>
+                        <?php
+                    }
+                ?>
             </tbody>    
         </table>
        

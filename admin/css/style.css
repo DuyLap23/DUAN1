@@ -623,3 +623,19 @@ body {
 		min-width: 420px;
 	}
 }
+
+.spct {
+    text-align: center;
+}
+
+.sig_up {
+    margin-top: 15px;
+    color: rgb(79, 43, 43);
+}
+
+
+.err__login {
+    padding-left: 3px;
+    margin-bottom: 3px;
+    color: red;
+}

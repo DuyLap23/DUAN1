@@ -33,49 +33,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> 2</td>
-                    <td>3</td>
-                    <td>Here We Go</td>
-                    <td>10/10/2021</td>
-                    <td >
+                <?php
+                    foreach($liastBinhluan as $key => $binhluan) {
+                        ?>
+                            <tr class="tr-shadow">
+                                <td>
+                                    <?= $key + 1 ?>
+                                </td>
+                                <td><?= $binhluan['user_id'] ?></td>
+                                <td><?= $binhluan['product_id'] ?></td>
+                                <td><?= $binhluan['content'] ?></td>
+                                <td><?= $binhluan['date_comment'] ?></td>
+                                <td >
 
-                    <a href="index.php?act=deletebl"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> 2</td>
-                    <td>3</td>
-                    <td>Here We Go</td>
-                    <td>10/10/2021</td>
-                    <td >
-
-                    <a href="index.php?act=deletebl"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> 2</td>
-                    <td>3</td>
-                    <td>Here We Go</td>
-                    <td>10/10/2021</td>
-                    <td >
-
-                    <a href="index.php?act=deletebl"><button class="btn status pending">xóa</button></a>
-                    </td>
-                </tr>
-                
-               
-                
-             
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa bình luận này hay không?')" href="index.php?act=deletebl&id_khachhang=<?= $binhluan['comment_id'] ?>"><button class="btn status pending">xóa</button></a>
+                                </td>
+                            </tr>
+                        <?php
+                    }
+                ?>    
+   
             </tbody>    
         </table>
        

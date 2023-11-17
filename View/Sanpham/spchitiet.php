@@ -148,34 +148,62 @@
 						<main>
 	
 		
-	<div class="container margin_60_35">
-	
-			<div class="row justify-content-center">
-				<div class="col-lg-8">
-					<div class="write_review">
-						<h1>Đánh giá về sản phẩm</h1>
-					
-						<div class="form-group">
-							<label>Đánh giá của bạn</label>
-							<textarea class="form-control" style="height: 180px;" placeholder="Viết đánh giá để mọi người có thể hiểu hơn về sản phẩm"></textarea>
-						</div>
-						<div class="form-group">
-							<label>Thêm ảnh </label>
-							<div class="fileupload"><input type="file" name="fileupload" accept="image/*"></div>
-						</div>
-						<div class="form-group">
-							<div class="checkboxes float-left add_bottom_15 add_top_15">
-								<label class="container_check">Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his.
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
+	<div class="container margin_60_35">					
+			<form action="index.php?act=chitietsp" method="post">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<table class="table table-primary">
+							<tr>
+								<th>Tên người dùng</th>
+								<th>Nội dung</th>
+								<th>Ngày bình luận</th>
+							</tr>
+							<?php
+								foreach($load_all_binhluan as $binhluan) {
+									?>
+										<tr>
+											<td><?= $binhluan['user_name'] ?></td>
+											<td><?= $binhluan['content'] ?></td>
+											<td><?= $binhluan['date_comment'] ?></td>
+										</tr>
+									<?php
+								}
+							?>
+						</table>	
+						<div class="write_review">
+							<h1>Bình luận về sản phẩm</h1>
+							<?php
+								if($user) {
+									?>
+										<div class="form-group">
+											<label>Đánh giá của bạn</label>
+											<input type="hidden" name="product_id" value="<?= $product_id ?>">
+											<textarea class="form-control" name="noidung" style="height: 180px;" placeholder="Viết đánh giá để mọi người có thể hiểu hơn về sản phẩm"></textarea>
+										</div>
+										<div class="form-group">
+											<div class="checkboxes float-left add_bottom_15 add_top_15">
+												<label class="container_check">Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his.
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											
+											</div>
+										</div>
+										<button class="btn_1" name="guibinhluan">Gửi bình luận</button>
+									<?php
+								} else {
+									?>
+										<div class="form-group">
+											Vui lòng đăng nhập để bình luận!
+										</div>
+									<?php
+								}	
+							?>
 							
-							</div>
 						</div>
-						<a href="confirm.html" class="btn_1">Submit review</a>
 					</div>
 				</div>
-		</div>
+			</form>
 		<!-- /row -->
 		</div>
 		<!-- /container -->

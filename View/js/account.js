@@ -45,6 +45,9 @@ function sendDangky() {
     if(phone.value == "") {
         phone__err.innerHTML = "Vui lòng nhập trường này";
         count++;
+    } else if(phone.value.length < 10) {
+        phone__err.innerHTML = "Số điện thoại gồm 10 chữ số";
+        count++;
     } else {
         phone__err.innerHTML = "";
     }

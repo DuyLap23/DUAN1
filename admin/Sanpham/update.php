@@ -37,9 +37,7 @@ if (isset($sanpham)) {
                     <label for="">
                         Mã Sản Phẩm
                     </label> <br />
-                    
-                   
-                    <input type="hidden" name="product_id" id="" value="<?= $product_id ?>" readonly
+                    <input type="text" name="product_id" id="" value="<?= $product_id ?>" readonly
                         class="rounded-2 w-75"> <br />
                     <label for="" class="label pt-2">
                         Tên Sản Phẩm
@@ -81,11 +79,13 @@ if (isset($sanpham)) {
                         class="input w-75 rounded-2"><br />
 
 
+                  
                     <label for="" class="label pt-2">
                         Mô Tả
                     </label><br />
                     <textarea name="description" id="" cols="30" rows="10"><?= $description ?></textarea><br />
 
+                  
 
                     <label for="" class="pt-3">Danh Mục</label><br />
                     <select name="category_id" id="" class="rounded-2 ">
