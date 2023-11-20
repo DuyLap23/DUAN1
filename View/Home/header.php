@@ -41,6 +41,10 @@
 	<link rel="stylesheet" href="./View/css/product_page.css">
 	<link rel="stylesheet" href="./View/css/listing.css">
 	<link rel="stylesheet" href="./Admin/css/style.css">
+	<script src="View/js/ajax.googleapis.com_ajax_libs_jquery_3.7.1_jquery.min.js"></script>
+	<script src="View/js/libary.js"></script>
+
+
 
 
 
@@ -205,18 +209,20 @@
 										<div id="menu">
 											<ul>
 												<?php
-												foreach ($sellect_categories as $show) :?>
-												<?php	extract($show);?>
-											
-													
-												<?php	$category_detail = "index.php?act=sanpham&id_cate=" . $category_id;?>
-												<li>
-													<span><a href="<?=$category_detail?>"><?=$category_name ?></a></span>
-												</li>
-												
-												<?php endforeach ;?>
-												
-												
+												foreach ($sellect_categories as $show): ?>
+													<?php extract($show); ?>
+
+
+													<?php $category_detail = "index.php?act=sanpham&id_cate=" . $category_id; ?>
+													<li>
+														<span><a href="<?= $category_detail ?>">
+																<?= $category_name ?>
+															</a></span>
+													</li>
+
+												<?php endforeach; ?>
+
+
 
 											</ul>
 										</div>
@@ -227,8 +233,9 @@
 						<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 							<div class="custom-search-input">
 								<form action="index.php?act=sanpham" method="post">
-								<input type="text" placeholder="Search ... " name="key">
-								<button type="submit" name="timkiem"><i class="header-icon_search_custom"></i></button>
+									<input type="text" placeholder="Search ... " name="key">
+									<button type="submit" name="timkiem"><i
+											class="header-icon_search_custom"></i></button>
 								</form>
 							</div>
 						</div>
@@ -236,7 +243,7 @@
 							<ul class="top_tools">
 								<li>
 									<div class="dropdown dropdown-cart">
-										<a href="index.php?act=addtocard" class="cart_bt"><strong>2</strong></a>
+										<a href="index.php?act=addtocard" class="cart_bt" id="boxcart"><strong id="count_cart"></strong></a>
 										<div class="dropdown-menu">
 											<ul>
 												<li>
@@ -274,59 +281,53 @@
 								</li>
 								<li>
 									<?php
-										if($user) {
-											?>
-												<div class="dropdown dropdown-access">
-													<a href="index.php?act=user" class="access_link"><span>Account</span></a>
-													<div class="dropdown-menu">
-														<?= $user['role'] == 1 ? '<a href="admin/index.php">Đăng nhập Admin</a>' : '' ?>
-														<ul>
-															<li>
-																<a href="index.php?act=user"><i class="ti-user"></i><?= $user ? $user['user_name'] : "" ?></a>
-															</li>
-															<li>
-																<a href="track-order.html"><i class="ti-truck"></i>Track your
-																	Order</a>
-															</li>
-															<li>
-																<a href="index.php?act=account"><i class="ti-package"></i>My Orders</a>
-															</li>
-															<li>
-																<a href="help.html"><i class="ti-help-alt"></i>Hỗ trợ</a>
-															</li>
-															<li>
-																<a href="index.php?act=logout"><i class="ti-lock"></i>Đăng xuất</a>
-															</li>
-														</ul>
-													</div>
-												</div>
-											<?php
-										} else {
-											?>
-												<div class="dropdown dropdown-access">
-													<a href="index.php?act=user" class="access_link"><span>Account</span></a>
-													<div class="dropdown-menu">
-														<a href="index.php?act=account" class="btn_1">Sign In or Sign Up</a>
-														<ul>
-															<li>
-																<a href="index.php?act=user"><i class="ti-user"></i>My Profile</a>
-															</li>
-															<li>
-																<a href="track-order.html"><i class="ti-truck"></i>Track your
-																	Order</a>
-															</li>
-															<li>
-																<a href="index.php?act=account"><i class="ti-package"></i>My Orders</a>
-															</li>
-															<li>
-																<a href="help.html"><i class="ti-help-alt"></i>Help and Faq</a>
-															</li>
-														</ul>
-													</div>
-												</div>
-												<!-- /dropdown-access-->
-											<?php
-										}
+									if ($user) {
+										?>
+										<div class="dropdown dropdown-access">
+											<a href="index.php?act=user" class="access_link"><span>Account</span></a>
+											<div class="dropdown-menu">
+												<?= $user['role'] == 1 ? '<a href="admin/index.php">Đăng nhập Admin</a>' : '' ?>
+												<ul>
+													<li>
+														<a href="index.php?act=user"><i class="ti-user"></i>
+															<?= $user ? $user['user_name'] : "" ?>
+														</a>
+													</li>
+
+													<li>
+														<a href="index.php?act=logout"><i class="ti-lock"></i>Đăng xuất</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<?php
+									} else {
+										?>
+										<div class="dropdown dropdown-access">
+											<a href="index.php?act=user" class="access_link"><span>Account</span></a>
+											<div class="dropdown-menu">
+												<a href="index.php?act=account" class="btn_1">Sign In or Sign Up</a>
+												<ul>
+													<li>
+														<a href="index.php?act=user"><i class="ti-user"></i>My Profile</a>
+													</li>
+													<li>
+														<a href="track-order.html"><i class="ti-truck"></i>Track your
+															Order</a>
+													</li>
+													<li>
+														<a href="index.php?act=account"><i class="ti-package"></i>My
+															Orders</a>
+													</li>
+													<li>
+														<a href="help.html"><i class="ti-help-alt"></i>Help and Faq</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<!-- /dropdown-access-->
+										<?php
+									}
 									?>
 								</li>
 								<li>

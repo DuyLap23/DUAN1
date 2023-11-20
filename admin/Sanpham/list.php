@@ -52,8 +52,7 @@
                         <th colspan="2"> Ảnh </th>
                         <th>Giá </th>
                         <th>Mô Tả </th>
-                        <th>Số Lượng </th>
-                        <th> Lượt Xem</th>
+                      
                         <th>Mã Danh Mục</th>
                         <th>Thao Tác</th>
                     </tr>
@@ -64,6 +63,7 @@
 
                     foreach ($listsanpham as $sanpham) {
                         extract($sanpham);
+                       
                         $suasp = "index.php?act=editsp&id_sp=" . $product_id;
                         $xoasp = "index.php?act=deletesp&id_sp=" . $product_id; // đường liên kết 
                         echo '<tr class="tr-shadow">
@@ -71,13 +71,12 @@
                             ' . $product_id . '
                            </td>
                            <td >' . $product_name . '</td>
-                           <td colspan="2"> <img src="../image/'.
+                           <td colspan="2"> <img src="../image/' .
                             explode(',', $image)[0]
-                            .'" ></td>
-                           <td>' . $price . '</td>
+                            . '" ></td>
+                           <td>' . number_format($price, 0, '.', ','). '</td>
                            <td>' . $description . '</td>
-                           <td>Số Lượng</td>
-                           <td>Lượt Xem</td>
+                         
                            <td>' . $category_id . '</td>
                            <td >
                                <a href="' . $suasp . '"><button class=" btn status completed">Sửa </button></a>

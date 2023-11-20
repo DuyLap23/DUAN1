@@ -31,7 +31,8 @@ function pdo_get_connection(){
     }
 }
 
-function pdo_execute_return_lastInsertID($sql){
+function pdo_execute_return_lastInsertID($sql = "", ...$sql_args)
+{
     $sql_args = array_slice(func_get_args(), 1);
     try{
         $conn = Pdo_get_connection();

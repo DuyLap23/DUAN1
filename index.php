@@ -48,6 +48,8 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 // lấy mã danh mục
                 // require "Admin/imageArray.php";
                 // uploadImages();
+                // $loadall_pro_detail= loadall_pro_detail($product_id);
+
                 $sp_cung_loai = select_sp_cungloai($product_id);
                 $load_all_binhluan = loadall__comment__Byid($product_id);
                 include "View/Sanpham/spchitiet.php";
@@ -139,7 +141,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
 
 
-        // giỏ hàng
+        // giỏ hàng 
         case 'addtocard':
             if (isset($_POST['addtocard']) && $_POST['addtocard']) {
                 $product_id = $_POST['product_id'];

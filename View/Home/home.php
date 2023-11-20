@@ -112,19 +112,19 @@
 				?>
 				<div class="col-6 col-md-4 col-xl-3">
 
-					<div class="grid_item">
+					<div class="grid_item boxsp">
 						<span class="ribbon new">New</span>
 						<figure>
 
 							<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
-								<img class="img-fluid lazy " src="../image/<?= explode(',',$image)[0] ?>" data-src="../image/<?= explode(',',$image)[0] ?>"
-									alt="">
-								<img class="img-fluid lazy" src="../image/<?= explode(',',$image)[0] ?>" data-src="../image/<?= explode(',',$image)[0]?>"
-									alt="">
+								<img class="img-fluid lazy " src="../image/<?= explode(',', $image)[0] ?>"
+									data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
+								<img class="img-fluid lazy" src="../image/<?= explode(',', $image)[0] ?>"
+									data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
 							</a>
 
 						</figure>
-						
+
 						<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
 							<h3>
 								<?= $product_name ?>
@@ -132,26 +132,29 @@
 						</a>
 						<div class="price_box">
 							<span class="new_price">$
-								<?= $price ?>
+								<?=
+								number_format($price, 0, '.', ',');?>
 							</span>
 						</div>
+						<!-- <div class="addToCart">
+							<input type="submit" value="Thêm vào giỏ hàng" id="" name="addtocart" class="addtocart">
+						</div> -->
 						<ul>
 
-							<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-									title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-										compare</span></a></li>
+
 							<li>
-							<form action="index.php?act=addtocard" method="POST">
-								<input type="hidden" name="product_id" value="<?=$product_id?>">
-								<input type="hidden" name="product_name" value="<?=$product_name?>">
-								<input type="hidden" name="price" value="<?=$price?>">
-								<input type="hidden" name="so_luong" value="<?=$so_luong?>">
-								
-								<a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-									title="Add to cart">	<button name="addtocard" style="border: none ; outline: none"><i class="ti-shopping-cart"></i></button></a>
-							</form>
+								<form action="index.php?act=addtocard" method="POST">
+									<input type="hidden" name="product_id" value="<?= $product_id ?>">
+									<input type="hidden" name="product_name" value="<?= $product_name ?>">
+									<input type="hidden" name="price" value="<?= $price ?>">
+									<input type="hidden" name="image" value="<?= explode(',', $image)[0] ?>">
+
+
+
+
+								</form>
 							</li>
-							
+
 						</ul>
 					</div>
 

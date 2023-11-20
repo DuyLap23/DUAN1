@@ -1,6 +1,7 @@
 <main class="bg_gray">
 	<div class="container margin_30">
-		<div class="page_header">
+		<div class="page_header ">
+
 			<div class="breadcrumbs">
 				<ul>
 					<li><a href="#">Home</a></li>
@@ -14,104 +15,98 @@
 		<table class="table table-striped cart-list">
 			<thead>
 				<tr>
+					
 					<th>
-						Product
+						Tên sản phẩm
+					</th>
+					<th>Ảnh </th>
+					<th>
+						Giá
 					</th>
 					<th>
-						Price
+						Số lượng
 					</th>
 					<th>
-						Quantity
-					</th>
-					<th>
-						Subtotal
+						Tổng tiền
 					</th>
 					<th>
 
 					</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="cart">
 				<tr>
 					<td>
-						<div class="thumb_cart">
+						<span class="item_cart mb-4">Armor Air x Fear</span>
+					</td>
+					<td><div class="thumb_cart">
 							<img src="View/img/products/product_placeholder_square_small.jpg"
 								data-src="View/img/products/shoes/1.jpg" class="lazy" alt="Image">
-						</div>
-						<span class="item_cart">Armor Air x Fear</span>
-					</td>
+						</div></td>
+					
+					
 					<td>
-						<strong>$140.00</strong>
+						140.00
 					</td>
+					<!-- số lượng  -->
 					<td>
-						<div class="numbers-row">
-							<input type="text" value="1" id="quantity_1" class="qty2" name="quantity_1">
-							<div class="inc button_inc">+</div>
-							<div class="dec button_inc">-</div>
-						</div>
-					</td>
-					<td>
-						<strong>$140.00</strong>
-					</td>
-					<td class="options">
-						<a href="#"><i class="ti-trash"></i></a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="thumb_cart">
-							<img src="View/img/products/product_placeholder_square_small.jpg"
-								data-src="View/img/products/shoes/2.jpg" class="lazy" alt="Image">
-						</div>
-						<span class="item_cart">Armor Okwahn II</span>
-					</td>
-					<td>
-						<strong>$110.00</strong>
-					</td>
-					<td>
-						<div class="numbers-row">
-							<input type="text" value="1" id="quantity_2" class="qty2" name="quantity_2">
-							<div class="inc button_inc">+</div>
-							<div class="dec button_inc">-</div>
-						</div>
-					</td>
-					<td>
-						<strong>$110.00</strong>
-					</td>
-					<td class="options">
-						<a href="#"><i class="ti-trash"></i></a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="thumb_cart">
-							<img src="View/img/products/product_placeholder_square_small.jpg"
-								data-src="View/img/products/shoes/3.jpg" class="lazy" alt="Image">
-						</div>
-						<span class="item_cart">Armor Air Wildwood ACG</span>
-					</td>
-					<td>
-						<strong>$90.00</strong>
-					</td>
+						<div class="numbers">
+						<input type="number" value="1" id="quantity_1" class="qty2" name="quantity_1" min="1" max="10">
 
-					<td>
-						<div class="numbers-row">
-							<input type="text" value="1" id="quantity_3" class="qty2" name="quantity_3">
-							<div class="inc button_inc">+</div>
-							<div class="dec button_inc">-</div>
 						</div>
+							
+						
 					</td>
-					<td>
-						<strong>$90.00</strong>
+					<!-- tổng  -->
+					<td id="total">
+						140
 					</td>
 					<td class="options">
-						<a href="#"><i class="ti-trash"></i></a>
+						<a href="" class="delete"><i class="ti-trash"></i></a>
 					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item_cart mb-4">Armor Air x Fear</span>
+					</td>
+					<td><div class="thumb_cart">
+							<img src="View/img/products/product_placeholder_square_small.jpg"
+								data-src="View/img/products/shoes/1.jpg" class="lazy" alt="Image">
+						</div></td>
+					
+					
+					<td>
+						140
+					</td>
+					<!-- số lượng  -->
+					<td>
+						<div class="numbers">
+						<input type="number" value="1" id="quantity_1" class="qty2" name="quantity_1" min="1" >
+
+						</div>
+							
+						
+					</td>
+					<!-- tổng  -->
+					<td id="total">
+						140
+						<!-- number_format($number, 0, '.', ','); -->
+					</td>
+					<td class="options">
+						<a href="" class="delete"><i class="ti-trash"></i></a>
+					</td>
+				</tr>
+
+			</tbody>
+			<tbody id="tongdonhang">
+				<tr>
+					<td colspan="4">Tổng Đơn Hàng</td>	
+					<td><span></span> </td>
 				</tr>
 			</tbody>
 		</table>
 
-		<div class="row add_top_30 flex-sm-row-reverse cart_actions">
+		<!-- <div class="row add_top_30 flex-sm-row-reverse cart_actions">
 			<div class="col-sm-4 text-end">
 				<button type="button" class="btn_1 gray">Update Cart</button>
 			</div>
@@ -127,7 +122,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- /cart_actions -->
 
 	</div>

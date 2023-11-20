@@ -54,7 +54,7 @@
 					<div class="prod_options">
 
 						<div class="row">
-							<label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong> - Size Guide <a
+							<label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong> <a
 									href="#0" data-bs-toggle="modal" data-bs-target="#size-modal"><i
 										class="ti-help-alt"></i></a></label>
 							<div class="col-xl-4 col-lg-5 col-md-6 col-6">
@@ -80,7 +80,7 @@
 					<div class="row">
 						<div class="col-lg-5 col-md-6">
 							<div class="price_main"><span class="new_price">$
-									<?= $price ?>
+									<?= number_format($price, 0, '.', ',') ?>
 								</span></div>
 						</div>
 						<div class="col-lg-4 col-md-6">

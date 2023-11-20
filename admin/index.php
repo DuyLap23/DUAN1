@@ -90,17 +90,20 @@ if (isset($_GET['act'])) {
 
         // add sp 
         case "createsp":
+           
             require 'imageArray.php';
             // kiểm tra xem người dùng có click vào nút add hay ko
             if (isset($_POST['submitsp']) && ($_POST['submitsp'])) {
-                
+
                 $product_name = $_POST['product_name'];
                 $price = $_POST['price'];
                 $description = $_POST['description'];
                 $category_id = $_POST['category_id'];
-                
-                insert_sanpham($product_name , uploadImages(), $price, $description, $category_id);
-                $Notification = "Thêm thành công";
+                $size = $_POST['size'];
+                $quantity = $_POST['quantity'];
+           
+                insert_sanpham($product_name, uploadImages(), $price, $description, $category_id, $size, $quantity);
+             
             }
 
             $sellect_categories = sellect_all_categories();
@@ -124,7 +127,7 @@ if (isset($_GET['act'])) {
                 $id_sp = $_GET['id_sp'];
 
                 $sanpham = loadone_sanpham($id_sp);
-
+                $load_all_pro_detail= load_all_pro_detail($_GET['id_sp']);
 
             }
             $sellect_categories = sellect_all_categories();
@@ -133,21 +136,23 @@ if (isset($_GET['act'])) {
             break;
         // update sp 
         case 'updatesp':
-            if(isset($_POST['updatesp']) && $_POST['updatesp']){
+            if (isset($_POST['updatesp']) && $_POST['updatesp']) {
                 $product_id = $_POST['product_id'];
                 $category_id = $_POST['category_id'];
                 $price = $_POST['price'];
                 $product_name = $_POST['product_name'];
                 $description = $_POST['description'];
+                $size = $_POST['size'];
+                $quantity = $_POST['quantity'];
                 require 'imageArray.php';
-            
-                $imgUpdate= array_merge($_FILES['image']['name'],explode(',',$_POST['img']));
-                $imgUpdate =implode(',', $imgUpdate);
-               
-                update_sanpham($category_id,$product_name , $price, $description , $imgUpdate,  $product_id);
+
+                $imgUpdate = array_merge($_FILES['image']['name'], explode(',', $_POST['img']));
+                $imgUpdate = implode(',', $imgUpdate);
+
+                update_sanpham($product_id, $product_name, $imgUpdate, $price, $description, $category_id, $size, $quantity);
                 $Notification = "Sửa thành công";
             }
-
+        
             $sellect_categories = sellect_all_categories();
             $listsanpham = loadall_sanpham("", 0);
             include "Sanpham/list.php";
@@ -162,13 +167,13 @@ if (isset($_GET['act'])) {
 
         // xóa bl 
         case 'deletebl':
-            if(isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
+            if (isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
                 $idkhachhang = $_GET['id_khachhang'];
             } else {
                 $idkhachhang = "";
             }
             delete_binhluan($idkhachhang);
-            header('Location:'.$_SERVER['HTTP_REFERER']);
+            header('Location:' . $_SERVER['HTTP_REFERER']);
             include "Binhluan/delete.php";
             break;
 
@@ -182,7 +187,7 @@ if (isset($_GET['act'])) {
 
         // xóa kh 
         case 'deletekh':
-            if(isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
+            if (isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
                 $idkhachhang = $_GET['id_khachhang'];
             } else {
 

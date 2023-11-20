@@ -159,7 +159,7 @@
 									<h3><?= $product_name ?></h3>
 								</a>
 								<div class="price_box">
-									<span class="new_price">$<?= $price ?></span>
+									<span class="new_price">$<?= number_format($price, 0, '.', ',') ?></span>
 								</div>
 								<ul>
 									<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
