@@ -7,7 +7,7 @@ require "../Models/danhmuc.php";
 require "../Models/account.php";
 require "../Models/sanpham.php";
 require "../Models/binhluan.php";
-require "../Models/thongke.php";
+require "../Models/khachhang.php";
 require "../Models/cart.php";
 
 if (isset($_GET['act'])) {
@@ -90,7 +90,7 @@ if (isset($_GET['act'])) {
 
         // add sp 
         case "createsp":
-           
+
             require 'imageArray.php';
             // kiểm tra xem người dùng có click vào nút add hay ko
             if (isset($_POST['submitsp']) && ($_POST['submitsp'])) {
@@ -101,9 +101,9 @@ if (isset($_GET['act'])) {
                 $category_id = $_POST['category_id'];
                 $size = $_POST['size'];
                 $quantity = $_POST['quantity'];
-           
+
                 insert_sanpham($product_name, uploadImages(), $price, $description, $category_id, $size, $quantity);
-             
+
             }
 
             $sellect_categories = sellect_all_categories();
@@ -127,7 +127,7 @@ if (isset($_GET['act'])) {
                 $id_sp = $_GET['id_sp'];
 
                 $sanpham = loadone_sanpham($id_sp);
-                $load_all_pro_detail= load_all_pro_detail($_GET['id_sp']);
+                $load_all_pro_detail = load_all_pro_detail($_GET['id_sp']);
 
             }
             $sellect_categories = sellect_all_categories();
@@ -144,15 +144,18 @@ if (isset($_GET['act'])) {
                 $description = $_POST['description'];
                 $size = $_POST['size'];
                 $quantity = $_POST['quantity'];
-                require 'imageArray.php';
 
-                $imgUpdate = array_merge($_FILES['image']['name'], explode(',', $_POST['img']));
-                $imgUpdate = implode(',', $imgUpdate);
+                if(isset($_FILES['image']['name']))
+                
+                    $imgUpdate = array_merge($_FILES['image']['name'], explode(',', $_POST['img']));
+                    $imgUpdate = implode(',', $imgUpdate);
+                
+               
 
                 update_sanpham($product_id, $product_name, $imgUpdate, $price, $description, $category_id, $size, $quantity);
                 $Notification = "Sửa thành công";
             }
-        
+
             $sellect_categories = sellect_all_categories();
             $listsanpham = loadall_sanpham("", 0);
             include "Sanpham/list.php";
@@ -216,9 +219,6 @@ if (isset($_GET['act'])) {
             include "Thongke/bieudo.php";
             break;
 
-        case 'view':
-            include "./index.php";
-            break;
 
 
 

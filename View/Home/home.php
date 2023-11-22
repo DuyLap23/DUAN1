@@ -110,60 +110,49 @@
 			<?php foreach ($loadall_sanpham as $key => $value): ?>
 				<?php extract($value);
 				?>
-				<div class="col-6 col-md-4 col-xl-3">
 
-					<div class="grid_item boxsp">
-						<span class="ribbon new">New</span>
-						<figure>
+				<div class="col-sl-6 col-md-4 col-xl-3">
+					<form action="index.php?act=addtocart" method="post" class="">
 
+						<div class="grid_item boxsp">
+							<span class="ribbon new">New</span>
+							<figure>
+								<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
+									<img class="img-fluid lazy " src="../image/<?= explode(',', $image)[0] ?>"
+										data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
+									<img class="img-fluid lazy" src="../image/<?= explode(',', $image)[0] ?>"
+										data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
+								</a>
+							</figure>
 							<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
-								<img class="img-fluid lazy " src="../image/<?= explode(',', $image)[0] ?>"
-									data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
-								<img class="img-fluid lazy" src="../image/<?= explode(',', $image)[0] ?>"
-									data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
+								<h3>
+									<?= $product_name ?>
+								</h3>
 							</a>
-
-						</figure>
-
-						<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
-							<h3>
-								<?= $product_name ?>
-							</h3>
-						</a>
-						<div class="price_box">
-							<span class="new_price">$
-								<?=
-								number_format($price, 0, '.', ',');?>
-							</span>
+							<div class="price_box">
+								<span class="new_price">$
+									<?=
+										number_format($price, 0, '.', ','); ?>
+								</span>
+							</div>
 						</div>
-						<!-- <div class="addToCart">
-							<input type="submit" value="Thêm vào giỏ hàng" id="" name="addtocart" class="addtocart">
-						</div> -->
-						<ul>
+						<div class="spacer-20 d-flex justify-content-center	">
+							<input type="submit" name="addcart" id="" value="Thêm vào giỏ hàng " class="btn_1">
+						</div>
 
-
-							<li>
-								<form action="index.php?act=addtocard" method="POST">
-									<input type="hidden" name="product_id" value="<?= $product_id ?>">
-									<input type="hidden" name="product_name" value="<?= $product_name ?>">
-									<input type="hidden" name="price" value="<?= $price ?>">
-									<input type="hidden" name="image" value="<?= explode(',', $image)[0] ?>">
-
-
-
-
-								</form>
-							</li>
-
-						</ul>
-					</div>
-
+						<input type="hidden" name="product_id" id="" value="<?= $product_id ?>">
+						<input type="hidden" name="product_name" id="" value="<?= $product_name ?>">
+						<input type="hidden" name="img" id="" value="<?= $image ?>">
+						<input type="hidden" name="price" id="" value="<?= $price ?>">
+					</form>
 				</div>
-				<!-- /col -->
+
+
 			<?php endforeach; ?>
 
+
 		</div>
-		<!-- /row -->
+
 	</div>
 	<!-- hết sp mới  -->
 

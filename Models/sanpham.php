@@ -90,7 +90,6 @@ function select_sp_cungloai($product_id, $category_id = "")
 function update_sanpham($product_id, $product_name, $image, $price, $description, $category_id, $size, $quantity)
 {
     // Cập nhật thông tin chung của sản phẩm trong bảng products
-    if($image!=""){
     $sqlProduct = "UPDATE product 
                     SET product_name = ?, 
                         image = ?, 
@@ -98,16 +97,6 @@ function update_sanpham($product_id, $product_name, $image, $price, $description
                         description = ?, 
                         category_id = ? 
                     WHERE product_id = ?";
-    }else{
-        $sqlProduct = "UPDATE product 
-        SET product_name = ?, 
-            
-            price = ?, 
-            description = ?, 
-            category_id = ? 
-        WHERE product_id = ?";
-    }
-    
 
     pdo_execute($sqlProduct, $product_name, $image, $price, $description, $category_id, $product_id);
 
@@ -123,9 +112,12 @@ function update_sanpham($product_id, $product_name, $image, $price, $description
     }
 }
 
-function loadall_pro_detail ($product_id){
 
-    $sql = "SELECT * FROM product_detail WHERE product_id = $product_id";
+function get_product_details($product_id) {
+    $sql = "SELECT size, quantity FROM product_detail WHERE product_id = ?";
+ 
+
+    return pdo_query($sql, $product_id);
 }
 
 

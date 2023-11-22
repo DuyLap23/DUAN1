@@ -1944,7 +1944,7 @@ a.btn_1,
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  padding: 12px 25px;
+  padding: 12px 20px;
   color: #fff;
   font-weight: 500;
   text-align: center;
@@ -1958,7 +1958,7 @@ a.btn_1,
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 10px;
   line-height: normal;
 }
 
@@ -7816,4 +7816,27 @@ screen and (max-height: 300px) {
     transform: scale(1);
 
   }
+}
+.checked{
+
+  font-size: 20px;
+}.w-8{
+  width: 10%;
+}    
+
+.sizeLabel {
+  cursor: pointer;
+}
+
+.sizeLabel.checked {
+  background-color: #b3d7ff; /* Màu nền khi được chọn */
+}
+
+.sizeLabel.outOfStock {
+ display: none;
+}.form-submit input{
+  width: 60%;
+}.form-submit{
+  display: flex;
+  justify-content: center;
 }

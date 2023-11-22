@@ -79,7 +79,7 @@
 				</a>
 			</li>
             <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'view') ? 'active' : ''; ?>">
-				<a href="index.php?act=view">
+				<a href="../index.php">
 					<i class='bx bxs-user' ></i>
 					<span class="text">Trang Người Dùng</span>
 				</a>

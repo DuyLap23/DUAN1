@@ -16,7 +16,7 @@ $(document).ready(function () {
             sum += eval(cart.eq(i).children("td").eq(4).text());
             
         }
-        tongdh.children("td").eq(1).text(sum);
+        tongdh.children("td").eq(2).text(sum);
     }
 
     // hien thi so luong don hanfg owr icon 
@@ -51,38 +51,38 @@ $(document).ready(function () {
         var tensp = tr.children("td").eq(0).text();
         var dongia = tr.children("td").eq(2).text();
         var tt = dongia * sl;
-        tr.children("td").eq(4).text(tt);
+        tr.children("td").eq(5).text(tt);
         tongDonHang();
 
     });
 
     // thêm vào giỏ hàng 
-    $(".addtocart").click(function (e) {
-        e.preventDefault();
-        var boxsp = $(this).parent().parent();
-        var tensp = boxsp.children("a").children("h3").text();
-        var img = boxsp.children("figure").children("a").children("img").attr("src");
-        var  dongia = boxsp.children("div").children("span").text();
-        var  sl = 1;
+    // $(".addtocart").click(function (e) {
+    //     e.preventDefault();
+    //     var boxsp = $(this).parent().parent();
+    //     var tensp = boxsp.children("a").children("h3").text();
+    //     var img = boxsp.children("figure").children("a").children("img").attr("src");
+    //     var  dongia = boxsp.children("div").children("span").text();
+    //     var  sl = 1;
        
         
-        $.post("Home/home.php",{
-            tensp: tensp,
-            img: img,
-            dongia: dongia,
-            sl: 1
-        },
-            function (data) {
-                var countsp = $("#count_cart");
-                countsp.text(data);
-                // cap nhat so luong
-                $(".dropdown-cart").addClass("cart_aini");
-                setTimeout(() => {
-                    $(".dropdown-cart").removeClass("cart_aini");
-                },500);
+    //     $.post("Home/home.php",{
+    //         tensp: tensp,
+    //         img: img,
+    //         dongia: dongia,
+    //         sl: 1
+    //     },
+    //         function (data) {
+    //             var countsp = $("#count_cart");
+    //             countsp.text(data);
+    //             // cap nhat so luong
+    //             $(".dropdown-cart").addClass("cart_aini");
+    //             setTimeout(() => {
+    //                 $(".dropdown-cart").removeClass("cart_aini");
+    //             },500);
 
-            }
+    //         }
 
-        );
-    });
+    //     );
+    // });
 });

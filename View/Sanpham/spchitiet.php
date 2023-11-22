@@ -1,97 +1,128 @@
 <main>
 	<?php
+
 	extract($chitietsp);
 	$images = explode(',', $image);
 
 	?>
 	<div class="container margin_30">
-		<!-- <div class="countdown_inner">-20% This offer ends in <div data-countdown="2019/05/15" class="countdown"></div>
-			</div> -->
-		<div class="row">
-			<div class="col-md-6">
-				<div class="all">
-					<div class="slider">
-						<div class="owl-carousel owl-theme main">
-							<?php foreach ($images as $key => $value): ?>
-								<img src="./image/<?= $value ?>" class="item-box" alt="">
-							<?php endforeach; ?>
+		<form action="index.php?act=addtocart" method="post">
+			<div class="row">
+
+				<div class="col-md-6 ">
+					<div class="all">
+						<div class="slider">
+							<div class="owl-carousel owl-theme main">
+								<?php foreach ($images as $key => $value): ?>
+									<img src="./image/<?= $value ?>" class="item-box" alt="">
+								<?php endforeach; ?>
 
 
+							</div>
+							<div class="left nonl"><i class="ti-angle-left"></i></div>
+							<div class="right"><i class="ti-angle-right"></i></div>
 						</div>
-						<div class="left nonl"><i class="ti-angle-left"></i></div>
-						<div class="right"><i class="ti-angle-right"></i></div>
-					</div>
-					<div class="slider-two">
-						<div class="owl-carousel owl-theme thumbs">
-							<?php foreach ($images as $key => $value): ?>
-								<img src="./image/<?= $value ?>" class="<?= $key == 0 ? 'item active' : 'item' ?>" alt="">
-							<?php endforeach; ?>
+						<div class="slider-two">
+							<div class="owl-carousel owl-theme thumbs">
+								<?php foreach ($images as $key => $value): ?>
+									<img src="./image/<?= $value ?>" class="<?= $key == 0 ? 'item active' : 'item' ?>"
+										alt="">
+								<?php endforeach; ?>
 
 
+							</div>
+							<div class="left-t nonl-t"></div>
+							<div class="right-t"></div>
 						</div>
-						<div class="left-t nonl-t"></div>
-						<div class="right-t"></div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="breadcrumbs">
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Category</a></li>
-						<li>Page active</li>
-					</ul>
-				</div>
-				<!-- /page_header -->
-				<div class="prod_info">
-					<h1>
-						<?= $product_name ?>
-					</h1>
-					<span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-							class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><em>4
-							reviews</em></span>
-					<p><small>SKU: MTKRY-001</small><br> </p>
-					<div class="prod_options">
+				<div class="col-md-6 ">
+					<div class="breadcrumbs">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Category</a></li>
+							<li>Page active</li>
+						</ul>
+					</div>
+					<!-- /page_header -->
+					<div class="prod_info">
+						<h1>
+							<?= $product_name ?>
+						</h1>
+						<div class="prod_options">
 
-						<div class="row">
-							<label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong> <a
-									href="#0" data-bs-toggle="modal" data-bs-target="#size-modal"><i
-										class="ti-help-alt"></i></a></label>
-							<div class="col-xl-4 col-lg-5 col-md-6 col-6">
-								<div class="custom-select-form">
-									<select class="wide">
-										<option value="" selected>Small (S)</option>
-										<option value="">M</option>
-										<option value=" ">L</option>
-										<option value=" ">XL</option>
-									</select>
+
+
+							<div class="row">
+								<label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong></label>
+								<?php foreach ($loadall_pro_detail as $index => $value): ?>
+									<?php
+									extract($value);
+									$isOutOfStock = ($quantity == 0);
+									?>
+									<div class="col-xl-4 col-lg-5 col-md-6 col-6 w-8">
+										<div class="custom-select-form">
+											<label for="size<?= $size ?>"
+												class="sizeLabel <?= $isOutOfStock ? 'outOfStock' : '' ?>" <?= $isOutOfStock ? 'title="Hết hàng"' : '' ?>>
+												<?= $size ?>
+												<input type="radio" name="selected_size" value="<?= $size ?>"
+													id="size<?= $size ?>" class="checked" <?= $isOutOfStock ? 'disabled' : '' ?> onclick="showQuantity(<?= $quantity ?>)">
+											</label>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</div>
+
+							<div id="quantityDisplay">Số lượng còn trong kho: </div>
+
+							<div class="row">
+								<label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Số lượng </strong></label>
+								<div class="col-xl-4 col-lg-5 col-md-6 col-6">
+									<div class="numbers-row">
+										<input type="text" value="1" id="quantity_1" class="qty2"
+											name="selected_quantity">
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Quantity</strong></label>
-							<div class="col-xl-4 col-lg-5 col-md-6 col-6">
-								<div class="numbers-row">
-									<input type="text" value="1" id="quantity_1" class="qty2" name="quantity_1">
+
+
+						<div class="row d-flex">
+							<div class="col-lg-5 col-md-6">
+								<div class="price_main"><span class="new_price">$
+										<?= number_format($price, 0, '.', ',') ?>
+									</span></div>
+							</div>
+							<?php if ($user) { ?>
+								<div class="col-lg-4 col-md-6">
+									<div class="btn_add_to_cart"><input type="submit" name="addcart" id=""
+											value="Thêm vào giỏ hàng" class="btn_1">
+									</div>
 								</div>
-							</div>
+							<?php } else { ?>
+								<div class="col-lg-4 col-md-6">
+									<div class="btn_add_to_cart"><a href="index.php?act=account" class="btn_1">Add to
+											Cart</a>
+									</div>
+								</div>
+							<?php } ?>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-lg-5 col-md-6">
-							<div class="price_main"><span class="new_price">$
-									<?= number_format($price, 0, '.', ',') ?>
-								</span></div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="btn_add_to_cart"><a href="index.php?act=addtocart" class="btn_1">Add to Cart</a>
-							</div>
-						</div>
-					</div>
+
 				</div>
 
+
 			</div>
-		</div>
+			<input type="hidden" name="product_id" id="" value="<?= $product_id ?>">
+			<input type="hidden" name="product_name" id="" value="<?= $product_name ?>">
+			<input type="hidden" value="<?= $image ?>" name="img">
+
+			<input type="hidden" name="price" id="" value="<?= $price ?>">
+			<input type="hidden" name="size" id="" value="<?= $size ?>">
+			<input type="hidden" name="quantity" id="" value="<?= $quantity ?>">
+
+		</form>
+
 		<!-- /row -->
 	</div>
 	<!-- /container -->
@@ -174,7 +205,7 @@
 															<?= $content ?>
 														</td>
 														<td>
-															<?= $date_comment?>
+															<?= $date_comment ?>
 														</td>
 													</tr>
 													<?php
