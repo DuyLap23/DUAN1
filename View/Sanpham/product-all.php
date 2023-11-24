@@ -187,11 +187,13 @@
 
 
 					<ul class="pagination" id="pagination">
-						<li><a href="" class="prev" title="previous page">&#10094;</a></li>
+						<li><a href="index.php?act=sanpham&page=<?=$_GET['page']>1?$_GET['page']-1:1?>" class="prev" title="previous page">&#10094;</a></li>
 
 						<?php
-						$pagination = ceil(count($dssp) / $limit);
-						for ($i = 1; $i <= $pagination; $i++):
+            $Pagepagination = ceil($countsp / $limit);
+			
+
+						for ($i = 1; $i <= $Pagepagination; $i++):
 							?>
 							<li>
 								<a href="index.php?act=sanpham&page=<?= $i ?>" class="">
@@ -199,7 +201,7 @@
 								</a>
 							</li>
 						<?php endfor; ?>
-						<li><a href="" class="next" title="next page">&#10095;</a></li>
+						<li><a href="index.php?act=sanpham&page=<?=$_GET['page']<$Pagepagination?$_GET['page']+1:$_GET['page']?>" class="next" title="next page">&#10095;</a></li>
 					</ul>
 
 				</div>

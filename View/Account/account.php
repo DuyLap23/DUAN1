@@ -122,7 +122,7 @@
 									<div class="row no-gutters">
 										<div class="col-6 pl-1">
 											<div class="form-group">
-												<input type="text" class="form-control phone" name="phone" placeholder="Telephone *">
+												<input type="number" class="form-control phone" name="phone" placeholder="Telephone *">
 											</div>
 											<div class="err__login">
 												<div class="phone__err"></div>

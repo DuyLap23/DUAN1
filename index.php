@@ -81,17 +81,20 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             } else {
                 $idcate = 0;
             }
+
+
             
-            $limit=9;
-            $page= $_GET['page'] ??1;
-            $start=($page-1)*$limit;
-            $pagination=pagination( $start, $limit);
-            $dssp = loadall_sanpham($key, $idcate);
+            $limit = 3;
+            $page = $_GET['page'] ?? 1;
+            $start = ($page - 1) * $limit;
+            $countsp=count(loadall_sanpham($key, $idcate ,0,999999999));
+            $dssp = loadall_sanpham($key, $idcate ,$start,$limit);
             $tendm = load_ten_dm($idcate);
+           
             include "View/Sanpham/product-all.php";
             break;
-            
-         
+
+
         // đăng nhập đăng kí 
         case "account":
             // Đăng ký
@@ -203,15 +206,15 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
         // tất cả sản phẩm
         case 'deleteCart':
-            if (isset($_GET['idCart']) && ($_GET['idCart']> 0)) {
-                if(isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0))
-                array_splice($_SESSION['cart'], $_GET['idCart'], 1);
-          
-            }else{
+            if (isset($_GET['idCart']) && ($_GET['idCart'] > 0)) {
+                if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0))
+                    array_splice($_SESSION['cart'], $_GET['idCart'], 1);
+
+            } else {
                 if (isset($_SESSION['cart']))
-                unset($_SESSION['cart']);
+                    unset($_SESSION['cart']);
             }
-       
+
             if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
                 header('Location: index.php?act=viewCart');
             } else {

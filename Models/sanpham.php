@@ -19,7 +19,7 @@ function insert_sanpham($product_name, $image, $price, $description, $category_i
 
 }
 
-function loadall_sanpham($search = "", $category_id = 0)
+function loadall_sanpham($search = "", $category_id = 0,$start,$limit=2)
 {
 
     $sql = "select *from product where 1 ";
@@ -31,6 +31,8 @@ if ($category_id > 0) {
 }
 
     $sql .= " ORDER BY product_id DESC ";
+    $sql .= "limit $start,$limit";
+
 
 
     return pdo_query($sql);
@@ -121,10 +123,5 @@ function get_product_details($product_id) {
     return pdo_query($sql, $product_id);
 }
  
-function pagination($start, $limit){
-    
- $sql ="Select * from product LIMIT $start, $limit";
- return pdo_query($sql);
-}
 
 ?>
