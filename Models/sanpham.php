@@ -18,10 +18,11 @@ function insert_sanpham($product_name, $image, $price, $description, $category_i
 
 
 }
+
 function loadall_sanpham($search = "", $category_id = 0)
 {
 
-    $sql = "select *from product where 1";
+    $sql = "select *from product where 1 ";
 if ($search != "") {
     $sql .= " and product_name like '%" . $search . "%'";
 }
@@ -29,7 +30,7 @@ if ($category_id > 0) {
     $sql .= " and category_id= '" . $category_id . "'";
 }
 
-    $sql .= " ORDER BY product_id DESC";
+    $sql .= " ORDER BY product_id DESC ";
 
 
     return pdo_query($sql);
@@ -80,10 +81,10 @@ function loadall_sanpham_home()
     return pdo_query($sql);
 }
 
-function select_sp_cungloai($product_id, $category_id = "")
-{
-    $sql = "SELECT * FROM product WHERE category_id = ?  AND product_id <> ?";
-    return pdo_query($sql, $product_id, $category_id);
+function select_sp_cungloai($product_id,$category_id){
+    $sql = "select * from product where category_id=".$category_id." AND product_id <>".$product_id;
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
 }
 
 
@@ -119,7 +120,11 @@ function get_product_details($product_id) {
 
     return pdo_query($sql, $product_id);
 }
-
-
+ 
+function pagination($start, $limit){
+    
+ $sql ="Select * from product LIMIT $start, $limit";
+ return pdo_query($sql);
+}
 
 ?>

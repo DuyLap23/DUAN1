@@ -44,19 +44,19 @@
 				</thead>
 				<tbody id="cart">
 					<?php
-					
+
 					$tong = 0;
 					$i = 0;
-				
+
 					foreach ($_SESSION['cart'] as $key => $value):
 						extract($value);
 						$image = explode(',', $value[2])[0];
 						$ttien = $value[3] * $value[5];
 						$tong += $ttien;
 						$deleteCart = "index.php?act=deleteCart&idCart=" . $i;
-						$deleteAllCart = "index.php?act=deleteAllCart";
-					
-						
+
+
+
 
 						?>
 
@@ -68,10 +68,9 @@
 							</td>
 							<td>
 								<div class="thumb_cart">
-								
-										<img src="../image/<?= $image ?>" 
-										data-src="../image/<?= $image ?>" class="item-box" alt="">
-									
+
+									<img src="image/<?= $image ?>" data-src="../image/<?= $image ?>" class="item-box" alt="">
+
 								</div>
 							</td>
 
@@ -97,7 +96,9 @@
 								<?= number_format($ttien, 0, '.', ','); ?>
 							</td>
 							<td class="options">
-								<a href="<?= $deleteCart ?>" class="delete"><i class="ti-trash"></i></a>
+								<a href="<?= $deleteCart ?>" class="delete">
+									<i class="ti-trash"></i>
+								</a>
 							</td>
 						</tr>
 						<?php $i += 1; ?>
@@ -110,11 +111,11 @@
 						<td><span>
 								<?= number_format($tong, 0, '.', ','); ?>
 							</span> </td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>
-							<a href="<?= $deleteAllCart ?>">Xóa tất cả sản phẩm</a>
-
+							<a href="index.php?act=deleteCart">Xóa tất cả sản phẩm</a>
 						</td>
 					</tr>
 				</tbody>

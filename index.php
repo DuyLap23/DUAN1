@@ -25,21 +25,21 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
     switch ($act) {
 
         // chitietdm
-        case 'chitietdm':
-            if (isset($_GET['id_cate']) && ($_GET['id_cate'])) {
-                $category_id = $_GET['id_cate'];
+        // case 'chitietdm':
+        //     if (isset($_GET['id_cate']) && ($_GET['id_cate'])) {
+        //         $category_id = $_GET['id_cate'];
 
-            } else {
-                $category_id = 0;
-            }
-            // Box right tìm kiếm
+        //     } else {
+        //         $category_id = 0;
+        //     }
+        //     // Box right tìm kiếm
 
-            // Hiển thị sp theo danh mục và tìm kiếm tên sp
-            $slect_ma_loai = loadall_sanpham($key, $category_id);
-            $danhmucsp = load_ten_dm($category_id);
+        //     // Hiển thị sp theo danh mục và tìm kiếm tên sp
+        //     $slect_ma_loai = loadall_sanpham($key, $category_id);
+        //     $danhmucsp = load_ten_dm($category_id);
 
-            include "View/home/header.php";
-            break;
+        //     include "View/home/header.php";
+        //     break;
 
 
         // chi tiết sp 
@@ -51,7 +51,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $chitietsp = loadone_sanpham($product_id);
                 extract($chitietsp);
 
-                $sp_cung_loai = select_sp_cungloai($product_id);
+                $sp_cung_loai = select_sp_cungloai($product_id, $category_id);
                 $load_all_binhluan = loadall__comment__Byid($product_id);
                 $loadall_pro_detail = get_product_details($product_id);
 
@@ -81,10 +81,17 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             } else {
                 $idcate = 0;
             }
+            
+            $limit=9;
+            $page= $_GET['page'] ??1;
+            $start=($page-1)*$limit;
+            $pagination=pagination( $start, $limit);
             $dssp = loadall_sanpham($key, $idcate);
             $tendm = load_ten_dm($idcate);
             include "View/Sanpham/product-all.php";
             break;
+            
+         
         // đăng nhập đăng kí 
         case "account":
             // Đăng ký
@@ -196,18 +203,24 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
         // tất cả sản phẩm
         case 'deleteCart':
-            if (isset($_GET['idCart'])) {
-                array_slice($_SESSION['cart'], $_GET['idCart'], 1);
-            } else {
-                $_SESSION['cart'] = [];
-            }
-            header('Location: index.php?act=viewCart');
-            break;
-        case 'deleteAllCart':
-            if (isset($_GET['cart']))
+            if (isset($_GET['idCart']) && ($_GET['idCart']> 0)) {
+                if(isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0))
+                array_splice($_SESSION['cart'], $_GET['idCart'], 1);
+          
+            }else{
+                if (isset($_SESSION['cart']))
                 unset($_SESSION['cart']);
-            header('Location: index.php?act=index.php');
+            }
+       
+            if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
+                header('Location: index.php?act=viewCart');
+            } else {
+                header('Location: index.php');
+            }
             break;
+
+
+
 
         default:
             include "View/Home/home.php";

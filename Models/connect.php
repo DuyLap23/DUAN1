@@ -49,19 +49,15 @@ function pdo_execute_return_lastInsertID($sql = "", ...$sql_args)
 }
 
 // Hàm truy vấn nhiều dữ liệu
-function pdo_query($sql){
-    $sql_args = array_slice(func_get_args(), 1);
-    try{
+function pdo_query($sql, ...$sql_args) {
+    try {
         $conn = Pdo_get_connection();
-        $stmt = $conn -> prepare($sql);
-        $stmt -> execute($sql_args);
-        $rows = $stmt -> fetchAll();
-        return $rows;
-    }
-    catch(PDOException $e){
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
         throw $e;
-    }
-    finally{
+    } finally {
         unset($conn);
     }
 }

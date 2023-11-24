@@ -111,17 +111,17 @@
 				<?php extract($value);
 				?>
 
-				<div class="col-sl-6 col-md-4 col-xl-3">
+				<div class="col-sl-6 col-md-4 col-xl-3 pb-4">
 					<form action="index.php?act=addtocart" method="post" class="">
 
 						<div class="grid_item boxsp">
 							<span class="ribbon new">New</span>
 							<figure>
 								<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
-									<img class="img-fluid lazy " src="../image/<?= explode(',', $image)[0] ?>"
-										data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
-									<img class="img-fluid lazy" src="../image/<?= explode(',', $image)[0] ?>"
-										data-src="../image/<?= explode(',', $image)[0] ?>" alt="">
+									<img class="img-fluid lazy " src="image/<?= explode(',', $image)[0] ?>"
+										data-src="image/<?= explode(',', $image)[0] ?>" alt="">
+									<img class="img-fluid lazy" src="image/<?= explode(',', $image)[0] ?>"
+										data-src="image/<?= explode(',', $image)[0] ?>" alt="">
 								</a>
 							</figure>
 							<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">

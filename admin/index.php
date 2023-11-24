@@ -147,8 +147,15 @@ if (isset($_GET['act'])) {
 
                 if(isset($_FILES['image']['name']))
                 
+                if($_FILES['image']['name'] == "")
+                {
+                    $imgUpdate = explode(',', $_POST['img']);
+                }
+                else{
                     $imgUpdate = array_merge($_FILES['image']['name'], explode(',', $_POST['img']));
                     $imgUpdate = implode(',', $imgUpdate);
+                }
+                    
                 
                
 

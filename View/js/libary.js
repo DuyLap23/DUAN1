@@ -25,36 +25,36 @@ $(document).ready(function () {
 
   
     // xoa
-    $(".delete").click(function (e) {
-        e.preventDefault();
+    // $(".delete").click(function (e) {
+    //     e.preventDefault();
 
-        var tr = $(this).parent().parent();
-        var product_name = tr.children("td").eq(0).text();
-        tr.remove();
-        // cap nhat so luong 
-        quantity();
-        // cap nhat lai tong 
-        tongDonHang();
-        // taoj hieu ung cho icon gio hang 
-        $(".cart_bt").addClass("cart_aini");
-        setTimeout(function () { $(".cart_bt").removeClass("cart_aini");; }, 500);
+    //     var tr = $(this).parent().parent();
+    //     var product_name = tr.children("td").eq(0).text();
+    //     tr.remove();
+    //     // cap nhat so luong 
+    //     quantity();
+    //     // cap nhat lai tong 
+    //     tongDonHang();
+    //     // taoj hieu ung cho icon gio hang 
+    //     $(".cart_bt").addClass("cart_aini");
+    //     setTimeout(function () { $(".cart_bt").removeClass("cart_aini");; }, 500);
 
 
-    });
+    // });
 
-    // tang sl 
-    $(".qty2").change(function (e) {
-        e.preventDefault();
+    // // tang sl 
+    // $(".qty2").change(function (e) {
+    //     e.preventDefault();
 
-        var sl = $(this).val();
-        var tr = $(this).parent().parent().parent();
-        var tensp = tr.children("td").eq(0).text();
-        var dongia = tr.children("td").eq(2).text();
-        var tt = dongia * sl;
-        tr.children("td").eq(5).text(tt);
-        tongDonHang();
+    //     var sl = $(this).val();
+    //     var tr = $(this).parent().parent().parent();
+    //     var tensp = tr.children("td").eq(0).text();
+    //     var dongia = tr.children("td").eq(2).text();
+    //     var tt = dongia * sl;
+    //     tr.children("td").eq(5).text(tt);
+    //     tongDonHang();
 
-    });
+    // });
 
     // thêm vào giỏ hàng 
     // $(".addtocart").click(function (e) {

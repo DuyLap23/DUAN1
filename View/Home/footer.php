@@ -120,6 +120,7 @@
 	<script src="View/js/main.js"></script>
 
 	<!-- SPECIFIC SCRIPTS -->
+
 	<script src="View/js/carousel-home.min.js"></script>
 	<script src="View/js/sticky_sidebar.min.js"></script>
 	<script src="View/js/specific_listing.js"></script>
@@ -127,6 +128,7 @@
 	<script src="View/js/carousel-home.js"></script>
     <script  src="View/js/carousel_with_thumbs.js"></script>
     <script  src="View/js/account.js"></script>
+    <script  src="View/js/slide.js"></script>
 											
 	<script>
 		// Sticky sidebar
@@ -136,21 +138,7 @@
 			additionalMarginTop: 90
 		});
 	</script>
-	<script>
-  $( function() {
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 0,
-      max: 500,
-      values: [ 0,500  ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-  } );
-  </script>
+	
 </body>
 
 </html>
