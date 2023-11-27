@@ -27,8 +27,8 @@
         return pdo_query($sql);
     }
 
-    function load__all__binhluanadmin() {
-        $sql = "SELECT * FROM comments WHERE 1 ORDER BY comment_id DESC";
+    function load__all__binhluanadmin($start, $limit) {
+        $sql = "SELECT * FROM comments WHERE 1 ORDER BY comment_id DESC limit $start,$limit";
         return pdo_query($sql);
     }
 

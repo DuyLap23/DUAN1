@@ -129,6 +129,8 @@
     <script  src="View/js/carousel_with_thumbs.js"></script>
     <script  src="View/js/account.js"></script>
     <script  src="View/js/slide.js"></script>
+    <script  src="View/js/libary.js"></script>
+
 											
 	<script>
 		// Sticky sidebar
@@ -138,7 +140,15 @@
 			additionalMarginTop: 90
 		});
 	</script>
-	
+	 <script>
+    	// Other address Panel
+		$('#other_addr input').on("change", function (){
+	        if(this.checked)
+	            $('#other_addr_c').fadeIn('fast');
+	        else
+	            $('#other_addr_c').fadeOut('fast');
+	    });
+	</script>
 </body>
 
 </html>

@@ -97,19 +97,14 @@
 										<?= number_format($price, 0, '.', ',') ?>
 									</span></div>
 							</div>
-							<?php if ($user) { ?>
+							
 								<div class="col-lg-4 col-md-6">
 									<div class="btn_add_to_cart"><input type="submit" name="addcart" id=""
 											value="Thêm vào giỏ hàng" class="btn_1">
 									</div>
 								</div>
-							<?php } else { ?>
-								<div class="col-lg-4 col-md-6">
-									<div class="btn_add_to_cart"><a href="index.php?act=account" class="btn_1">Add to
-											Cart</a>
-									</div>
-								</div>
-							<?php } ?>
+						
+						
 						</div>
 					</div>
 
@@ -135,10 +130,10 @@
 		<div class="container">
 			<ul class="nav nav-tabs" role="tablist">
 				<li class="nav-item">
-					<a id="tab-A" href="#pane-A" class="nav-link active" data-bs-toggle="tab" role="tab">Description</a>
+					<a id="tab-A" href="#pane-A" class="nav-link active" data-bs-toggle="tab" role="tab">Mô tả</a>
 				</li>
 				<li class="nav-item">
-					<a id="tab-B" href="#pane-B" class="nav-link" data-bs-toggle="tab" role="tab">Reviews</a>
+					<a id="tab-B" href="#pane-B" class="nav-link" data-bs-toggle="tab" role="tab">Đánh giá</a>
 				</li>
 			</ul>
 		</div>

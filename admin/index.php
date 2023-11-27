@@ -66,10 +66,11 @@ if (isset($_GET['act'])) {
         case 'deletedm':
             if (isset($_GET['id_cate']) && ($_GET['id_cate'] > 0)) {
                 $id_category = $_GET['id_cate'];
-                delete_categories($_GET['id_cate']);
+               
+                delete_categories($id_category);
             }
             $sellect_categories = sellect_all_categories();
-            include "Danhmuc/list.php";
+            header('location: index.php?act=listdm');   
             break;
 
 
@@ -82,7 +83,12 @@ if (isset($_GET['act'])) {
                 $search = '';
                 $category_id = 0;
             }
-            $listsanpham = loadall_sanpham($search, $category_id);
+            $limit = 5;
+            $page = $_GET['page'] ?? 1;
+            $start = ($page - 1) * $limit;
+            $countsp = count(loadall_sanpham($search, $category_id, 0, 999999999));
+            $listsanpham = loadall_sanpham($search, $category_id, $start, $limit);
+           
             $sellect_categories = sellect_all_categories();
 
             include "Sanpham/list.php";
@@ -115,9 +121,9 @@ if (isset($_GET['act'])) {
             if (isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
                 delete_sanpham($_GET['id_sp']);
             }
-            $listsanpham = loadall_sanpham("", 0);
-            ;
-            include "Sanpham/list.php";
+            
+            header('location: index.php?act=listsp');
+            
             break;
 
         // edit sp 
@@ -171,7 +177,11 @@ if (isset($_GET['act'])) {
 
         // Bình Luận
         case 'listbinhluan':
-            $liastBinhluan = load__all__binhluanadmin();
+            $limit = 5;
+            $page = $_GET['page'] ?? 1;
+            $start = ($page - 1) * $limit;
+            $countsp = count(load__all__binhluanadmin( 0, 999999999));
+            $liastBinhluan = load__all__binhluanadmin( $start, $limit);
             include "Binhluan/list.php";
             break;
 

@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="path/to/boxicons.min.css">
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/listing.css">
+	<link rel="stylesheet" href="css/liststyle.css">
 
 	<title>AdminHub</title>
 </head>

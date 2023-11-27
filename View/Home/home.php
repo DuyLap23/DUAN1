@@ -107,7 +107,7 @@
 			<p>Chúng tôi luôn cập nhật những sản phẩm mới cho quý khách hàng lựa chọn</p>
 		</div>
 		<div class="row small-gutters">
-			<?php foreach ($loadall_sanpham as $key => $value): ?>
+			<?php foreach($loadall_sanpham as $key => $value): ?>
 				<?php extract($value);
 				?>
 
@@ -130,9 +130,9 @@
 								</h3>
 							</a>
 							<div class="price_box">
-								<span class="new_price">$
+								<span class="new_price">
 									<?=
-										number_format($price, 0, '.', ','); ?>
+										number_format($price, 0, '.', ','); ?> VND
 								</span>
 							</div>
 						</div>

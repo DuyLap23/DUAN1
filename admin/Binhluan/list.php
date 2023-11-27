@@ -55,6 +55,26 @@
    
             </tbody>    
         </table>
+        <div class="pagination__wrapper">
+
+                <ul class="pagination">
+                    <li><a href="index.php?act=listbinhluan&page=<?= $page > 1 ? $page - 1 : 1 ?>" class="prev"
+                            title="Trang trước">&#10094;</a></li>
+                    <?php
+                    $Pagepagination = ceil($countsp / $limit);
+
+                    for($i = 1; $i <= $Pagepagination; $i++):
+                        ?>
+                        <li>
+                            <a href="index.php?act=listbinhluan&page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>">
+                                <?= $i ?>
+                            </a>
+                        </li>
+                    <?php endfor; ?>
+                    <li><a href="index.php?act=listbinhluan&page=<?= $page < $Pagepagination ? $page + 1 : $page ?>"
+                            class="next" title="Trang tiếp theo">&#10095;</a></li>
+                </ul>
+            </div>
        
     </div>
 

@@ -24,22 +24,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
     $act = $_GET['act'];
     switch ($act) {
 
-        // chitietdm
-        // case 'chitietdm':
-        //     if (isset($_GET['id_cate']) && ($_GET['id_cate'])) {
-        //         $category_id = $_GET['id_cate'];
 
-        //     } else {
-        //         $category_id = 0;
-        //     }
-        //     // Box right tìm kiếm
-
-        //     // Hiển thị sp theo danh mục và tìm kiếm tên sp
-        //     $slect_ma_loai = loadall_sanpham($key, $category_id);
-        //     $danhmucsp = load_ten_dm($category_id);
-
-        //     include "View/home/header.php";
-        //     break;
 
 
         // chi tiết sp 
@@ -81,16 +66,14 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             } else {
                 $idcate = 0;
             }
-
-
-            
-            $limit = 3;
+            $limit = 8;
             $page = $_GET['page'] ?? 1;
             $start = ($page - 1) * $limit;
-            $countsp=count(loadall_sanpham($key, $idcate ,0,999999999));
-            $dssp = loadall_sanpham($key, $idcate ,$start,$limit);
+            $dssp = loadall_sanpham($key, $idcate, $start, $limit);
+            $countsp = count(loadall_sanpham($key, $idcate, 0, 999999999));
+
             $tendm = load_ten_dm($idcate);
-           
+
             include "View/Sanpham/product-all.php";
             break;
 
@@ -152,10 +135,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
             include "View/Account/userAccount.php";
             break;
         case "viewCart":
-            if (!$user) {
-                header("location:index.php?act=account");
-                die;
-            }
+           
             include "View/Giohang/cart.php";
             break;
 
@@ -166,11 +146,15 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $product_id = $_POST['product_id'];
                 $product_name = $_POST['product_name'];
                 $price = $_POST['price'];
+                // nếu có thêm từ trang chủ thì size sẽ để trống 
+                // nếu có tồn tại size (thêm từ trang chi tiết)thì sẽ hiển thị size ng dùng thêm 
                 if (isset($_POST['selected_size']) && ($_POST['selected_size'] != "")) {
                     $size = $_POST['selected_size'];
                 } else {
-                    $size = "";
+                    $size = "S";
                 }
+                      // nếu có thêm từ trang chủ thì sl sẽ để trống 
+                // nếu có tồn tại sl (thêm từ trang chi tiết)thì sẽ hiển thị sl ng dùng thêm 
                 if (isset($_POST['selected_quantity']) && ($_POST['selected_quantity'] > 0)) {
                     $quantity = $_POST['selected_quantity'];
                 } else {
@@ -181,6 +165,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
                 $fg = 0;
                 $i = 0;
+                // check sp trùng nếu có thì +sl 
                 foreach ($_SESSION['cart'] as $key => $value):
                     if ($value[0] == $product_id && $value[4] == $size) {
                         $newQuantity = $value[5] + $quantity;
@@ -206,24 +191,56 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
 
         // tất cả sản phẩm
         case 'deleteCart':
+            // nếu tồn tại $idcate và đc click thì sẽ xóa 1 sp trong giỏ 
             if (isset($_GET['idCart']) && ($_GET['idCart'] > 0)) {
                 if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0))
                     array_splice($_SESSION['cart'], $_GET['idCart'], 1);
-
+                // ngược lại sẽ xóa cả giỏ hàng 
             } else {
                 if (isset($_SESSION['cart']))
                     unset($_SESSION['cart']);
             }
-
+            // nếu có session['cart'] thì ở lại trang giỏ hàng 
             if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
                 header('Location: index.php?act=viewCart');
+                // nếu k có session cart thì trở về trang chủ
             } else {
                 header('Location: index.php');
             }
             break;
+            case 'checkout':
+                include "View/Checkout/checkout.php";
+                break;
+            case 'bill':
+                // tạo bill 
+                if(isset($_POST['bill_Comfirm'])){
+                    $id_user =$_SESSION['user_id'];
+                      
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $tel = $_POST['tel'];
+                    $payment = $_POST['payment'];
+                    $ngaydathang= date('Y-m-d');
+                    $tongdonhang = tongdonhang();
+                    
+                    $idbill = insert_bill($id_user,$name,$email,$address,$tel,$payment,$ngaydathang,$tongdonhang);
+                
 
+                //    insert into cart : session['cart']& $idbill 
+                    foreach($_SESSION['cart'] as $key => $value){
+                        insert_cart($_SESSION['user_id'],$value[0],$image,$value[5],$value[3],$value[1],$value[4],$tongdonhang,$idbill);
+                    }
+                    // xóa ss
+                    $_SESSION['cart'] = [];
 
-
+                }
+                $bill = select__billByid($idbill);
+                
+                $bill_detail = select__billDetailByid($idbill);
+                include "View/Checkout/comfirm.php";
+                break;
+              
 
         default:
             include "View/Home/home.php";

@@ -1,0 +1,160 @@
+<?php
+function viewCart() {
+
+    $tong = 0;
+    $i = 0;
+
+    foreach($_SESSION['cart'] as $key => $value) {
+        extract($value);
+        $image = explode(',', $value[2])[0];
+        $ttien = $value[3] * $value[5];
+        $tong += $ttien;
+        $deleteCart = "index.php?act=deleteCart&idCart=".$i;
+        echo '<tr>
+                        <td>
+                            <span class="item_cart mb-4">
+                                '.$value[1].'
+                            </span>
+                        </td>
+                        <td>
+                            <div class="thumb_cart">
+
+                                <img src="../image/'.$image.'" data-src="../image/'.$image.'" class="item-box" alt="">
+
+                            </div>
+                        </td>
+
+
+                        <td>
+                            '.number_format($value[3], 0, '.', ',').'
+                        </td>
+                        <td>
+                            '.$value[4].'
+                        </td>
+                        <!-- số lượng  -->
+                        <td>
+                            <div class="numbers">
+                                <input type="number" value="'.$value[5].'" id="quantity_1" class="qty2" name="quantity_1"
+                                    min="1" max="100">
+
+                            </div>
+
+
+                        </td>
+                        <!-- tổng  -->
+                        <td id="total">
+                            '.number_format($ttien, 0, '.', ',').'
+                        </td>
+                        <td class="options">
+                            <a href="'.$deleteCart.'" class="delete">
+                                <i class="ti-trash"></i>
+                            </a>
+                        </td>
+                    </tr>';
+
+
+        $i += 1;
+
+    }
+}
+function show_bill_details($listbill) {
+
+    $tong = 0;
+    $i = 0;
+
+    foreach($listbill as $key => $value) {
+        extract($value);
+        $image = explode(',', $value[2])[0];
+      
+        $tong += $value['total'];
+        
+        echo '<tr>
+                        <td>
+                            <span class="item_cart mb-4">
+                                '.$value['name'].'
+                            </span>
+                        </td>
+                        <td>
+                            <div class="thumb_cart">
+
+                                <img src="../image/'.$image.'" data-src="../image/'.$image.'" class="item-box" alt="">
+
+                            </div>
+                        </td>
+
+
+                        <td>
+                            '.number_format($value['price'], 0, '.', ',').'
+                        </td>
+                        <td>
+                            '.$value['size'].'
+                        </td>
+                        <!-- số lượng  -->
+                        <td>
+                            <div class="numbers">
+                                <input type="number" value="'.$value['quantity'].'" id="quantity_1" class="qty2" name="quantity_1"
+                                    min="1" max="100">
+
+                            </div>
+
+
+                        </td>
+                        <!-- tổng  -->
+                        <td id="total">
+                            '.number_format($value['total'], 0, '.', ',').'
+                        </td>
+                        
+                    </tr>';
+
+
+        $i += 1;
+
+    }
+}
+
+function tongdonhang() {
+    $Tongthanhtoan = 0;
+    $tong = 0;
+
+    foreach($_SESSION['cart'] as  $value) {
+        extract($value);
+        $ttien = $value[3] * $value[5];
+        $tong += $ttien;
+        $Tongthanhtoan = $tong + 29000;
+    }
+    return $Tongthanhtoan;
+}
+
+function insert_bill($id_user,$name, $email, $address, $tel, $ngaydathang, $payment, $tongdonhang) {
+    $sql = "insert into bill(id_user,name,email,address,tel,date,payment,total) values('$id_user','$name','$email','$address','$tel','$ngaydathang','$payment','$tongdonhang')";
+    return pdo_execute_return_lastInsertID($sql);
+}
+function insert_cart($id_user, $product_id, $image, $quantity, $price, $name, $size, $total, $id_bill) {
+    $sql = "insert into cart (id_user,product_id,image,quantity,price,name,size,total,id_bill) values('$id_user','$product_id','$image','$quantity','$price','$name','$size','$total','$id_bill')";
+    return pdo_execute($sql);
+}
+function select__billByid($idbill) {
+    $sql = "select * from bill where id_bill =".$idbill;
+  $bill= pdo_query_one($sql);
+  return $bill;
+}
+function select__billDetailByid($idbill) {
+    $sql = "select * from cart where id_bill =".$idbill;
+    $bill= pdo_query($sql);
+    return $bill;
+}
+// Hàm cập nhật tổng giá và lưu vào session
+function updateTotalPriceAndSaveToSession() {
+    $total = 0;
+
+    // Duyệt qua từng sản phẩm trong giỏ hàng
+    foreach ($_SESSION['cart'] as $key => $value) {
+        $quantity = $value[5];
+        $price = $value[3];
+        $total += $quantity * $price;
+    }
+
+    // Lưu tổng giá vào session
+    $_SESSION['cart_total'] = $total;
+}
+?>

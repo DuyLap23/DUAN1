@@ -12,10 +12,8 @@
 			<h1>Cart page</h1>
 		</div>
 		<!-- /page_header -->
-		<?php
-		if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
-			# code...
-			?>
+		
+		
 			<table class="table table-striped cart-list">
 
 				<thead>
@@ -53,6 +51,7 @@
 						$image = explode(',', $value[2])[0];
 						$ttien = $value[3] * $value[5];
 						$tong += $ttien;
+						
 						$deleteCart = "index.php?act=deleteCart&idCart=" . $i;
 
 
@@ -84,6 +83,7 @@
 							<!-- số lượng  -->
 							<td>
 								<div class="numbers">
+									
 									<input type="number" value="<?= $value[5] ?>" id="quantity_1" class="qty2" name="quantity_1"
 										min="1" max="100">
 
@@ -106,13 +106,7 @@
 
 				</tbody>
 				<tbody id="tongdonhang">
-					<tr>
-						<td colspan="5">Tổng Tiền</td>
-						<td><span>
-								<?= number_format($tong, 0, '.', ','); ?>
-							</span> </td>
-						<td></td>
-					</tr>
+					
 					<tr>
 						<td>
 							<a href="index.php?act=deleteCart">Xóa tất cả sản phẩm</a>
@@ -120,12 +114,6 @@
 					</tr>
 				</tbody>
 			</table>
-		<?php } else {
-			echo '<h3>Giỏ hàng trống</h3>';
-		} ?>
-
-
-
 	</div>
 	<!-- /container -->
 
@@ -135,16 +123,11 @@
 				<div class="col-xl-4 col-lg-4 col-md-6">
 					<ul>
 						<li>
-							<span>Subtotal</span> $240.00
+							<span>Tổng Tiền</span> <?= number_format($tong, 0, '.', ','); ?>VND
 						</li>
-						<li>
-							<span>Shipping</span> $7.00
-						</li>
-						<li>
-							<span>Total</span> $247.00
-						</li>
+						
 					</ul>
-					<a href="cart-2.html" class="btn_1 full-width cart">Proceed to Checkout</a>
+					<a href="index.php?act=checkout" class="btn_1 full-width cart">Tiến hành thanh toán </a>
 				</div>
 			</div>
 		</div>
