@@ -7,7 +7,6 @@ require "../Models/danhmuc.php";
 require "../Models/account.php";
 require "../Models/sanpham.php";
 require "../Models/binhluan.php";
-require "../Models/khachhang.php";
 require "../Models/cart.php";
 
 if (isset($_GET['act'])) {
@@ -15,6 +14,9 @@ if (isset($_GET['act'])) {
     switch ($act) {
 
         case 'home':
+          $count_bill = count_bill();
+          $count_account=count_account();
+            $loadAll_bill_home=loadAll_bill_home(0);
             include "home.php";
             break;
 
@@ -83,6 +85,8 @@ if (isset($_GET['act'])) {
                 $search = '';
                 $category_id = 0;
             }
+            $sellect_one_categories=sellect_one_categories($category_id);
+            extract($sellect_one_categories);
             $limit = 5;
             $page = $_GET['page'] ?? 1;
             $start = ($page - 1) * $limit;
@@ -90,7 +94,8 @@ if (isset($_GET['act'])) {
             $listsanpham = loadall_sanpham($search, $category_id, $start, $limit);
            
             $sellect_categories = sellect_all_categories();
-
+          
+           
             include "Sanpham/list.php";
             break;
 
@@ -194,7 +199,7 @@ if (isset($_GET['act'])) {
             }
             delete_binhluan($idkhachhang);
             header('Location:' . $_SERVER['HTTP_REFERER']);
-            include "Binhluan/delete.php";
+            // include "Binhluan/delete.php";
             break;
 
 
@@ -214,10 +219,11 @@ if (isset($_GET['act'])) {
             }
             deleteAccount($idkhachhang);
             header('Location: index.php?act=listkhachhang');
-            die;
+            
             break;
         // Đơn Hàng
         case 'listdonhang':
+            $loadAll_bill =loadAll_bill(0);
             include "Qldonhang/list.php";
             break;
 

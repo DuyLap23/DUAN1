@@ -35,4 +35,10 @@
         $sql = "DELETE FROM users WHERE user_id = '$id'";
         pdo_execute($sql);
     }
+    function count_account() {
+        $sql = "SELECT COUNT(*) AS 'count'
+        FROM users";
+        return pdo_query($sql);
+    }
+    
 ?>

@@ -26,35 +26,60 @@
         if(isset($bill) && (is_array($bill))) {
             extract($bill);
         } ?>
-        <h4>Thông tin đơn hàng </h4>
+        <h4><strong>Thông tin đơn hàng </strong></h4>
         <div>
-            <li>Mã đơn hàng :
+            <li>
+                <strong>
+                    <em>Mã đơn hàng :</em>
+                </strong>
                 <?= $bill['id_bill'] ?>
             </li>
-            <li>Ngày đặt hàng :
+            <li>
+                <strong>
+                    <em>Ngày đặt hàng :</em>
+                </strong>
                 <?= $bill['date'] ?>
             </li>
 
-            <li>phương thức thanh toán :
+            <li>
+                <strong>
+                    <em>phương thức thanh toán :</strong>
+                </em>
                 <?= $bill['payment'] ?>
             </li>
-            <li>Tổng đơn hàng :
-                <?= $bill['total'] ?>
+            <li>
+                <strong>
+                    <em>Tổng đơn hàng :</em>
+                </strong>
+                <?= number_format($bill['total'], 0, '.', ',') ?> VND
             </li>
         </div>
         <hr>
-        <h4>Thông tin người mua </h4>
+        <h4><strong>Thông tin người mua </strong></h4>
         <div>
-            <li>Tên người mua:
+            <li>
+                <strong>
+                    <em>Tên người mua:</em>
+                </strong>
                 <?= $bill['name'] ?>
             </li>
-            <li>Địa chỉ:
+            <li>
+                <strong>
+                    <em>Địa chỉ:</em>
+                </strong>
                 <?= $bill['address'] ?>
             </li>
-            <li>Số điện thoại: 0
+            <li>
+                <strong>
+                    <em>Số điện thoại: </em>
+                </strong>
+                0
                 <?= $bill['tel'] ?>
             </li>
-            <li>Email:
+            <li>
+                <strong>
+                    <em>Email:</em>
+                </strong>
                 <?= $bill['email'] ?>
             </li>
 
@@ -72,7 +97,7 @@
                     <th>Size</th>
                     <th>Số lượng</th>
                     <th>Tổng tiền</th>
-                  
+
                 </tr>
             </thead>
             <hr>
@@ -83,7 +108,7 @@
 
                 foreach($bill_detail as $key => $value) {
                     extract($value);
-                    $image = explode(',', $image)[0];
+
 
                     $tong += $value['total'];
 
@@ -96,7 +121,7 @@
                                    <td>
                                        <div class="thumb_cart">
            
-                                           <img src="image/'.$image.'" data-src="image/'.$image.'" class="item-box" alt="">
+                                           <img src="image/'.explode(',', $image)[0].'" data-src="image/'.explode(',', $image)[0].'" class="item-box" alt="">
            
                                        </div>
                                    </td>

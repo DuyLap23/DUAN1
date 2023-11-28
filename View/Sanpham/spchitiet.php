@@ -13,7 +13,7 @@
 					<div class="all">
 						<div class="slider">
 							<div class="owl-carousel owl-theme main">
-								<?php foreach ($images as $key => $value): ?>
+								<?php foreach($images as $key => $value): ?>
 									<img src="./image/<?= $value ?>" class="item-box" alt="">
 								<?php endforeach; ?>
 
@@ -24,7 +24,7 @@
 						</div>
 						<div class="slider-two">
 							<div class="owl-carousel owl-theme thumbs">
-								<?php foreach ($images as $key => $value): ?>
+								<?php foreach($images as $key => $value): ?>
 									<img src="./image/<?= $value ?>" class="<?= $key == 0 ? 'item active' : 'item' ?>"
 										alt="">
 								<?php endforeach; ?>
@@ -55,7 +55,7 @@
 
 							<div class="row">
 								<label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong></label>
-								<?php foreach ($loadall_pro_detail as $index => $value): ?>
+								<?php foreach($loadall_pro_detail as $index => $value): ?>
 									<?php
 									extract($value);
 									$isOutOfStock = ($quantity == 0);
@@ -97,14 +97,21 @@
 										<?= number_format($price, 0, '.', ',') ?>
 									</span></div>
 							</div>
-							
+							<?php if($user) { ?>
 								<div class="col-lg-4 col-md-6">
 									<div class="btn_add_to_cart"><input type="submit" name="addcart" id=""
 											value="Thêm vào giỏ hàng" class="btn_1">
 									</div>
 								</div>
-						
-						
+							<?php } else { ?>
+								<div class="col-lg-4 col-md-6">
+									<div class="btn_add_to_cart">
+										<a href="index.php?act=account" class="btn_1">Thêm vào giỏ hàng</a>
+									</div>
+								</div>
+							<?php } ?>
+
+
 						</div>
 					</div>
 
@@ -180,8 +187,6 @@
 					</div>
 					<div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
 						<main>
-
-
 							<div class="container margin_60_35">
 								<form action="index.php?act=chitietsp" method="post">
 									<div class="row justify-content-center">
@@ -193,7 +198,7 @@
 													<th>Ngày bình luận</th>
 												</tr>
 												<?php
-												foreach ($load_all_binhluan as $binhluan) {
+												foreach($load_all_binhluan as $binhluan) {
 													extract($binhluan);
 													?>
 													<tr>
@@ -214,7 +219,7 @@
 											<div class="write_review">
 
 												<?php
-												if ($user) {
+												if($user) {
 													?>
 													<div class="form-group">
 														<label>Đánh giá của bạn</label>
@@ -260,7 +265,7 @@
 
 		</div>
 		<div class="owl-carousel owl-theme products_carousel">
-			<?php foreach ($sp_cung_loai as $key => $value):
+			<?php foreach($sp_cung_loai as $key => $value):
 				extract($value);
 				?>
 				<div class="item">
@@ -304,5 +309,5 @@
 	</div>
 	<!-- /container -->
 
-	
+
 </main>

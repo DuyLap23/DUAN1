@@ -7,17 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="Ansonika">
-	<title>Allaia | Bootstrap eCommerce Template - ThemeForest</title>
+	<title>Unique | Vẻ đẹp của bạn , phong cách của chúng tôi </title>
 
 	<!-- Favicons-->
-	<link rel="shortcut icon" href="View/img/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" type="image/x-icon" href="View/img/apple-touch-icon-57x57-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
-		href="View/img/apple-touch-icon-72x72-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
-		href="View/img/apple-touch-icon-114x114-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
-		href="View/img/apple-touch-icon-144x144-precomposed.png">
+	<link rel="shortcut icon" href="image/Rectangle223.png" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="image/logo.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="image/logo.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="image/logo.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="image/logo.png">
 
 	<!-- GOOGLE WEB FONT -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,7 +62,7 @@
 					<div class="row small-gutters">
 						<div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
 							<div id="logo">
-								<a href="index.php"><img src="View/img/logo.svg" alt="" width="100" height="35"></a>
+								<a href="index.php"><img src="image/Rectangle223.png" alt="" width="50" height="50"></a>
 							</div>
 						</div>
 						<nav class="col-xl-6 col-lg-7">
@@ -79,8 +76,7 @@
 							<!-- Mobile menu button -->
 							<div class="main-menu">
 								<div id="header_menu">
-									<a href="index.php"><img src="View/img/logo_black.svg" alt="" width="100"
-											height="35"></a>
+									<a href="index.php"><img src="image/logo.svg" alt="" width="100" height="35"></a>
 									<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 								</div>
 								<ul>
@@ -93,14 +89,14 @@
 									<li class="">
 										<a href="javascript:void(0);" class="show-submenu">Extra Pages</a>
 									</li>
-		
+
 								</ul>
 							</div>
 							<!--/main-menu -->
 						</nav>
 						<div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-end">
 							<a class="phone_top" href="tel://0343014882"><strong><span>Cần Hỗ Trợ</span>0343014882
-									</strong></a>
+								</strong></a>
 						</div>
 					</div>
 					<!-- /row -->
@@ -170,7 +166,7 @@
 												$tong = 0;
 												foreach($_SESSION['cart'] as $key => $value):
 													extract($value);
-													$image = explode(',', $value[2])[0];
+
 													$ttien = $value[3] * $value[5];
 													$tong += $ttien;
 													$Tongthanhtoan = $tong + 29000;
@@ -181,9 +177,9 @@
 
 													<li>
 														<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
-															<figure><img src="../image/<?= $image ?>"
-																	data-src="../image/<?= $image ?>" alt="" width="50"
-																	height="50" class="lazy"></figure>
+															<figure><img src="./image/<?= explode(',', $value[2])[0]; ?>"
+																	data-src="./image/<?= explode(',', $value[2])[0]; ?>"
+																	alt="" width="50" height="50" class="lazy"></figure>
 															<strong><span>
 																	<?= $value[5]; ?> x
 																	<?= $value[4] ?> x
@@ -229,6 +225,16 @@
 															<?= $user ? $user['user_name'] : "" ?>
 														</a>
 													</li>
+													<li>
+														<a href="index.php?act=my_orders"><i class="ti-truck"></i>Theo dõi
+															đơn hàng
+														</a>
+													</li>
+													<li>
+														<a href="index.php?act=my_orders"><i class="ti-package"></i>Lịch sử
+															mua hàng
+														</a>
+													</li>
 
 													<li>
 														<a href="index.php?act=logout"><i class="ti-lock"></i>Đăng xuất</a>
@@ -245,15 +251,18 @@
 												<a href="index.php?act=account" class="btn_1">Đăng nhập đăng kí</a>
 												<ul>
 													<li>
-														<a href="index.php?act=user"><i class="ti-user"></i>Thông tin tài khoản</a>
+														<a href="index.php?act=user"><i class="ti-user"></i>Thông tin tài
+															khoản</a>
 													</li>
 													<li>
-														<a href="track-order.html"><i class="ti-truck"></i>Theo dõi đơn hàng 
-															</a>
+														<a href="index.php?act=my_orders"><i class="ti-truck"></i>Theo dõi
+															đơn hàng
+														</a>
 													</li>
 													<li>
-														<a href="index.php?act=account"><i class="ti-package"></i>Lịch sử mua hàng
-															</a>
+														<a href="index.php?act=account"><i class="ti-package"></i>Lịch sử
+															mua hàng
+														</a>
 													</li>
 													<li>
 														<a href="help.html"><i class="ti-help-alt"></i>Hỗ trợ</a>
@@ -284,10 +293,7 @@
 					</div>
 					<!-- /row -->
 				</div>
-				<div class="search_mob_wp">
-					<input type="text" class="form-control" placeholder="Search over 10.000 products">
-					<input type="submit" class="btn_1 full-width" value="Search">
-				</div>
+
 				<!-- /search_mobile -->
 			</div>
 			<!-- /main_nav -->

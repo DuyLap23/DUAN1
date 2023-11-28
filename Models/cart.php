@@ -65,9 +65,9 @@ function show_bill_details($listbill) {
     foreach($listbill as $key => $value) {
         extract($value);
         $image = explode(',', $value[2])[0];
-      
+
         $tong += $value['total'];
-        
+
         echo '<tr>
                         <td>
                             <span class="item_cart mb-4">
@@ -116,7 +116,7 @@ function tongdonhang() {
     $Tongthanhtoan = 0;
     $tong = 0;
 
-    foreach($_SESSION['cart'] as  $value) {
+    foreach($_SESSION['cart'] as $value) {
         extract($value);
         $ttien = $value[3] * $value[5];
         $tong += $ttien;
@@ -125,7 +125,7 @@ function tongdonhang() {
     return $Tongthanhtoan;
 }
 
-function insert_bill($id_user,$name, $email, $address, $tel, $ngaydathang, $payment, $tongdonhang) {
+function insert_bill($id_user, $name, $email, $address, $tel, $ngaydathang, $payment, $tongdonhang) {
     $sql = "insert into bill(id_user,name,email,address,tel,date,payment,total) values('$id_user','$name','$email','$address','$tel','$ngaydathang','$payment','$tongdonhang')";
     return pdo_execute_return_lastInsertID($sql);
 }
@@ -135,12 +135,12 @@ function insert_cart($id_user, $product_id, $image, $quantity, $price, $name, $s
 }
 function select__billByid($idbill) {
     $sql = "select * from bill where id_bill =".$idbill;
-  $bill= pdo_query_one($sql);
-  return $bill;
+    $bill = pdo_query_one($sql);
+    return $bill;
 }
 function select__billDetailByid($idbill) {
     $sql = "select * from cart where id_bill =".$idbill;
-    $bill= pdo_query($sql);
+    $bill = pdo_query($sql);
     return $bill;
 }
 // Hàm cập nhật tổng giá và lưu vào session
@@ -148,7 +148,7 @@ function updateTotalPriceAndSaveToSession() {
     $total = 0;
 
     // Duyệt qua từng sản phẩm trong giỏ hàng
-    foreach ($_SESSION['cart'] as $key => $value) {
+    foreach($_SESSION['cart'] as $key => $value) {
         $quantity = $value[5];
         $price = $value[3];
         $total += $quantity * $price;
@@ -157,4 +157,57 @@ function updateTotalPriceAndSaveToSession() {
     // Lưu tổng giá vào session
     $_SESSION['cart_total'] = $total;
 }
+function loadAll_bill($id_User) {
+
+    $sql = "select * from bill where 1";
+    if($id_User > 0)
+        $sql .= " and id_user = ".$id_User;
+
+    $sql .= " order by id_bill desc";
+    return pdo_query($sql);
+}
+function loadAll_bill_home($id_User) {
+
+    $sql = "select * from bill where 1";
+    if($id_User > 0)
+        $sql .= " and id_user = ".$id_User;
+
+    $sql .= " order by id_bill desc";
+    $sql .= " limit 0,5";
+    return pdo_query($sql);
+}
+
+
+function get_ttdh($l) {
+    switch($l) {
+        case '0':
+            $tt = "Đang chờ xử lý";
+            break;
+        case '1':
+            $tt = "Đang giao hàng";
+            break;
+        case '2':
+            $tt = "Đã giao hàng";
+            break;
+        case '3':
+            $tt = "Hoàn tất";
+            break;
+        default:
+            $tt = "Đơn hàng mới";
+            break;
+    }
+    return $tt;
+}
+function count_sl($id_bill) {
+    $sql = "select * from cart where id_bill =".$id_bill;
+    return sizeof(pdo_query($sql));
+}
+function count_bill() {
+    $sql = "SELECT COUNT(*) AS 'count'
+    FROM bill";
+    return pdo_query($sql);
+}
+
+
+
 ?>

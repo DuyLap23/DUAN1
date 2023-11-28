@@ -136,10 +136,15 @@
 								</span>
 							</div>
 						</div>
-						<div class="spacer-20 d-flex justify-content-center	">
-							<input type="submit" name="addcart" id="" value="Thêm vào giỏ hàng " class="btn_1">
-						</div>
-
+						<?php if($user) { ?>
+							<div class="spacer-20 d-flex justify-content-center	">
+								<input type="submit" name="addcart" id="" value="Thêm vào giỏ hàng " class="btn_1">
+							</div>
+						<?php } else { ?>
+							<div class="spacer-20 d-flex justify-content-center	">
+								<!-- <input type="submit" name="addcart" id="" value="Thêm vào giỏ hàng " class="btn_1"> -->
+							</div>
+						<?php } ?>
 						<input type="hidden" name="product_id" id="" value="<?= $product_id ?>">
 						<input type="hidden" name="product_name" id="" value="<?= $product_name ?>">
 						<input type="hidden" name="img" id="" value="<?= $image ?>">

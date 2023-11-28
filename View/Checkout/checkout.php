@@ -48,38 +48,10 @@
                                         <input type="number" class="form-control" placeholder="Số điện thoại" name="tel"
                                             value="<?= $user['tel'] ?>">
                                     </div>
-                                <?php } else {
+                                <?php } 
 
 
                                     ?>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" name="email" required
-                                            title="Vui lý nhập email">
-                                    </div>
-
-
-                                    <div class="form-group pr-1">
-                                        <input type="text" class="form-control" placeholder="Tên người nhận" name="name"
-                                            required title="Vui lý nhập tên">
-                                    </div>
-
-
-                                    <!-- /row -->
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Địa chỉ" name="address"
-                                            required title="Vui lý nhập địa chỉ">
-                                    </div>
-
-
-
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" placeholder="Số điện thoại" name="phone"
-                                            required title="Vui lý nhập số điện thoại">
-                                    </div>
-                                <?php } ?>
-
-
-
                                 <hr>
                             </div>
 

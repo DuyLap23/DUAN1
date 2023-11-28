@@ -24,62 +24,40 @@
         <table>
             <thead>
                 <tr>
-                    <th>Mã Đặt Hàng</th>
-                    <th>Mã Sản Phẩm</th>
+                    <th>Mã Đơn Hàng</th>
+                    <th>Mã Khách Hàng</th>
                     <th>Số Lượng</th>
-                    <th>Size</th>
-                    <th>Màu Sắc</th>
-                    <th>Tình Trạng Thanh Toán</th>
-                    <th>Tình Trạng Giao Hàng</th>
+                    <th>Tổng Giá Trị</th>
+                    <th>Tình Trạng Đơn Hàng</th>
                     <th >Thao Tác</th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($loadAll_bill as $key => $bill) :
+                    extract($bill);
+                    $kh =$bill["name"].'<br>
+            
+                    '.$bill["email"].'<br>
+                    '.$bill["address"].'<br>
+                    '.$bill["tel"];
+                    $count_sl = count_sl($bill["id_bill"]);
+                    $trangthaidh = get_ttdh($bill["bill_startus"]);
+                ?>
                 <tr class="tr-shadow">
                     <td>
-                       1
+                      <?= $bill["id_bill"]?>
                     </td>
-                    <td> 2</td>
-                    <td>2</td>
-                    <td>L</td>
-                    <td>Đỏ</td>
-                    <td>Đã Thanh Toán</td>
-                    <td><span class="status completed">Hoàn Thành</span></td>
+                    <td> <?= $kh?></td>
+                    <td><?= $count_sl?></td>
+                    
+                    <td><?= number_format($bill['total'], 0, '.', ',')?> VND</td>
+                    <td><span class="status completed"><?= $trangthaidh?></span></td>
                     <td >
 
                     <a href="index.php?act=order_detail"><button class="btn btn-submit">Chi Tiết Đơn Hàng</button></a>
                     </td>
                 </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> 2</td>
-                    <td>2</td>
-                    <td>L</td>
-                    <td>Đỏ</td>
-                    <td>Đã Thanh Toán</td>
-                    <td><span class="status process">Đang Giao</span></td>
-                    <td >
-
-                    <a href="index.php?act=order_detail"><button class="btn btn-submit   ">Chi Tiết Đơn Hàng</button></a>
-                    </td>
-                </tr>
-                <tr class="tr-shadow">
-                    <td>
-                       1
-                    </td>
-                    <td> 2</td>
-                    <td>2</td>
-                    <td>L</td>
-                    <td>Đỏ</td>
-                    <td>Đã Thanh Toán</td>
-                    <td><span class="status pending">Chờ Xử Lý</span></td>  
-                    <td >
-
-                    <a href="index.php?act=order_detail"><button class="btn  btn-submit ">Chi Tiết Đơn Hàng</button></a>
-                    </td>
-                </tr>
+                <?php endforeach; ?>
                 
                
                 
