@@ -236,8 +236,8 @@
 														</a>
 													</li>
 
-													<li>
-														<a href="index.php?act=logout"><i class="ti-lock"></i>Đăng xuất</a>
+													<li > 
+														<a href="index.php?act=logout" class="logout_a"><i class="ti-lock" ></i>Đăng xuất</a>
 													</li>
 												</ul>
 											</div>

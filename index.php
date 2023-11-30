@@ -81,6 +81,11 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
         case "account":
             // Đăng ký
             if(isset($_POST['signup'])) {
+                    // $emailCheck = check__taikhoan($email, '');
+                    // if($emailCheck) {
+                    //     $_SESSION['user_id']['email'] = $emailCheck;
+                    //     $err = "Email đã tồn tại!";
+                    // }
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $name = $_POST['name'];
@@ -169,7 +174,6 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
                     if($value[0] == $product_id && $value[4] == $size) {
                         $newQuantity = $value[5] + $quantity;
                         $_SESSION['cart'][$i][5] = $newQuantity;
-
                         $fg = 1;
                         break;
                     }
@@ -214,12 +218,12 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
             // tạo bill 
             if(isset($_POST['bill_Comfirm'])) {
                 $id_user = $_SESSION['user_id'];
-             
+
                 $name = $_POST['name'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
                 $tel = $_POST['tel'];
-                $payment = $_POST['payment'];
+                $payment = 1;
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
                 $ngaydathang = date('Y-m-d  H:i:s');
                 $tongdonhang = tongdonhang();
@@ -233,7 +237,7 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
                 }
                 // xóa ss
                 $_SESSION['cart'] = [];
-              
+
 
             }
             $bill = select__billByid($idbill);
@@ -242,11 +246,11 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
             include "View/Checkout/comfirm.php";
             break;
 
-            case 'my_orders':
-               
-                $loadAll_bill= loadAll_bill($_SESSION['user_id']);
-                include "View/my_order/my_orders.php";
-                break;
+        case 'my_orders':
+
+            $loadAll_bill = loadAll_bill($_SESSION['user_id'], 0, 999999999);
+            include "View/my_order/my_orders.php";
+            break;
         default:
             include "View/Home/home.php";
             break;

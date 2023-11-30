@@ -11,12 +11,13 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="path/to/boxicons.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/listing.css">
 	<link rel="stylesheet" href="css/liststyle.css">
 
-	<title>AdminHub</title>
+	<title>UniQue</title>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
 	<section id="sidebar">
 		<a href="#" class="brand">
 			<i class='bx bxs-alarm-add	'></i>
-			<span class="text">AdminHub</span>
+			<span class="text">UniQue</span>
 		</a>
 		<ul class="side-menu top">
 			<li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'home') ? 'active' : ''; ?>">
@@ -71,15 +72,16 @@
             <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'listthongke') ? 'active' : ''; ?>">
 				<a href="index.php?act=listthongke">
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Thống Kê</span>
+					<span class="text">Thống Kê Doanh Thu</span>
 				</a>
 			</li>
-            <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'bieudo') ? 'active' : ''; ?>">
-				<a href="index.php?act=bieudo">
+            <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'thongkedm') ? 'active' : ''; ?>">
+				<a href="index.php?act=thongkedm">
 					<i class='bx bxs-chart' ></i>
-					<span class="text">Biểu Đồ</span>
+					<span class="text">Thống Kê Sản phẩm</span>
 				</a>
 			</li>
+          
             <li class="<?php echo (!isset($_GET['act']) || $_GET['act'] === 'view') ? 'active' : ''; ?>">
 				<a href="../index.php">
 					<i class='bx bxs-user' ></i>
@@ -103,7 +105,7 @@
 			<input type="checkbox" id="switch-mode" hidden>
 			<label for="switch-mode" class="switch-mode"></label>
 			
-			<a href="#" class="profile">
+			<!-- <a href="#" class="profile">
 				<img src="img/people.png">
 			</a>
 			<ul class="side-menu pt-3 px-3">
@@ -113,6 +115,6 @@
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
-			</li>
+			</li> -->
 		</ul>
 		</nav>

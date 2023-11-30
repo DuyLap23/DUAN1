@@ -11,11 +11,11 @@
             <h1>Thêm Sản Phẩm</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Trang Chủ</a>
+                    <a href="index.php?act=home">Trang Chủ</a>
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
                 <li>
-                    <a class="" href="#">Sản Phẩm </a>
+                    <a class="" href="index.php?act=listsp">Sản Phẩm </a>
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
                 <li>
