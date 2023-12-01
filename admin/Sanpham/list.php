@@ -4,7 +4,7 @@
             <h1>Sản Phẩm</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Trang Chủ</a>
+                    <a href="index.php?act=home">Trang Chủ</a>
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
                 <li>
@@ -80,7 +80,7 @@
                            <td colspan="2"> <img src="../image/'.
                             explode(',', $image)[0]
                             .'" ></td>
-                           <td>'.number_format($price, 0, '.', ',').'</td>
+                           <td>'.number_format($price, 0, '.', ',').'VND</td>
                            <td>'.$description.'</td>
                          
                            <td>'.$category_id.'</td>

@@ -33,7 +33,9 @@
             </thead>
             <tbody>
                 <?php
-
+            if ($user) {
+                # code...
+          
                 if(is_array($loadAll_bill)):
                     foreach($loadAll_bill as $bill):
                         extract($bill);
@@ -68,6 +70,9 @@
                         <?php
                     endforeach;
                 endif;
+            }else{
+                echo "Vui lòng đăng nhập để theo dõi đơn hàng ";
+            }
                 ?>
             </tbody>
         </table>

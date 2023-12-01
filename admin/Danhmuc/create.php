@@ -4,11 +4,11 @@
             <h1>Thêm Danh Mục</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Trang Chủ</a>
+                    <a href="index.php?act=home">Trang Chủ</a>
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
                 <li>
-                    <a class="" href="#">Danh Mục </a>
+                    <a class="index.php?act=listdm" href="#">Danh Mục </a>
                 </li>
                 <li><i class='bx bx-chevron-right'></i></li>
                 <li>

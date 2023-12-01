@@ -26,68 +26,72 @@
         if(isset($bill) && (is_array($bill))) {
             extract($bill);
         } ?>
-        <h4><strong>Thông tin đơn hàng </strong></h4>
-        <div>
-            <li>
-                <strong>
-                    <em>Mã đơn hàng :</em>
-                </strong>
-                <?= $bill['id_bill'] ?>
-            </li>
-            <li>
-                <strong>
-                    <em>Ngày đặt hàng :</em>
-                </strong>
-                <?= $bill['date'] ?>
-            </li>
+        <div class="d-flex ">
+            <div>
+                <h4><strong>Thông tin đơn hàng </strong></h4>
+                <li>
+                    <strong>
+                        <em>Mã đơn hàng :</em>
+                    </strong>
+                    <?= $bill['id_bill'] ?>
+                </li>
+                <li>
+                    <strong>
+                        <em>Ngày đặt hàng :</em>
+                    </strong>
+                    <?= $bill['date'] ?>
+                </li>
 
-            <li>
-                <strong>
-                    <em>phương thức thanh toán :</strong>
-                </em>
-                <?= $bill['payment'] ?>
-            </li>
-            <li>
-                <strong>
-                    <em>Tổng đơn hàng :</em>
-                </strong>
-                <?= number_format($bill['total'], 0, '.', ',') ?> VND
-            </li>
-        </div>
-        <hr>
-        <h4><strong>Thông tin người mua </strong></h4>
-        <div>
-            <li>
-                <strong>
-                    <em>Tên người mua:</em>
-                </strong>
-                <?= $bill['name'] ?>
-            </li>
-            <li>
-                <strong>
-                    <em>Địa chỉ:</em>
-                </strong>
-                <?= $bill['address'] ?>
-            </li>
-            <li>
-                <strong>
-                    <em>Số điện thoại: </em>
-                </strong>
-                0
-                <?= $bill['tel'] ?>
-            </li>
-            <li>
-                <strong>
-                    <em>Email:</em>
-                </strong>
-                <?= $bill['email'] ?>
-            </li>
+                <li>
+                    <strong>
+                        <em>phương thức thanh toán :</strong>
+                    </em>
+                    <?= $bill['payment'] ?>
+                </li>
+                <li>
+                    <strong>
+                        <em>Tổng đơn hàng :</em>
+                    </strong>
+                    <?= number_format($bill['total'], 0, '.', ',') ?> VND
+                </li>
+            </div>
+            <hr>
 
+            <div class="mx-5">
+                <h4><strong>Thông tin người mua </strong></h4>
+                <li>
+                    <strong>
+                        <em>Tên người mua:</em>
+                    </strong>
+                    <?= $bill['name'] ?>
+                </li>
+                <li>
+                    <strong>
+                        <em>Địa chỉ:</em>
+                    </strong>
+                    <?= $bill['address'] ?>
+                </li>
+                <li>
+                    <strong>
+                        <em>Số điện thoại: </em>
+                    </strong>
+
+                    <?= '0'.$bill['tel'] ?>
+                </li>
+                <li>
+                    <strong>
+                        <em>Email:</em>
+                    </strong>
+                    <?= $bill['email'] ?>
+                </li>
+
+            </div>
         </div>
+        <div class="pt-3"> <a href="index.php?act=my_orders" class="btn_1  btn-width">Xem danh sách đơn hàng</a></div>
         <hr>
-        <h4>Chi tiết đơn hàng</h4>
+        
         <table class="table table-striped cart-list">
-
+        <h4>Chi tiết đơn hàng</h4>
             <thead>
                 <tr>
 

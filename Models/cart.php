@@ -130,7 +130,8 @@ function insert_bill($id_user, $name, $email, $address, $tel, $ngaydathang, $pay
     return pdo_execute_return_lastInsertID($sql);
 }
 function insert_cart($id_user, $product_id, $image, $quantity, $price, $name, $size, $total, $id_bill) {
-    $sql = "insert into cart (id_user,product_id,image,quantity,price,name,size,total,id_bill) values('$id_user','$product_id','$image','$quantity','$price','$name','$size','$total','$id_bill')";
+    $sql = "insert into cart (id_user,product_id,image,quantity,price,name,size,total,id_bill)
+     values('$id_user','$product_id','$image','$quantity','$price','$name','$size','$total','$id_bill')";
     return pdo_execute($sql);
 }
 function select__billByid($idbill) {
@@ -140,6 +141,34 @@ function select__billByid($idbill) {
 }
 function select__billDetailByid($idbill) {
     $sql = "select * from cart where id_bill =".$idbill;
+    $bill = pdo_query($sql);
+    return $bill;
+}
+function select_All_billDetailByid($idbill) {
+    $sql = "SELECT
+    bill.id_bill,
+    bill.id_user,
+    bill.name,
+    bill.tel,
+    bill.email,
+    bill.address,
+    bill.date,
+    bill.bill_startus,
+    bill.total,
+    cart.product_id,
+    cart.image,
+    cart.quantity,
+    cart.price,
+    
+    cart.size
+    
+
+
+
+  FROM bill
+  INNER JOIN cart
+  ON bill.id_bill = cart.id_bill
+  WHERE bill.id_bill =".$idbill;
     $bill = pdo_query($sql);
     return $bill;
 }
@@ -157,13 +186,14 @@ function updateTotalPriceAndSaveToSession() {
     // Lưu tổng giá vào session
     $_SESSION['cart_total'] = $total;
 }
-function loadAll_bill($id_User) {
+function loadAll_bill($id_User, $start, $limit) {
 
     $sql = "select * from bill where 1";
     if($id_User > 0)
         $sql .= " and id_user = ".$id_User;
 
     $sql .= " order by id_bill desc";
+    $sql .= " limit $start ,$limit";
     return pdo_query($sql);
 }
 function loadAll_bill_home($id_User) {
@@ -181,19 +211,36 @@ function loadAll_bill_home($id_User) {
 function get_ttdh($l) {
     switch($l) {
         case '0':
-            $tt = "Đang chờ xử lý";
+            $tt = "Đơn hàng mới ";
             break;
         case '1':
-            $tt = "Đang giao hàng";
+            $tt = "Đang chờ xử lý";
             break;
         case '2':
-            $tt = "Đã giao hàng";
+            $tt = "Đang giao hàng";
             break;
         case '3':
-            $tt = "Hoàn tất";
+            $tt = "Đã giao hàng";
             break;
+
         default:
             $tt = "Đơn hàng mới";
+            break;
+    }
+    return $tt;
+}
+function update_bill($id_bill ,$bill_startus) {
+    $sql = "UPDATE bill SET bill_startus = $bill_startus WHERE id_bill = $id_bill";
+    return pdo_execute($sql);
+ }
+function get_pay($l) {
+    switch($l) {
+        case '1':
+            $tt = "Thanh toán khi nhận hàng ";
+            break;
+
+        default:
+            $tt = "Thanh toán khi nhận hàng";
             break;
     }
     return $tt;
@@ -202,11 +249,26 @@ function count_sl($id_bill) {
     $sql = "select * from cart where id_bill =".$id_bill;
     return sizeof(pdo_query($sql));
 }
+function count_Quanti($id_bill) {
+    $sql = "select quantity from cart where id_bill =".$id_bill;
+    return sizeof(pdo_query($sql));
+}
 function count_bill() {
     $sql = "SELECT COUNT(*) AS 'count'
     FROM bill";
     return pdo_query($sql);
 }
+
+function del_bill($id_bill) {
+  $sqls ="DELETE FROM cart WHERE id_bill = $id_bill
+ ";    
+ pdo_execute($sqls);
+ $sql = "DELETE FROM bill WHERE id_bill = $id_bill";
+    return pdo_execute($sql);
+    // return $sql;
+  
+}
+
 
 
 
