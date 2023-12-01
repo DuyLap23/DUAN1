@@ -86,7 +86,7 @@ if (isset($_GET['act'])) {
                 $category_id = 0;
             }
             $sellect_one_categories=sellect_one_categories($category_id);
-            extract($sellect_one_categories);
+            
             $limit = 5;
             $page = $_GET['page'] ?? 1;
             $start = ($page - 1) * $limit;
