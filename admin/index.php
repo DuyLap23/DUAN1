@@ -233,39 +233,38 @@ if(isset($_GET['act'])) {
 
             include "Qldonhang/list.php";
             break;
-             
-            // edit dơn hàng (đổ dữ liệu ra trong form)
+
+        // edit dơn hàng (đổ dữ liệu ra trong form)
         case 'editdh':
             if(isset($_GET['id_dh']) && ($_GET['id_dh'] > 0)) {
                 $id_dh = $_GET['id_dh'];
             }
             $select__billByid = select__billByid($id_dh);
-
             include "Qldonhang/edit.php";
             break;
 
-            // cập nhật đơn hàng
+        // cập nhật đơn hàng
         case 'updatedh':
             if(isset($_POST['updatedh']) && $_POST['updatedh']) {
                 $id_bill = $_POST['id_bill'];
-           
-                $ttdh = $_POST['ttdh'];
-                $update_bill =update_bill($id_bill,$ttdh);
+
+                $ttdh = $_POST['status'];
+                $update_bill = update_bill($id_bill, $ttdh);
                 $Notification = "Cập Nhật Thành Công";
-header('location: index.php?act=listdonhang');
+                header('location: index.php?act=listdonhang');
             }
-       
-            break;
-
-            // xóa đơn hàng 
-        case 'deletedh':
-            if(isset($_GET['id_dh']) && ($_GET['id_dh'] > 0)) {
-                $id_dh = $_GET['id_dh'];
-            }
-            $delete_bill = del_bill($id_dh);
-            header('Location: index.php?act=listdonhang');
 
             break;
+
+        // xóa đơn hàng 
+        // case 'deletedh':
+        //     if(isset($_GET['id_dh']) && ($_GET['id_dh'] > 0)) {
+        //         $id_dh = $_GET['id_dh'];
+        //     }
+        //     $delete_bill = del_bill($id_dh);
+        //     header('Location: index.php?act=listdonhang');
+
+        //     break;
 
         // dh chi tiết
         case 'order_detail':
@@ -275,7 +274,36 @@ header('location: index.php?act=listdonhang');
 
         // Thống Kê
         case 'listthongke':
-            $Sum_total_by = Sum_total_by();
+            $date = [];
+            $doanhthu = [];
+            $luotmua = [];
+            $data = [];
+            $statistical = statistical('2023-12-1', '2023-12-31');
+            if(isset($_POST['loc'])) {
+                $statistical = statistical($_POST['from'], $_POST['to']);
+
+            }
+            foreach($statistical as $key => $value) {
+                if($value['revenue'] == null) {
+                    $statistical[$key]['revenue'] = 0;
+                }
+
+
+
+            }
+            $date = array_column($statistical, 'date');
+            $doanhthu = array_column($statistical, 'revenue');
+            $luotmua = array_column($statistical, 'num_bil');
+
+            $data['date'] = $date;
+            $data['doanhthu'] = $doanhthu;
+            $data['luotmua'] = $luotmua;
+
+            $data = json_encode($data);
+            // echo "<pre>";
+            // print_r($data);
+
+            // $Sum_total_by = Sum_total_by();
             include "Thongke/thongkedoanhthu.php";
             break;
 
@@ -290,6 +318,10 @@ header('location: index.php?act=listdonhang');
 
             include "Thongke/thongkedm.php";
             break;
+
+
+
+
 
 
 

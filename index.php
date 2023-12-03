@@ -3,8 +3,10 @@ ob_start();
 session_start();
 
 require "Models/connect.php";
+
 if(!isset($_SESSION['cart']))
     $_SESSION['cart'] = [];
+
 require "Models/danhmuc.php";
 require "Models/sanpham.php";
 require "Models/binhluan.php";
@@ -14,18 +16,14 @@ $userID = $_SESSION['user_id'] ?? 0;
 $user = select__userByid($userID);
 
 
-
 $loadall_sanpham = loadall_sanpham_home();
 $sellect_categories = sellect_all_categories();
+$sp_banchay=sp_banchay();
 
 require "View/Home/header.php";
 if(isset($_GET['act']) && ($_GET['act']) != "") {
     $act = $_GET['act'];
     switch($act) {
-
-
-
-
         // chi tiết sp 
         case "chitietsp":
 
@@ -38,7 +36,7 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
                 $sp_cung_loai = select_sp_cungloai($product_id, $category_id);
                 $load_all_binhluan = loadall__comment__Byid($product_id);
                 $loadall_pro_detail = get_product_details($product_id);
-
+                $maxQtt = maxQtt($product_id);
                 include "View/Sanpham/spchitiet.php";
             } else {
                 $product_id = "";
@@ -72,7 +70,7 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
             $countsp = count(loadall_sanpham($key, $idcate, 0, 999999999));
 
             $tendm = load_ten_dm($idcate);
-
+          
             include "View/Sanpham/product-all.php";
             break;
 
@@ -81,11 +79,11 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
         case "account":
             // Đăng ký
             if(isset($_POST['signup'])) {
-                    // $emailCheck = check__taikhoan($email, '');
-                    // if($emailCheck) {
-                    //     $_SESSION['user_id']['email'] = $emailCheck;
-                    //     $err = "Email đã tồn tại!";
-                    // }
+                // $emailCheck = check__taikhoan($email, '');
+                // if($emailCheck) {
+                //     $_SESSION['user_id']['email'] = $emailCheck;
+                //     $err = "Email đã tồn tại!";
+                // }
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $name = $_POST['name'];
@@ -138,6 +136,9 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
             $load__thontin = select__userByid($userID);
             include "View/Account/userAccount.php";
             break;
+
+
+
         case "viewCart":
 
             include "View/Giohang/cart.php";
@@ -189,6 +190,23 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
             }
 
             break;
+
+
+
+
+        case 'submit':
+            if(isset($_POST['capnhatcart'])) {
+                foreach($_POST['quantity'] as $key => $value) {
+                    $_SESSION['cart'][$key][5] = $value;
+                }
+                // header('Location: index.php?act=viewCart');
+            }
+            // echo "<pre>";
+            // print_r($_POST);
+            include "View/Giohang/cart.php";
+            break;
+
+
 
 
 
@@ -248,7 +266,7 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
 
         case 'my_orders':
 
-            $loadAll_bill = loadAll_bill($_SESSION['user_id'], 0, 999999999);
+            $loadAll_bill = loadAll_bill($_SESSION['user_id'] ?? '', 0, 999999999);
             include "View/my_order/my_orders.php";
             break;
         default:

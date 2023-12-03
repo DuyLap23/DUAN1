@@ -1,4 +1,5 @@
 <main class="bg_gray">
+
 	<div class="container margin_30">
 		<div class="page_header ">
 
@@ -12,9 +13,10 @@
 			<h1>Cart page</h1>
 		</div>
 		<!-- /page_header -->
-		
-		
-			<table class="table table-striped cart-list">
+
+
+		<table class="table table-striped cart-list">
+			<form action="index.php?act=submit" method="post">
 
 				<thead>
 					<tr>
@@ -46,13 +48,13 @@
 					$tong = 0;
 					$i = 0;
 
-					foreach ($_SESSION['cart'] as $key => $value):
+					foreach($_SESSION['cart'] as $key => $value):
 						extract($value);
 						$image = explode(',', $value[2])[0];
 						$ttien = $value[3] * $value[5];
 						$tong += $ttien;
-						
-						$deleteCart = "index.php?act=deleteCart&idCart=" . $i;
+
+						$deleteCart = "index.php?act=deleteCart&idCart=".$i;
 
 
 
@@ -60,32 +62,37 @@
 						?>
 
 						<tr>
+							<!-- tên  -->
 							<td>
 								<span class="item_cart mb-4">
 									<?= $value[1] ?>
 								</span>
 							</td>
+							<!-- ảnh  -->
 							<td>
 								<div class="thumb_cart">
 
-									<img src="image/<?= $image ?>" data-src="../image/<?= $image ?>" class="item-box" alt="">
+									<img src="image/<?= $image ?>" data-src="../image/<?= $image ?>" class="item-box"
+										alt="">
 
 								</div>
 							</td>
 
-
+							<!-- đơn giá  -->
 							<td>
 								<?= number_format($value[3], 0, '.', ','); ?>
 							</td>
+							<!-- size  -->
 							<td>
 								<?= $value[4] ?>
 							</td>
+
 							<!-- số lượng  -->
 							<td>
 								<div class="numbers">
-									
-									<input type="number" value="<?= $value[5] ?>" id="quantity_1" class="qty2" name="quantity_1"
-										min="1" max="100">
+
+									<input type="number" value="<?= $value[5] ?>" id="quantity_1" class="qty2"
+										name="quantity[<?= $key ?>]" min="1" max="100">
 
 								</div>
 
@@ -95,25 +102,30 @@
 							<td id="total">
 								<?= number_format($ttien, 0, '.', ','); ?>
 							</td>
+							<!-- xóa  -->
 							<td class="options">
 								<a href="<?= $deleteCart ?>" class="delete">
 									<i class="ti-trash"></i>
 								</a>
 							</td>
 						</tr>
-						<?php $i += 1; ?>
-					<?php endforeach; ?>
+
+						<?php
+						$i += 1;
+					endforeach; ?>
 
 				</tbody>
 				<tbody id="tongdonhang">
-					
+
 					<tr>
-						<td>
-							<a href="index.php?act=deleteCart">Xóa tất cả sản phẩm</a>
+						<td colspan="6">
+							<a href="index.php?act=deleteCart">Xóa Giỏ Hàng</a>
 						</td>
+						<td> <input type="submit" name="capnhatcart" id="" value="Cập Nhật" class="btn_1"></td>
 					</tr>
 				</tbody>
-			</table>
+			</form>
+		</table>
 	</div>
 	<!-- /container -->
 
@@ -123,9 +135,10 @@
 				<div class="col-xl-4 col-lg-4 col-md-6">
 					<ul>
 						<li>
-							<span>Tổng Tiền</span> <?= number_format($tong, 0, '.', ','); ?>VND
+							<span>Tổng Tiền</span>
+							<?= number_format($tong, 0, '.', ','); ?>VND
 						</li>
-						
+
 					</ul>
 					<a href="index.php?act=checkout" class="btn_1 full-width cart">Tiến hành thanh toán </a>
 				</div>

@@ -1,9 +1,9 @@
 <main>
     <?php
-    if (is_array($select__billByid)) {
+    if(is_array($select__billByid)) {
         extract($select__billByid);
         # code...
-    }?>
+    } ?>
     <div class="head-title">
         <div class="left">
             <h1>Quản Lý Đơn Hàng</h1>
@@ -45,39 +45,57 @@
                 </thead>
                 <tbody>
                     <form action="index.php?act=updatedh" method="post">
-                            <tr>
-                                <td>
-                                    <?= $id_bill ?>
-                                    <input type="hidden" name="id_bill" id="" value="<?= $id_bill ?>">
-                                </td>
-                                <td>
-                                    <?= $name?><br>
-                                    <br>
-                                   <?= $email?><br>
-                                    <br>
-                                <?= $address?><br>
-                                    <br>
-                                   <?= $tel?><br>
-                                   
-                                    
-                                </td>
-                                <td>
-                                    <input type="text" name="ttdh" id="" value="<?= $bill_startus ?>">
-                                </td>
-                                <td>
-                                    <input type="submit" name="updatedh" id="" class="btn btn-submit" value="Cập Nhật">
-                                </td>
-                            </tr>
-                            
+                        <?php 
+                        if($bill_startus == 0) {
+                            $startus = "Đơn hàng mới";
+                        } elseif($bill_startus == 1) {
+                            $startus = "Đang xử lí ";
+                        } elseif($bill_startus == 2) {
+                            $startus = "Đang giao hàng";
+                        } else {
+                            $startus = "Đã giao hàng";
+                        }
+                        ?>
+                        <tr>
+                            <td>
+                                <?= $id_bill ?>
+                                <input type="hidden" name="id_bill" id="" value="<?= $id_bill ?>">
+                            </td>
+                            <td>
+                                <?= $name ?><br>
+                                <br>
+                                <?= $email ?><br>
+                                <br>
+                                <?= $address ?><br>
+                                <br>
+                                <?= $tel ?><br>
+
+
+                            </td>
+                            <td>
+                                <select name="status" id="" class="rounded-4 " >
+                                    <option value="0">Đơn Hàng Mới</option>
+                                    <option value="1">Đang Xử Lý</option>
+                                    <option value="2">Đang Giao Hàng</option>
+                                    <option value="3">Đã Giao Hàng </option>
+                                    <option value="4">Hủy Đơn </option>
+                                </select>
+
+                            </td>
+                            <td>
+                                <input type="submit" name="updatedh" id="" class="btn btn-submit" value="Cập Nhật">
+                            </td>
+                        </tr>
+
                     </form>
                 </tbody>
             </table>
             <div class="notification">
-            <?php
-            if (isset($Notification) && $Notification != "") {
-              echo $Notification;
-            }
-          ?>
+                <?php
+                if(isset($Notification) && $Notification != "") {
+                    echo $Notification;
+                }
+                ?>
             </div>
         </div>
 

@@ -107,8 +107,8 @@
 			<p>Chúng tôi luôn cập nhật những sản phẩm mới cho quý khách hàng lựa chọn</p>
 		</div>
 		<div class="row small-gutters">
-			<?php foreach($loadall_sanpham as $key => $value): ?>
-				<?php extract($value);
+			<?php foreach($loadall_sanpham as $key => $value): 
+				 extract($value);
 				?>
 
 				<div class="col-sl-6 col-md-4 col-xl-3 pb-4">
@@ -164,41 +164,55 @@
 	<!-- sản phẩm đặc sắc  -->
 	<div class="container margin_60_35">
 		<div class="main_title">
-			<h2>Featured</h2>
+			<h2>Sản phẩm bán chạy</h2>
 
-			<p>Cum doctus civibus efficiantur in imperdiet deterruisset</p>
+			<p>Xu hướng với sản phẩm hot nhất</p>
 		</div>
 		<div class="owl-carousel owl-theme products_carousel">
-			<div class="item">
-				<div class="grid_item">
-					<span class="ribbon new">New</span>
-					<figure>
-						<a href="index.php?act=chitietsp">
-							<img class="owl-lazy lazy" src="View/img/products/product_placeholder_square_medium.jpg"
-								data-src="View/img/products/shoes/4.jpg" alt="">
+			<?php foreach($sp_banchay as $key => $value):
+				extract($value);
+			
+				?>
+				<form action="index.php?act=addtocart" method="post" class="">
+				<div class="item">
+					<div class="grid_item">
+						<figure>
+							<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
+								<img class="owl-lazy lazy" src="image/<?= explode(',', $image)[0] ?>"
+									data-src="image/<?= explode(',', $image)[0] ?>" alt="">
+							</a>
+						</figure>
+
+						<a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
+							<h3>
+								<?= $product_name ?>
+							</h3>
 						</a>
-					</figure>
-
-					<a href="product-detail-1.html">
-						<h3>ACG React Terra</h3>
-					</a>
-					<div class="price_box">
-						<span class="new_price">$110.00</span>
+						<div class="price_box">
+							<span class="new_price">
+								<?=
+									number_format($price, 0, '.', ','); ?> VND
+							</span>
+						</div>
+						
 					</div>
-					<ul>
-
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to
-									compare</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a>
-						</li>
-					</ul>
+					
 				</div>
-				<!-- /grid_item -->
-			</div>
-			<!-- /item -->
-
+				<?php if($user) { ?>
+							<div class="spacer-20 d-flex justify-content-center	">
+								<input type="submit" name="addcart" id="" value="Thêm vào giỏ hàng " class="btn_1">
+							</div>
+						<?php } else { ?>
+							<div class="spacer-20 d-flex justify-content-center	">
+								<!-- <input type="submit" name="addcart" id="" value="Thêm vào giỏ hàng " class="btn_1"> -->
+							</div>
+						<?php } ?>
+						<input type="hidden" name="product_id" id="" value="<?= $product_id ?>">
+						<input type="hidden" name="product_name" id="" value="<?= $product_name ?>">
+						<input type="hidden" name="img" id="" value="<?= $image ?>">
+						<input type="hidden" name="price" id="" value="<?= $price ?>">
+					</form>	
+			<?php endforeach; ?>
 
 
 		</div>

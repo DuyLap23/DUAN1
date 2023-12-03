@@ -8,7 +8,7 @@
                     <li>Page active</li>
                 </ul>
             </div>
-            <h1>Cart page</h1>
+            <h1>Lịch Sử Mua Hàng</h1>
         </div>
         <!-- /page_header -->
         <table class="table table-striped cart-list">
@@ -33,7 +33,7 @@
             </thead>
             <tbody>
                 <?php
-            if ($user) {
+            if ($user !='') {
                 # code...
           
                 if(is_array($loadAll_bill)):
@@ -71,7 +71,7 @@
                     endforeach;
                 endif;
             }else{
-                echo "Vui lòng đăng nhập để theo dõi đơn hàng ";
+                echo "<h3>Vui lòng đăng nhập</h3> ";
             }
                 ?>
             </tbody>

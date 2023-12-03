@@ -119,4 +119,48 @@
   //     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   //   }
   // });
+  // Hàm lấy số lượng có sẵn cho kích cỡ đã chọn
+// function getQuantity(productId, size) {
+//   // Tạo yêu cầu AJAX
+//   const xhr = new XMLHttpRequest();
+
+//   // Đặt phương thức và URL của yêu cầu
+//   xhr.open('GET', 'get_quantity.php?product_id=' + productId + '&size=' + size);
+
+//   // Đặt sự kiện lắng nghe kết thúc yêu cầu
+//   xhr.onload = function() {
+//     if (xhr.status === 200) {
+//       // Trả về số lượng
+//       return JSON.parse(xhr.responseText)['quantity'];
+//     }
+//   };
+
+//   // Gửi yêu cầu
+//   xhr.send();
+// }
+
+// // Hàm cập nhật đầu vào số lượng
+// function updateQuantity(quantity) {
+//   // Lấy đầu vào số lượng
+//   const quantityInput = document.getElementById('quantity_1');
+
+//   // Đặt giá trị của đầu vào số lượng
+//   quantityInput.value = quantity;
+// }
+
+// // Khi kích cỡ thay đổi
+// document.getElementById('size').addEventListener('change', function() {
+//   // Lấy ID sản phẩm
+//   const productId = document.getElementById('product_id').value;
+
+//   // Lấy kích cỡ đã chọn
+//   const size = this.value;
+
+//   // Lấy số lượng có sẵn
+//   const quantity = getQuantity(productId, size);
+
+//   // Cập nhật đầu vào số lượng
+//   updateQuantity(quantity);
+// });
+
 

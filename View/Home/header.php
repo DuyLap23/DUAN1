@@ -87,7 +87,10 @@
 										<a href="index.php?act=sanpham" class="">Sản Phẩm</a>
 									</li>
 									<li class="">
-										<a href="javascript:void(0);" class="show-submenu">Extra Pages</a>
+										<a href="javascript:void(0);" class="show-submenu">Hỗ Trợ</a>
+									</li>
+									<li class="">
+										<a href="javascript:void(0);" class="show-submenu">Liên Hệ</a>
 									</li>
 
 								</ul>
@@ -216,13 +219,13 @@
 									if($user) {
 										?>
 										<div class="dropdown dropdown-access">
-											<a href="index.php?act=user" class="access_link"><span>Tài khoản</span></a>
+											<a href="index.php?act=user" class=""><?= $user ? $user['user_name'] : "" ?></a>
 											<div class="dropdown-menu">
 												<?= $user['role'] == 1 ? '<a href="admin/index.php">Đăng nhập Admin</a>' : '' ?>
 												<ul>
 													<li>
 														<a href="index.php?act=user"><i class="ti-user"></i>
-															<?= $user ? $user['user_name'] : "" ?>
+															Thông tin tài khoản 
 														</a>
 													</li>
 													<li>
@@ -230,11 +233,7 @@
 															đơn hàng
 														</a>
 													</li>
-													<li>
-														<a href="index.php?act=my_orders"><i class="ti-package"></i>Lịch sử
-															mua hàng
-														</a>
-													</li>
+													
 
 													<li > 
 														<a href="index.php?act=logout" class="logout_a"><i class="ti-lock" ></i>Đăng xuất</a>
@@ -248,7 +247,7 @@
 										<div class="dropdown dropdown-access">
 											<a href="index.php?act=account" class="access_link"><span>Tài khoản</span></a>
 											<div class="dropdown-menu">
-												<a href="index.php?act=account" class="btn_1">Đăng nhập đăng kí</a>
+												<a href="index.php?act=account" class="btn_1">Đăng nhập / Đăng Kí</a>
 												<ul>
 													<li>
 														<a href="index.php?act=user"><i class="ti-user"></i>Thông tin tài
@@ -259,11 +258,7 @@
 															đơn hàng
 														</a>
 													</li>
-													<li>
-														<a href="index.php?act=account"><i class="ti-package"></i>Lịch sử
-															mua hàng
-														</a>
-													</li>
+													
 													<li>
 														<a href="help.html"><i class="ti-help-alt"></i>Hỗ trợ</a>
 													</li>

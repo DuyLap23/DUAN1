@@ -211,28 +211,28 @@ function loadAll_bill_home($id_User) {
 function get_ttdh($l) {
     switch($l) {
         case '0':
-            $tt = "Đơn hàng mới ";
-            break;
+            return "Đơn hàng mới ";
+
         case '1':
-            $tt = "Đang chờ xử lý";
-            break;
+            return "Đang chờ xử lý";
+
         case '2':
-            $tt = "Đang giao hàng";
-            break;
+            return "Đang giao hàng";
+
         case '3':
-            $tt = "Đã giao hàng";
-            break;
+            return "Đã giao hàng";
+
 
         default:
-            $tt = "Đơn hàng mới";
-            break;
+            return "Hủy đơn";
+
     }
-    return $tt;
+
 }
-function update_bill($id_bill ,$bill_startus) {
+function update_bill($id_bill, $bill_startus) {
     $sql = "UPDATE bill SET bill_startus = $bill_startus WHERE id_bill = $id_bill";
     return pdo_execute($sql);
- }
+}
 function get_pay($l) {
     switch($l) {
         case '1':
@@ -257,16 +257,6 @@ function count_bill() {
     $sql = "SELECT COUNT(*) AS 'count'
     FROM bill";
     return pdo_query($sql);
-}
-
-function del_bill($id_bill) {
-  $sqls ="DELETE FROM cart WHERE id_bill = $id_bill
- ";    
- pdo_execute($sqls);
- $sql = "DELETE FROM bill WHERE id_bill = $id_bill";
-    return pdo_execute($sql);
-    // return $sql;
-  
 }
 
 

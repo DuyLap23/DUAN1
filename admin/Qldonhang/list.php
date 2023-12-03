@@ -82,6 +82,9 @@
                                 } elseif($bill["bill_startus"] == 3) {
                                     echo 'status process';
 
+                                } elseif($bill["bill_startus"] == 4) {
+                                    echo 'status  bluecheck';
+
                                 } ?>
                         ">
                                     <?= $trangthaidh ?>
@@ -96,14 +99,25 @@
                                 </a>
                             </td>
                             <td class="d-flex justify-content-around" style="gap: 5px ;line-height: 80px">
-                                <a href=" <?= $edit ?>  ">
-                                    <button class="btn btn-primary " id="toggleButton">Sửa
-                                    </button>
-                                </a>
-                                <a onclick="return confirm('Bạn chắc chứ')" href="<?= $dele ?>">
-                                    <button class="btn btn-danger">Xóa
-                                    </button>
-                                </a>
+                                <?php
+
+                                if($bill["bill_startus"] == 3 || $bill["bill_startus"] == 4) { ?>
+                                    <a href=" <?= $edit ?>  ">
+
+                                    </a>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <a href=" <?= $edit ?>  " class="">
+                                        <button class="btn btn-primary  ">Sửa
+                                        </button>
+                                    </a>
+                                    <?php
+                                }
+
+                                ?>
+
+
                             </td>
                         </tr>
 
