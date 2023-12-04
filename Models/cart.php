@@ -159,7 +159,6 @@ function select_All_billDetailByid($idbill) {
     cart.image,
     cart.quantity,
     cart.price,
-    
     cart.size
     
 
