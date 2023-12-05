@@ -10,11 +10,11 @@
 	<title>Unique | Vẻ đẹp của bạn , phong cách của chúng tôi </title>
 
 	<!-- Favicons-->
-	<link rel="shortcut icon" href="image/Rectangle223.png" type="image/x-icon">
-	<link rel="apple-touch-icon" type="image/x-icon" href="image/logo.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="image/logo.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="image/logo.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="image/logo.png">
+	<link rel="shortcut icon" href="View/img/logo_4.png" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="img/logo_4.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="View/img/logo_4.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="View/img/logo_4.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/logo_4.png">
 
 	<!-- GOOGLE WEB FONT -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,7 @@
 					<div class="row small-gutters">
 						<div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
 							<div id="logo">
-								<a href="index.php"><img src="image/Rectangle223.png" alt="" width="50" height="50"></a>
+								<a href="index.php"><img src="View/img/logo_4.png" alt="" width="50" height="50"></a>
 							</div>
 						</div>
 						<nav class="col-xl-6 col-lg-7">
@@ -76,7 +76,7 @@
 							<!-- Mobile menu button -->
 							<div class="main-menu">
 								<div id="header_menu">
-									<a href="index.php"><img src="image/logo.svg" alt="" width="100" height="35"></a>
+									<a href="index.php"><img src="View/img/logo_4.png" alt="" width="100" height="35"></a>
 									<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 								</div>
 								<ul>

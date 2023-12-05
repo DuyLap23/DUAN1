@@ -129,9 +129,7 @@ if(isset($_GET['act'])) {
             if(isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
                 delete_sanpham($_GET['id_sp']);
             }
-
             header('location: index.php?act=listsp');
-
             break;
 
         // edit sp 
@@ -167,19 +165,13 @@ if(isset($_GET['act'])) {
                         $imgUpdate = array_merge($_FILES['image']['name'], explode(',', $_POST['img']));
                         $imgUpdate = implode(',', $imgUpdate);
                     }
-
-
-
-
                 update_sanpham($product_id, $product_name, $imgUpdate, $price, $description, $category_id, $size, $quantity);
                 $Notification = "Sửa thành công";
             }
-
             $sellect_categories = sellect_all_categories();
             $listsanpham = loadall_sanpham("", 0);
             include "Sanpham/list.php";
             break;
-
 
         // Bình Luận
         case 'listbinhluan':
@@ -289,8 +281,6 @@ if(isset($_GET['act'])) {
                     $statistical[$key]['revenue'] = 0;
                 }
 
-
-
             }
             $date = array_column($statistical, 'date');
             $doanhthu = array_column($statistical, 'revenue');
@@ -319,13 +309,6 @@ if(isset($_GET['act'])) {
 
             include "Thongke/thongkedm.php";
             break;
-
-
-
-
-
-
-
 
         default:
             include "home.php";

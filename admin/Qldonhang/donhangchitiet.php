@@ -33,9 +33,8 @@
                     <th>Mã Sản Phẩm</th>
                     <th>Số Lượng</th>
                     <th>Size</th>
-                    <th>Người Nhận</th>
-                    <th>Số Điện Thoại</th>
-                    <th>Địa Chỉ</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá</th>
                     <th>Phương Thức Thanh Toán</th>
                     <th>Tình Trạng Đơn Hàng</th>
                   
@@ -58,9 +57,8 @@
                     <td>    <?= $billDetail["product_id"] ?></td>
                     <td>    <?= $billDetail["quantity"] ?></td>
                     <td>    <?= $billDetail["size"] ?></td>
-                    <td>    <?= $billDetail["name"] ?></td>
-                    <td>    <?='0'. $billDetail["tel"] ?></td>
-                    <td>    <?= $billDetail["address"] ?></td>
+                    <td>    <?= $billDetail["product_name"] ?></td> 
+                    <td>    <?=number_format($billDetail["price"], 0, '.', ',')  ?> VND</td>
                     <td>    <?= $payment ?></td>
                     <td>
                         <span class=" <?php

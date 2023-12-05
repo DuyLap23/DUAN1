@@ -43,15 +43,18 @@ function load_all_pro_detail($product_id) {
 }
 
 function delete_sanpham($product_id) {
-    $sql = "DELETE FROM comments WHERE product_id = ?";
-    pdo_execute($sql, $product_id);
-    // Xóa bản ghi từ bảng product_detail
-    $sqlDeleteProductDetail = "DELETE FROM product_detail WHERE product_id = ?";
-    pdo_execute($sqlDeleteProductDetail, $product_id);
+ 
+    // $sql = "DELETE FROM comments WHERE product_id = ?";
+    // pdo_execute($sql, $product_id);
+    // // Xóa bản ghi từ bảng product_detail
+    // $sqlDeleteProductDetail = "DELETE FROM product_detail WHERE product_id = ?";
+    // pdo_execute($sqlDeleteProductDetail, $product_id);
 
     // Xóa bản ghi từ bảng product
-    $sqlDeleteProduct = "DELETE FROM product WHERE product_id = ?";
-    pdo_execute($sqlDeleteProduct, $product_id);
+    // $sqlDeleteProduct = "DELETE FROM product WHERE product_id = ?";
+    // pdo_execute($sqlDeleteProduct, $product_id);
+    $sqlHidden = "UPDATE product SET is_hidden = TRUE WHERE product_id = ?";
+    pdo_execute($sqlHidden, $product_id);
 }
 
 

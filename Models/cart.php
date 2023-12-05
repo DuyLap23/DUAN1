@@ -159,14 +159,16 @@ function select_All_billDetailByid($idbill) {
     cart.image,
     cart.quantity,
     cart.price,
-    cart.size
+    cart.size,
+    product.product_name
     
 
 
 
   FROM bill
-  INNER JOIN cart
-  ON bill.id_bill = cart.id_bill
+  INNER JOIN cart ON bill.id_bill = cart.id_bill
+  INNER JOIN product 
+    ON product.product_id = cart.product_id
   WHERE bill.id_bill =".$idbill;
     $bill = pdo_query($sql);
     return $bill;

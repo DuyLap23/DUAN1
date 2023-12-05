@@ -3,16 +3,16 @@
 	<!-- banner full  -->
 	<div id="carousel-home">
 		<div class="owl-carousel owl-theme">
-			<div class="owl-slide cover" style="background-image: url(View/img/banner5.jpg);">
+			<div class="owl-slide cover" style="background-image: url(View/img/banner10.jpg);">
 				<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<div class="container">
 						<div class="row justify-content-center justify-content-md-end">
 							<div class="col-lg-6 static">
 								<div class="slide-text text-end white">
-									<h2 class="owl-slide-animated owl-slide-title">Attack Air<br>Max 720 Sage
-										Low</h2>
+									<h2 class="owl-slide-animated owl-slide-title"><br>Thời Thượng 
+										</h2>
 									<p class="owl-slide-animated owl-slide-subtitle">
-										Limited items available at this price
+										
 									</p>
 									<div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
 											href="listing-grid-1-full.html" role="button">Mua Sắm Ngay</a></div>
@@ -23,16 +23,16 @@
 				</div>
 			</div>
 			<!--/owl-slide-->
-			<div class="owl-slide cover" style="background-image: url(View/img/banner2.jpg);">
+			<div class="owl-slide cover" style="background-image: url(View/img/banner8.jpg);">
 				<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<div class="container">
 						<div class="row justify-content-center justify-content-md-start">
 							<div class="col-lg-6 static">
 								<div class="slide-text white">
-									<h2 class="owl-slide-animated owl-slide-title">Attack Air<br>VaporMax
-										Flyknit 3</h2>
+									<h2 class="owl-slide-animated owl-slide-title"><br>Quý Phái
+										</h2>
 									<p class="owl-slide-animated owl-slide-subtitle">
-										Limited items available at this price
+										
 									</p>
 									<div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
 											href="listing-grid-1-full.html" role="button">Mua Sắm Ngay</a></div>
@@ -43,16 +43,16 @@
 				</div>
 			</div>
 			<!--/owl-slide-->
-			<div class="owl-slide cover" style="background-image: url(View/img/banner6.jpg);">
-				<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
+			<div class="owl-slide cover" style="background-image: url(View/img/banner9.jpg);">
+				<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 					<div class="container">
 						<div class="row justify-content-center justify-content-md-start">
 							<div class="col-lg-12 static">
-								<div class="slide-text text-center black">
-									<h2 class="owl-slide-animated owl-slide-title">Attack Air<br>Monarch IV SE
+								<div class="slide-text text-center  white">
+									<h2 class="owl-slide-animated owl-slide-title"><br>Phong Cách
 									</h2>
 									<p class="owl-slide-animated owl-slide-subtitle">
-										Lightweight cushioning and durable support with a Phylon midsole
+										
 									</p>
 									<div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
 											href="listing-grid-1-full.html" role="button">Mua Sắm Ngay</a></div>
@@ -74,7 +74,7 @@
 			<a href="#0" class="img_container">
 				<img src="View/img/banner1.jpg" data-src="View/img/banner1.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-					<h3>Bộ Sưu Tập Mới</h3>
+					<h3>Thanh lịch</h3>
 					<div><span class="btn_1">Mua Sắm Ngay</span></div>
 				</div>
 			</a>
@@ -83,7 +83,7 @@
 			<a href="#0" class="img_container">
 				<img src="View/img/banner3.jpg" data-src="View/img/banner3.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-					<h3>Bộ Sưu Tập Nàng Thơ</h3>
+					<h3>Lãng Mạn</h3>
 					<div><span class="btn_1">Mua Sắm Ngay</span></div>
 				</div>
 			</a>
@@ -92,7 +92,7 @@
 			<a href="#0" class="img_container">
 				<img src="View/img/banner4.jpg" data-src="View/img/banner4.jpg" alt="" class="lazy">
 				<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-					<h3>Bộ Sưu Tập Xanh</h3>
+					<h3>Quyến rũ</h3>
 					<div><span class="btn_1">Mua Sắm Ngay</span></div>
 				</div>
 			</a>
