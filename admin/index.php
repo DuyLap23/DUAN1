@@ -168,8 +168,14 @@ if(isset($_GET['act'])) {
                 update_sanpham($product_id, $product_name, $imgUpdate, $price, $description, $category_id, $size, $quantity);
                 $Notification = "Sửa thành công";
             }
+            $limit = 5;
+            $page = $_GET['page'] ?? 1;
+            $start = ($page - 1) * $limit;
+            $countsp = count(loadall_sanpham('', $category_id, 0, 999999999));
+            $listsanpham = loadall_sanpham('', $category_id, $start, $limit);
+           
             $sellect_categories = sellect_all_categories();
-            $listsanpham = loadall_sanpham("", 0);
+           
             include "Sanpham/list.php";
             break;
 
