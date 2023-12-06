@@ -108,7 +108,7 @@
                                 <div class="col-xl-4 col-lg-5 col-md-6 col-6">
                                     <div class="numbers-row">
                                        
-                                        <input type="text" value="1" id="quantity_1" class="qty2"
+                                        <input type="number" value="1" id="quantity_1" class="qty2" onclick="validateAndSubmit()"
                                             name="selected_quantity" min="1" max="<?= $quantity ?>">
                                    
                                         </div>

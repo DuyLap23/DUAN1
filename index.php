@@ -18,7 +18,7 @@ $user = select__userByid($userID);
 
 $loadall_sanpham = loadall_sanpham_home();
 $sellect_categories = sellect_all_categories();
-$sp_banchay=sp_banchay();
+$sp_banchay = sp_banchay();
 
 require "View/Home/header.php";
 if(isset($_GET['act']) && ($_GET['act']) != "") {
@@ -36,6 +36,7 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
                 $sp_cung_loai = select_sp_cungloai($product_id, $category_id);
                 $load_all_binhluan = loadall__comment__Byid($product_id);
                 $loadall_pro_detail = get_product_details($product_id);
+          
                 $maxQtt = maxQtt($product_id);
                 include "View/Sanpham/spchitiet.php";
             } else {
@@ -70,7 +71,7 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
             $countsp = count(loadall_sanpham($key, $idcate, 0, 999999999));
 
             $tendm = load_ten_dm($idcate);
-          
+
             include "View/Sanpham/product-all.php";
             break;
 
@@ -148,6 +149,7 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
         // giỏ hàng 
         case 'addtocart':
             if(isset($_POST['addcart']) && ($_POST['addcart'])) {
+
                 $product_id = $_POST['product_id'];
                 $product_name = $_POST['product_name'];
                 $price = $_POST['price'];
@@ -165,6 +167,27 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
                 } else {
                     $quantity = 1;
                 }
+                
+                $valQuantity = valQuantity($product_id, $size, $quantity);
+                print_r($valQuantity);
+                // validate số lượng 
+                if($result) {
+                    $row = $result[0];
+                    $totalQuantityInDatabase = $row['totalQuantity'];
+
+                    // Kiểm tra số lượng nhập vào
+                    if($selected_quantity > $totalQuantityInDatabase) {
+                        echo json_encode(['error' => 'Không đủ số lượng trong kho.']);
+                    } else {
+                        echo json_encode(['success' => 'Số lượng hợp lệ.']);
+                    }
+
+
+                } else {
+                    echo json_encode(['error' => 'Đã có lỗi xảy ra trong quá trình truy vấn.']);
+                }
+
+
 
                 $image = $_POST['img'];
 

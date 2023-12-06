@@ -43,18 +43,17 @@ function load_all_pro_detail($product_id) {
 }
 
 function delete_sanpham($product_id) {
- 
-    // $sql = "DELETE FROM comments WHERE product_id = ?";
-    // pdo_execute($sql, $product_id);
-    // // Xóa bản ghi từ bảng product_detail
-    // $sqlDeleteProductDetail = "DELETE FROM product_detail WHERE product_id = ?";
-    // pdo_execute($sqlDeleteProductDetail, $product_id);
+
+    $sql = "DELETE FROM comments WHERE product_id = ?";
+    pdo_execute($sql, $product_id);
+    // Xóa bản ghi từ bảng product_detail
+    $sqlDeleteProductDetail = "DELETE FROM product_detail WHERE product_id = ?";
+    pdo_execute($sqlDeleteProductDetail, $product_id);
 
     // Xóa bản ghi từ bảng product
-    // $sqlDeleteProduct = "DELETE FROM product WHERE product_id = ?";
-    // pdo_execute($sqlDeleteProduct, $product_id);
-    $sqlHidden = "UPDATE product SET is_hidden = TRUE WHERE product_id = ?";
-    pdo_execute($sqlHidden, $product_id);
+    $sqlDeleteProduct = "DELETE FROM product WHERE product_id = ?";
+    pdo_execute($sqlDeleteProduct, $product_id);
+
 }
 
 
@@ -117,30 +116,7 @@ function get_product_details($product_id) {
     $sql = "SELECT size, quantity FROM product_detail WHERE product_id = ?";
     return pdo_query($sql, $product_id);
 }
-// function mg_quantity()
-// {
-//     $sql="SELECT quantity FROM product_detail WHERE product_id = :product_id AND size = :size";
-//     return pdo_query_one($sql);
 
-//     if ($result) {
-//         $max_quantity = $result['quantity'];
-
-//         // Hiển thị và kiểm tra giới hạn số lượng khi người dùng nhập
-//         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//             $input_quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 0;
-
-//             if ($input_quantity > $max_quantity) {
-//                 echo "Chỉ được phép nhập tối đa $max_quantity sản phẩm cho size $selected_size.";
-//             } else {
-//                 // Xử lý logic khi số lượng hợp lệ
-//                 // Lưu vào cơ sở dữ liệu hoặc thực hiện các bước khác
-//                 echo "Nhập số lượng hợp lệ.";
-//             }
-//         }
-//     } else {
-//         echo "Không tìm thấy dữ liệu cho product_id $product_id và size $selected_size.";
-//     }
-// }
 function getQuantity($productId, $size) {
     // Kết nối với cơ sở dữ liệu
     require_once('connect.php');
@@ -154,8 +130,8 @@ function getQuantity($productId, $size) {
 
 // Hàm xử lý sự kiện thay đổi kích cỡ
 
-function maxQtt($product_id){
-    $sql ="SELECT
+function maxQtt($product_id) {
+    $sql = "SELECT
     size,
     SUM(quantity) AS total_quantity
   FROM
@@ -166,11 +142,29 @@ function maxQtt($product_id){
     size;";
     return pdo_query_one($sql, $product_id);
 }
-function sp_banchay(){
-    $sql =" SELECT SUM(cart.quantity) as soluong , product.product_name, product.image, product.price, product.product_id  FROM cart join product on cart.product_id = product.product_id 
+function sp_banchay() {
+    $sql = " SELECT SUM(cart.quantity) as soluong , product.product_name, product.image, product.price, product.product_id  FROM cart join product on cart.product_id = product.product_id 
     GROUP by product.product_id  ORDER by soluong DESC;";
     return pdo_query($sql);
 
 }
+// function valQuantity($product_id) {
+//     $sql = "SELECT size, SUM(quantity) as totalQuantity FROM product_detail WHERE product_id = ? GROUP BY size ";
+//     $result = pdo_query($sql, $product_id);
+
+//     if ($result) {
+//         if (count($result) > 0) {
+//             echo "Tổng số lượng cho mỗi size theo product_id $product_id:<br>";
+//             foreach ($result as $row) {
+//                 echo "Size: " . $row['size'] . ", Total Quantity: " . $row['totalQuantity'] . "<br>";
+//             }
+//         } else {
+//             echo "Không có dữ liệu phù hợp.";
+//         }
+//     } else {
+//         echo "Đã có lỗi xảy ra trong quá trình truy vấn.";
+//     }
+// }
+
 
 ?>

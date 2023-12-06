@@ -260,7 +260,11 @@ function count_bill() {
     return pdo_query($sql);
 }
 
+function valQuantity($product_id,$selected_size ,$selected_quantity) {
+   
 
 
+    
+}
 
 ?>
