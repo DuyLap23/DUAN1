@@ -25,7 +25,8 @@ if(isset($_GET['act']) && ($_GET['act']) != "") {
     $act = $_GET['act'];
     switch($act) {
         // chi tiết sp 
-        case "chitietsp":
+        
+            case "chitietsp":
 
             if(isset($_GET['idct_sp']) && ($_GET['idct_sp'] > 0)) {
                 $product_id = $_GET['idct_sp'];
