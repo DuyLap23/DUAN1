@@ -19,6 +19,7 @@ if(isset($_GET['act'])) {
             $count_bill = count_bill();
             $count_account = count_account();
             $loadAll_bill_home = loadAll_bill_home(0);
+            
             include "home.php";
             break;
 
