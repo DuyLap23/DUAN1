@@ -1,6 +1,6 @@
 <main>
     <?php
-    if(is_array($select__billByid)) {
+    if (is_array($select__billByid)) {
         extract($select__billByid);
         # code...
     } ?>
@@ -45,17 +45,7 @@
                 </thead>
                 <tbody>
                     <form action="index.php?act=updatedh" method="post">
-                        <?php 
-                        if($bill_startus == 0) {
-                            $startus = "Đơn hàng mới";
-                        } elseif($bill_startus == 1) {
-                            $startus = "Đang xử lí ";
-                        } elseif($bill_startus == 2) {
-                            $startus = "Đang giao hàng";
-                        } else {
-                            $startus = "Đã giao hàng";
-                        }
-                        ?>
+
                         <tr>
                             <td>
                                 <?= $id_bill ?>
@@ -73,12 +63,22 @@
 
                             </td>
                             <td>
-                                <select name="status" id="" class="rounded-4 " >
-                                    <option value="0">Đơn Hàng Mới</option>
-                                    <option value="1">Đang Xử Lý</option>
-                                    <option value="2">Đang Giao Hàng</option>
-                                    <option value="3">Đã Giao Hàng </option>
-                                    <option value="4">Hủy Đơn </option>
+                                <select name="status" id="" class="rounded-4 ">
+                                    <?php if ($bill_startus == 0){ ?>
+                                        <option value="0">Đơn Hàng Mới</option>
+                                        <option value="1">Đang Xử Lý</option>
+                                        <option value="4">Hủy Đơn </option>
+
+                                 
+                                    <?php } elseif ($bill_startus == 1){ ?>
+                                        <option value="1">Đang Xử Lý</option>
+                                        <option value="2">Đang Giao Hàng</option>
+                            
+                                    <?php }elseif ($bill_startus == 2){ ?>
+                                        <option value="2">Đang Giao Hàng</option>
+                                        <option value="3">Đã Giao Hàng </option>
+                                    <?php }?>
+
                                 </select>
 
                             </td>
@@ -92,7 +92,7 @@
             </table>
             <div class="notification">
                 <?php
-                if(isset($Notification) && $Notification != "") {
+                if (isset($Notification) && $Notification != "") {
                     echo $Notification;
                 }
                 ?>

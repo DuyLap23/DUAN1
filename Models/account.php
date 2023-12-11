@@ -11,7 +11,11 @@
     }
 
     function check__taikhoan($email,$password) {
-        $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+        $sql = "SELECT * FROM users WHERE email = ? AND password = ? ";
+        return pdo_query_one($sql,$email,$password);
+    }
+    function check__taikhoan_admin($email,$password) {
+        $sql = "SELECT * FROM users WHERE email = ? AND password = ? AND role =1";
         return pdo_query_one($sql,$email,$password);
     }
     

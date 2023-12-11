@@ -18,22 +18,25 @@ function insert_sanpham($product_name, $image, $price, $description, $category_i
 }
 
 function loadall_sanpham($search = "", $category_id = 0, $start, $limit = 0) {
+    $sql = "SELECT product.*, categories.category_name 
+            FROM product 
+            LEFT JOIN categories ON product.category_id = categories.category_id 
+            WHERE 1 ";
 
-    $sql = "select *from product where 1 ";
     if($search != "") {
-        $sql .= " and product_name like '%".$search."%'";
+        $sql .= " AND product.product_name LIKE '%" . $search . "%'";
     }
+
     if($category_id > 0) {
-        $sql .= " and category_id= '".$category_id."'";
+        $sql .= " AND product.category_id = '" . $category_id . "'";
     }
 
-    $sql .= " ORDER BY product_id DESC ";
-    $sql .= "limit $start,$limit";
-
-
+    $sql .= " ORDER BY product.product_id DESC ";
+    $sql .= " LIMIT $start, $limit";
 
     return pdo_query($sql);
 }
+
 
 function load_all_pro_detail($product_id) {
 
@@ -117,54 +120,37 @@ function get_product_details($product_id) {
     return pdo_query($sql, $product_id);
 }
 
-function getQuantity($productId, $size) {
-    // Kết nối với cơ sở dữ liệu
-    require_once('connect.php');
+// function getQuantity($productId, $size) {
+//     // Kết nối với cơ sở dữ liệu
+//     require_once('connect.php');
 
-    // Lấy số lượng cho kích cỡ và sản phẩm đã chọn
-    $quantity = pdo_query_one("SELECT quantity FROM product_details WHERE product_id = :product_id AND size = :size", $productId, $size);
+//     // Lấy số lượng cho kích cỡ và sản phẩm đã chọn
+//     $quantity = pdo_query_one("SELECT quantity FROM product_details WHERE product_id = :product_id AND size = :size", $productId, $size);
 
-    // Trả về số lượng
-    return $quantity;
-}
+//     // Trả về số lượng
+//     return $quantity;
+// }
 
 // Hàm xử lý sự kiện thay đổi kích cỡ
 
-function maxQtt($product_id) {
-    $sql = "SELECT
-    size,
-    SUM(quantity) AS total_quantity
-  FROM
-    product_detail
-  WHERE
-    product_id = ?
-  GROUP BY
-    size;";
-    return pdo_query_one($sql, $product_id);
-}
+// function maxQtt($product_id) {
+//     $sql = "SELECT
+//     size,
+//     SUM(quantity) AS total_quantity
+//   FROM
+//     product_detail
+//   WHERE
+//     product_id = ?
+//   GROUP BY
+//     size;";
+//     return pdo_query_one($sql, $product_id);
+// }
 function sp_banchay() {
     $sql = " SELECT SUM(cart.quantity) as soluong , product.product_name, product.image, product.price, product.product_id  FROM cart join product on cart.product_id = product.product_id 
     GROUP by product.product_id  ORDER by soluong DESC;";
     return pdo_query($sql);
 
 }
-// function valQuantity($product_id) {
-//     $sql = "SELECT size, SUM(quantity) as totalQuantity FROM product_detail WHERE product_id = ? GROUP BY size ";
-//     $result = pdo_query($sql, $product_id);
-
-//     if ($result) {
-//         if (count($result) > 0) {
-//             echo "Tổng số lượng cho mỗi size theo product_id $product_id:<br>";
-//             foreach ($result as $row) {
-//                 echo "Size: " . $row['size'] . ", Total Quantity: " . $row['totalQuantity'] . "<br>";
-//             }
-//         } else {
-//             echo "Không có dữ liệu phù hợp.";
-//         }
-//     } else {
-//         echo "Đã có lỗi xảy ra trong quá trình truy vấn.";
-//     }
-// }
 
 
 ?>

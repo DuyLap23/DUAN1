@@ -1,35 +1,28 @@
 <main>
     <?php
-
-	extract($chitietsp);
-	$images = explode(',', $image);
-
-	?>
+    extract($chitietsp);
+    $images = explode(',', $image);
+    ?>
     <div class="container margin_30">
         <form action="index.php?act=addtocart" method="post">
             <div class="row">
-
                 <div class="col-md-6 ">
                     <div class="all">
                         <div class="slider">
                             <div class="owl-carousel owl-theme main">
-                                <?php foreach($images as $key => $value): ?>
-                                <img src="./image/<?= $value ?>" class="item-box" alt="">
+                                <?php foreach ($images as $key => $value): ?>
+                                    <img src="./image/<?= $value ?>" class="item-box" alt="">
                                 <?php endforeach; ?>
-
-
                             </div>
                             <div class="left nonl"><i class="ti-angle-left"></i></div>
                             <div class="right"><i class="ti-angle-right"></i></div>
                         </div>
                         <div class="slider-two">
                             <div class="owl-carousel owl-theme thumbs">
-                                <?php foreach($images as $key => $value): ?>
-                                <img src="./image/<?= $value ?>" class="<?= $key == 0 ? 'item active' : 'item' ?>"
-                                    alt="">
+                                <?php foreach ($images as $key => $value): ?>
+                                    <img src="./image/<?= $value ?>" class="<?= $key == 0 ? 'item active' : 'item' ?>"
+                                        alt="">
                                 <?php endforeach; ?>
-
-
                             </div>
                             <div class="left-t nonl-t"></div>
                             <div class="right-t"></div>
@@ -44,249 +37,216 @@
                             <li>Page active</li>
                         </ul>
                     </div>
-                    <!-- /page_header -->
                     <div class="prod_info">
                         <h1>
                             <?= $product_name ?>
                         </h1>
                         <div class="prod_options">
-
-                        <div class="card-body mb-4">
-                            <div class="row justify-content-between">
-                                <div class="col-lg-6">
-                                    <h5>Mô tả </h5>
-                                    <p>
-                                        <?= $description ?>
-                                    </p>
-                                </div>
-                                <div class="col-lg-5">
-
-                                    <!-- /table-responsive -->
-                                </div>
-                            </div>
-                        </div>
-               
-
-                            <div class="row">
-                                <label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong></label>
-                                <?php foreach ($loadall_pro_detail as $index => $value) : ?>
-                                <?php
-									extract($value);
-									$isOutOfStock = ($quantity == 0);
-									?>
-                                <div class="col-xl-4 col-lg-5 col-md-6 col-6 w-8">
-                                    <div class="custom-select-form">
-                                        <label for="size<?= $size ?>"
-                                            class="sizeLabel <?= $isOutOfStock ? 'outOfStock' : '' ?>"
-                                            <?= $isOutOfStock ? 'title="Hết hàng"' : '' ?>>
-                                            <?= $size ?>
-                                            <input type="radio" name="selected_size" value="<?= $size ?>"
-                                                id="size<?= $size ?>" class="checked"
-                                                <?= $isOutOfStock ? 'disabled' : '' ?>
-                                                onclick="showQuantity(<?= $quantity ?>)">
-                                        </label>
+                            <div class="card-body mb-4">
+                                <div class="row justify-content-between">
+                                    <div class="col-lg-6">
+                                        <h5>Mô tả </h5>
+                                        <p>
+                                            <?= $description ?>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <!-- /table-responsive -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Size</strong></label>
+                                <?php foreach ($loadall_pro_detail as $index => $value): ?>
+                                    <?php
+                                    extract($value);
+                                    $isOutOfStock = ($quantity == 0);
+                                    ?>
+                                    <div class="col-xl-4 col-lg-5 col-md-6 col-6 w-8 size_border">
+                                        <div class="custom-select-form div_size">
+                                            <label for="size<?= $size ?>"
+                                                class="sizeLabel <?= $isOutOfStock ? 'outOfStock' : '' ?>" <?= $isOutOfStock ? 'title="Hết hàng"' : '' ?>>
+                                                <?= $size ?>
+                                                <input type="radio" name="selected_size" value="<?= $size ?>"
+                                                    id="size<?= $size ?>" class="checked" <?= $isOutOfStock ? 'disabled' : '' ?> onclick="showQuantity(<?= $quantity ?>)">
+                                            </label>
+                                        </div>
+                                    </div>
+
                                 <?php endforeach; ?>
                             </div>
-
                             <div id="quantityDisplay">Số lượng còn trong kho: </div>
-
                             <script>
-                            function showQuantity(quantity) {
-                                document.getElementById("quantityDisplay").innerHTML = "Số lượng còn trong kho: " +
-                                    quantity;
+                                function showQuantity(quantity) {
+                                    document.getElementById("quantityDisplay").innerHTML = "Số lượng còn trong kho: " + quantity;
+                                    const quantityInput = document.getElementById("quantity_1");
+                                    quantityInput.max = quantity;
+                                }
 
-                                // Cập nhật thuộc tính max của đầu vào số lượng
-                                const quantityInput = document.getElementById("quantity_1");
-                                quantityInput.max = quantity;
-                            }
                             </script>
-
-                            <div class="row">	
+                            <div class="row">
                                 <label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Số lượng </strong></label>
                                 <div class="col-xl-4 col-lg-5 col-md-6 col-6">
                                     <div class="numbers-row">
-                                       
-                                        <input type="number" value="1" id="quantity_1" class="qty2" onclick="validateAndSubmit()"
-                                            name="selected_quantity" min="1" max="<?= $quantity ?>">
-                                   
-                                        </div>
+                                        <input type="number" value="1" id="quantity_1" class="qty2"
+                                            onclick="validateAndSubmit()" name="selected_quantity" min="1"
+                                            max="<?= $quantity ?>">
+                                    </div>
                                 </div>
                             </div>
+                            <script>// main.js
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    const sizeLabels = document.querySelectorAll('.custom-select-form label.sizeLabel');
+                                    let selectedSize = null;
+
+                                    sizeLabels.forEach(function (label) {
+                                        label.addEventListener('click', function () {
+                                            selectedSize = label.innerText.trim();
+
+                                            // Loại bỏ lớp focus từ tất cả các label trước đó
+                                            sizeLabels.forEach(function (otherLabel) {
+                                                otherLabel.classList.remove('focus');
+                                            });
+
+                                            // Thêm lớp focus cho label được click
+                                            label.classList.add('focus');
+                                        });
+                                    });
+
+                                    const quantityInput = document.getElementById("quantity_1");
+                                    quantityInput.addEventListener('focus', function () {
+                                        sizeLabels.forEach(function (label) {
+                                            if (label.innerText.trim() === selectedSize) {
+                                                label.classList.add('focus');
+                                            } else {
+                                                label.classList.remove('focus');
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
                         </div>
-						<?php
-						
-						?>
-
-
-
                         <div class="row d-flex">
                             <div class="col-lg-5 col-md-6">
                                 <div class="price_main"><span class="new_price">$
                                         <?= number_format($price, 0, '.', ',') ?>
                                     </span></div>
                             </div>
-                            <?php if($user) { ?>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="btn_add_to_cart"><input type="submit" name="addcart" id=""
-                                        value="Thêm vào giỏ hàng" class="btn_1">
+                            <?php if ($user) { ?>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="btn_add_to_cart"><input type="submit" name="addcart" id=""
+                                            value="Thêm vào giỏ hàng" class="btn_1"></div>
                                 </div>
-                            </div>
                             <?php } else { ?>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="btn_add_to_cart">
-                                    <a href="index.php?act=account" class="btn_1">Thêm vào giỏ hàng</a>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="btn_add_to_cart"><a href="index.php?act=account" class="btn_1">Thêm vào giỏ
+                                            hàng</a></div>
                                 </div>
-                            </div>
                             <?php } ?>
-
-
                         </div>
                     </div>
-
                 </div>
-
-
             </div>
             <input type="hidden" name="product_id" id="" value="<?= $product_id ?>">
             <input type="hidden" name="product_name" id="" value="<?= $product_name ?>">
             <input type="hidden" value="<?= $image ?>" name="img">
-
             <input type="hidden" name="price" id="" value="<?= $price ?>">
             <input type="hidden" name="size" id="" value="<?= $size ?>">
             <input type="hidden" name="quantity" id="" value="<?= $quantity ?>">
-
         </form>
-
-        <!-- /row -->
     </div>
-    <!-- /container -->
 
-  
+    <!-- /container -->
     <!-- /tabs_product -->
     <div class="tab_content_wrapper">
         <div class="container">
             <div class="tab-content" role="tablist">
-          
-
-                            <div class="container margin_60_35">
-                                <form action="index.php?act=chitietsp" method="post">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <table class="table table-responsive	">
-                                                <tr>
-                                                    <th>Tên người dùng</th>
-                                                    <th>Nội dung</th>
-                                                    <th>Ngày bình luận</th>
-                                                </tr>
-                                                <?php
-												foreach($load_all_binhluan as $binhluan) {
-													extract($binhluan);
-													?>
-                                                <tr>
-                                                    <td>
-                                                        <?= $user_name ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $content ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $date_comment ?>
-                                                    </td>
-                                                </tr>
-                                                <?php
-												}
-												?>
-                                            </table>
-                                            <div class="write_review">
-
-                                                <?php
-												if($user) {
-													?>
-                                                <div class="form-group">
-                                                    <label>Bình luận của bạn</label>
-                                                    <input type="hidden" name="product_id" value="<?= $product_id ?>">
-                                                    <textarea class="form-control" name="noidung" cols="30" rows="3"
-                                                        placeholder="Viết đánh giá để mọi người có thể hiểu hơn về sản phẩm"></textarea>
-                                                </div>
-
-                                                <button class="btn_1" name="guibinhluan">Gửi bình luận</button>
-                                                <?php
-												} else {
-													?>
-                                                <div class="form-group">
-                                                    Vui lòng đăng nhập để bình luận!
-                                                </div>
-                                                <?php
-												}
-												?>
-
-                                            </div>
+                <div class="container margin_60_35">
+                    <form action="index.php?act=chitietsp" method="post">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <table class="table table-responsive	">
+                                    <tr>
+                                        <th>Tên người dùng</th>
+                                        <th>Nội dung</th>
+                                        <th>Ngày bình luận</th>
+                                    </tr>
+                                    <?php foreach ($load_all_binhluan as $binhluan):
+                                        extract($binhluan);
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <?= $user_name ?>
+                                            </td>
+                                            <td>
+                                                <?= $content ?>
+                                            </td>
+                                            <td>
+                                                <?= $date_comment ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </table>
+                                <div class="write_review">
+                                    <?php if ($user): ?>
+                                        <div class="form-group">
+                                            <label>Bình luận của bạn</label>
+                                            <input type="hidden" name="product_id" value="<?= $product_id ?>">
+                                            <textarea class="form-control" name="noidung" cols="30" rows="3"
+                                                placeholder="Viết đánh giá để mọi người có thể hiểu hơn về sản phẩm"></textarea>
                                         </div>
-                                    </div>
-                                </form>
-                                <!-- /row -->
+                                        <button class="btn_1" name="guibinhluan">Gửi bình luận</button>
+                                    <?php else: ?>
+                                        <div class="form-group">
+                                            Vui lòng đăng nhập để bình luận!
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
                             </div>
+                        </div>
+                    </form>
+                    <!-- /row -->
+                </div>
             </div>
             <!-- /tab-content -->
         </div>
         <!-- /container -->
-
-
     </div>
     <!-- /tab_content_wrapper -->
-
     <div class="container margin_60_35">
         <div class="main_title">
             <h2>Sản Phẩm liên quan</h2>
-
-
         </div>
         <div class="owl-carousel owl-theme products_carousel">
-            <?php foreach($sp_cung_loai as $key => $value):
-				extract($value);
-				?>
-            <div class="item">
-                <div class="grid_item">
-                    <figure>
+            <?php foreach ($sp_cung_loai as $key => $value):
+                extract($value);
+                ?>
+                <div class="item">
+                    <div class="grid_item">
+                        <figure>
+                            <a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
+                                <img class="img-fluid lazy" src="image/<?= explode(',', $image)[0] ?? '' ?>"
+                                    data-src="image/<?= explode(',', $image)[0] ?? '' ?>" alt="">
+                            </a>
+                        </figure>
+                        <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
+                                class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
                         <a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
-                            <img class="img-fluid lazy" src="image/<?= explode(',', $image)[0] ?? '' ?>"
-                                data-src="image/<?= explode(',', $image)[0] ?? '' ?>" alt="">
+                            <h3>
+                                <?= $product_name ?>
+                            </h3>
                         </a>
-                    </figure>
-                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i
-                            class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
-                    <a href="index.php?act=chitietsp&idct_sp=<?= $product_id ?>">
-                        <h3>
-                            <?= $product_name ?>
-                        </h3>
-                    </a>
-                    <div class="price_box">
-                        <span class="new_price">$
-                            <?= number_format($price, 0, '.', ',') ?>
-                        </span>
+                        <div class="price_box">
+                            <span class="new_price">$
+                                <?= number_format($price, 0, '.', ',') ?>
+                            </span>
+                        </div>
                     </div>
-                    <!-- <ul>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a>
-						</li>
-						<li><a href="#0" class="tooltip-1" data-bs-toggle="tooltip" data-bs-placement="left"
-								title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
-					</ul> -->
+                    <!-- /grid_item -->
                 </div>
-                <!-- /grid_item -->
-            </div>
-
             <?php endforeach ?>
-
-
         </div>
-
     </div>
     <!-- /container -->
-
-
 </main>
+<!-- #region -->

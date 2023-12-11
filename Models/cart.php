@@ -159,12 +159,8 @@ function select_All_billDetailByid($idbill) {
     cart.image,
     cart.quantity,
     cart.price,
-    cart.size,
+    cart.size,  
     product.product_name
-    
-
-
-
   FROM bill
   INNER JOIN cart ON bill.id_bill = cart.id_bill
   INNER JOIN product 
@@ -260,11 +256,6 @@ function count_bill() {
     return pdo_query($sql);
 }
 
-function valQuantity($product_id,$selected_size ,$selected_quantity) {
-   
 
-
-    
-}
 
 ?>

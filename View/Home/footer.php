@@ -37,7 +37,7 @@
 							<ul>
 								<li><i class="ti-home"></i>Trinh Van Bo street ,Nam Tu Liem<br>Ha Noi -Viet Nam</li>
 								<li><i class="ti-headphone-alt"></i>+84 343 014 882</li>
-								<li><i class="ti-email"></i><a href="#0">hoangduylap124@gmail.com</a></li>
+								<li><i class="ti-email"></i><a href="#0">Unique@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>

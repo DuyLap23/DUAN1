@@ -10,7 +10,7 @@
 					<li>Page active</li>
 				</ul>
 			</div>
-			<h1>Cart page</h1>
+			<h1>Giỏ hàng</h1>
 		</div>
 		<!-- /page_header -->
 

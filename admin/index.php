@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-require "header.php";
+require "home/header.php";
 require "../Models/connect.php";
 require "../Models/danhmuc.php";
 require "../Models/account.php";
@@ -10,23 +10,24 @@ require "../Models/binhluan.php";
 require "../Models/cart.php";
 require "../Models/thongke.php";
 
-if(isset($_GET['act'])) {
+
+if (isset($_GET['act'])) {
     $act = $_GET['act'];
-    switch($act) {
+    switch ($act) {
 
         case 'home':
             $Sum_total = Sum_total();
             $count_bill = count_bill();
             $count_account = count_account();
             $loadAll_bill_home = loadAll_bill_home(0);
-            include "home.php";
+            include "home/home.php";
             break;
 
 
 
         // Danh mục
         case 'listdm':
-            if(isset($_POST['search']) && ($_POST['search'])) {
+            if (isset($_POST['search']) && ($_POST['search'])) {
                 $sea = $_POST['sea'];
             } else {
                 $sea = '';
@@ -37,7 +38,7 @@ if(isset($_GET['act'])) {
 
         // add dm 
         case "createdm":
-            if(isset($_POST['submitdm']) && $_POST['submitdm']) {
+            if (isset($_POST['submitdm']) && $_POST['submitdm']) {
                 $category_name = $_POST['category_name'];
                 insert_categories($category_name);
                 $Notification = "Thêm Thành Công";
@@ -47,7 +48,7 @@ if(isset($_GET['act'])) {
 
         // update dm 
         case 'editdm':
-            if(isset($_GET['id_cate']) && ($_GET['id_cate'] > 0)) {
+            if (isset($_GET['id_cate']) && ($_GET['id_cate'] > 0)) {
 
                 $one_categories = sellect_one_categories($_GET['id_cate']);
             }
@@ -55,7 +56,7 @@ if(isset($_GET['act'])) {
             break;
 
         case 'updatedm':
-            if(isset($_POST['updatedm']) && $_POST['updatedm']) {
+            if (isset($_POST['updatedm']) && $_POST['updatedm']) {
                 $category_id = $_POST['category_id'];
                 $category_name = $_POST['category_name'];
                 update_categories($category_id, $category_name);
@@ -68,7 +69,7 @@ if(isset($_GET['act'])) {
 
         // delete dm 
         case 'deletedm':
-            if(isset($_GET['id_cate']) && ($_GET['id_cate'] > 0)) {
+            if (isset($_GET['id_cate']) && ($_GET['id_cate'] > 0)) {
                 $id_category = $_GET['id_cate'];
 
                 delete_categories($id_category);
@@ -80,7 +81,7 @@ if(isset($_GET['act'])) {
 
         // Sản phẩm 
         case 'listsp':
-            if(isset($_POST['locsp']) && ($_POST['locsp'])) {
+            if (isset($_POST['locsp']) && ($_POST['locsp'])) {
                 $search = $_POST['search'];
                 $category_id = $_POST['category_id'];
             } else {
@@ -88,9 +89,9 @@ if(isset($_GET['act'])) {
                 $category_id = 0;
             }
 
-            $sellect_one_categories=sellect_one_categories($category_id);
-            
-            $limit = 5;
+            $sellect_one_categories = sellect_one_categories($category_id);
+
+            $limit = 10;
             $page = $_GET['page'] ?? 1;
             $start = ($page - 1) * $limit;
             $countsp = count(loadall_sanpham($search, $category_id, 0, 999999999));
@@ -107,7 +108,7 @@ if(isset($_GET['act'])) {
 
             require 'imageArray.php';
             // kiểm tra xem người dùng có click vào nút add hay ko
-            if(isset($_POST['submitsp']) && ($_POST['submitsp'])) {
+            if (isset($_POST['submitsp']) && ($_POST['submitsp'])) {
 
                 $product_name = $_POST['product_name'];
                 $price = $_POST['price'];
@@ -126,7 +127,7 @@ if(isset($_GET['act'])) {
 
         //xoa sp
         case 'deletesp':
-            if(isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
+            if (isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
                 delete_sanpham($_GET['id_sp']);
             }
             header('location: index.php?act=listsp');
@@ -135,7 +136,7 @@ if(isset($_GET['act'])) {
         // edit sp 
         case 'editsp':
 
-            if(isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
+            if (isset($_GET['id_sp']) && ($_GET['id_sp'] > 0)) {
                 $id_sp = $_GET['id_sp'];
 
                 $sanpham = loadone_sanpham($id_sp);
@@ -148,7 +149,7 @@ if(isset($_GET['act'])) {
             break;
         // update sp 
         case 'updatesp':
-            if(isset($_POST['updatesp']) && $_POST['updatesp']) {
+            if (isset($_POST['updatesp']) && $_POST['updatesp']) {
                 $product_id = $_POST['product_id'];
                 $category_id = $_POST['category_id'];
                 $price = $_POST['price'];
@@ -157,9 +158,9 @@ if(isset($_GET['act'])) {
                 $size = $_POST['size'];
                 $quantity = $_POST['quantity'];
 
-                if(isset($_FILES['image']['name']))
+                if (isset($_FILES['image']['name']))
 
-                    if($_FILES['image']['name'] == "") {
+                    if ($_FILES['image']['name'] == "") {
                         $imgUpdate = explode(',', $_POST['img']);
                     } else {
                         $imgUpdate = array_merge($_FILES['image']['name'], explode(',', $_POST['img']));
@@ -173,9 +174,9 @@ if(isset($_GET['act'])) {
             $start = ($page - 1) * $limit;
             $countsp = count(loadall_sanpham('', 0, 0, 999999999));
             $listsanpham = loadall_sanpham('', 0, $start, $limit);
-           
+
             $sellect_categories = sellect_all_categories();
-           
+
             include "Sanpham/list.php";
             break;
 
@@ -191,13 +192,13 @@ if(isset($_GET['act'])) {
 
         // xóa bl 
         case 'deletebl':
-            if(isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
+            if (isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
                 $idkhachhang = $_GET['id_khachhang'];
             } else {
                 $idkhachhang = "";
             }
             delete_binhluan($idkhachhang);
-            header('Location:'.$_SERVER['HTTP_REFERER']);
+            header('Location:' . $_SERVER['HTTP_REFERER']);
             // include "Binhluan/delete.php";
             break;
 
@@ -211,7 +212,7 @@ if(isset($_GET['act'])) {
 
         // xóa kh 
         case 'deletekh':
-            if(isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
+            if (isset($_GET['id_khachhang']) && ($_GET['id_khachhang'] > 0)) {
                 $idkhachhang = $_GET['id_khachhang'];
             } else {
 
@@ -235,7 +236,7 @@ if(isset($_GET['act'])) {
 
         // edit dơn hàng (đổ dữ liệu ra trong form)
         case 'editdh':
-            if(isset($_GET['id_dh']) && ($_GET['id_dh'] > 0)) {
+            if (isset($_GET['id_dh']) && ($_GET['id_dh'] > 0)) {
                 $id_dh = $_GET['id_dh'];
             }
             $select__billByid = select__billByid($id_dh);
@@ -244,7 +245,7 @@ if(isset($_GET['act'])) {
 
         // cập nhật đơn hàng
         case 'updatedh':
-            if(isset($_POST['updatedh']) && $_POST['updatedh']) {
+            if (isset($_POST['updatedh']) && $_POST['updatedh']) {
                 $id_bill = $_POST['id_bill'];
 
                 $ttdh = $_POST['status'];
@@ -278,12 +279,12 @@ if(isset($_GET['act'])) {
             $luotmua = [];
             $data = [];
             $statistical = statistical('2023-12-1', '2023-12-31');
-            if(isset($_POST['loc'])) {
+            if (isset($_POST['loc'])) {
                 $statistical = statistical($_POST['from'], $_POST['to']);
 
             }
-            foreach($statistical as $key => $value) {
-                if($value['revenue'] == null) {
+            foreach ($statistical as $key => $value) {
+                if ($value['revenue'] == null) {
                     $statistical[$key]['revenue'] = 0;
                 }
 
@@ -315,14 +316,16 @@ if(isset($_GET['act'])) {
 
             include "Thongke/thongkedm.php";
             break;
+        
+
 
         default:
-            include "home.php";
+            include "home/home.php";
             break;
     }
 } else {
-    header('location: index.php?act=home');
+    header("location:index.php?act=home");
 }
 // FOOTER
-include "footer.php";
+include "home/footer.php";
 ?>

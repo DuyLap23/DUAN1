@@ -47,14 +47,14 @@
 
                 <thead class="tr-shadow">
                     <tr>
-                        <th>STT</th>
+                     
                         <th>Mã Sản Phẩm</th>
                         <th>Tên Sản Phẩm</th>
                         <th colspan="2"> Ảnh </th>
                         <th>Giá </th>
-                        <th>Mô Tả </th>
+                        <th class="desc">Mô Tả </th>
 
-                        <th>Mã Danh Mục</th>
+                        <th>Danh Mục</th>
                         <th>Thao Tác</th>
                     </tr>
                 </thead>
@@ -70,9 +70,7 @@
                         $suasp = "index.php?act=editsp&id_sp=".$product_id;
                         $xoasp = "index.php?act=deletesp&id_sp=".$product_id; // đường liên kết 
                         echo '<tr class="tr-shadow">
-                        <td>
-                            '.$stt.'
-                        </td>
+                       
                            <td>
                             '.$product_id.'
                            </td>    
@@ -81,16 +79,16 @@
                             explode(',', $image)[0]
                             .'" ></td>
                            <td>'.number_format($price, 0, '.', ',').'VND</td>
-                           <td>'.$description.'</td>
+                           <td class="desc">'.$description.'</td>
                          
-                           <td>'.$category_id.'</td>
+                           <td>'.$category_name.'</td>
                            <td >
                                <a href="'.$suasp.'"><button class=" btn status completed">Sửa </button></a>
                            <a href=" '.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa?\')"><button class="btn status pending">xóa</button></a>
                            </td>
                        </tr>'
                         ;
-                        $stt++;
+                     
                     }
                     ?>
 

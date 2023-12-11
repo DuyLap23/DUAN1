@@ -40,8 +40,24 @@
 
 		<div class="pagination__wrapper">
 
-
+		<?php if (isset($_GET['id_cate']) && $_GET['id_cate'] > 0): ?>
 			<ul class="pagination">
+				<li><a href="index.php?act=sanpham&page=<?= $page > 1 ? $page - 1 : 1 ?>&id_cate=<?= $_GET['id_cate'] ?>" class="prev" title="Trang trước">&#10094;</a></li>
+				<?php
+				$Pagepagination = ceil($countsp / $limit);
+
+				for($i = 1; $i <= $Pagepagination; $i++):
+					?>
+					<li>
+					<a href="index.php?act=sanpham&page=<?= $i ?>&id_cate=<?= $_GET['id_cate'] ?>" class="<?= $i == $page ? 'active' : '' ?>">
+							<?= $i ?>
+						</a>
+					</li>
+				<?php endfor; ?>
+				<li>    <a href="index.php?act=sanpham&page=<?= $page < $Pagepagination ? $page + 1 : $page ?>&id_cate=<?= $_GET['id_cate'] ?>" class="next" title="Trang tiếp theo">&#10095;</a></li>
+			</ul>
+<?php else: ?>
+	<ul class="pagination">
 				<li><a href="index.php?act=sanpham&page=<?= $page > 1 ? $page - 1 : 1 ?>" class="prev"
 						title="Trang trước">&#10094;</a></li>
 				<?php
@@ -58,6 +74,8 @@
 				<li><a href="index.php?act=sanpham&page=<?= $page < $Pagepagination ? $page + 1 : $page ?>" class="next"
 						title="Trang tiếp theo">&#10095;</a></li>
 			</ul>
+<?php endif; ?>
+			
 
 		</div>
 

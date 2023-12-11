@@ -39,22 +39,14 @@
 	<link rel="stylesheet" href="./View/css/product_page.css">
 	<link rel="stylesheet" href="./View/css/listing.css">
 	<link rel="stylesheet" href="./Admin/css/style.css">
+	<link rel="stylesheet" href="./View/css/faq.css"> 
+	<link rel="stylesheet" href="./View/css/contact.css"> 
 	<script src="View/js/ajax.googleapis.com_ajax_libs_jquery_3.7.1_jquery.min.js"></script>
 	<script src="View/js/libary.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
-
-
-
-
-
 </head>
-
 <body>
-
 	<div id="page">
-
 		<header class="version_1">
 			<div class="layer"></div><!-- Mobile menu overlay mask -->
 			<div class="main_header">
@@ -87,10 +79,10 @@
 										<a href="index.php?act=sanpham" class="">Sản Phẩm</a>
 									</li>
 									<li class="">
-										<a href="javascript:void(0);" class="show-submenu">Hỗ Trợ</a>
+										<a href="index.php?act=help" class="show-submenu">Hỗ Trợ</a>
 									</li>
 									<li class="">
-										<a href="javascript:void(0);" class="show-submenu">Liên Hệ</a>
+										<a href="index.php?act=lienhe" class="show-submenu">Liên Hệ</a>
 									</li>
 
 								</ul>
@@ -260,7 +252,7 @@
 													</li>
 													
 													<li>
-														<a href="help.html"><i class="ti-help-alt"></i>Hỗ trợ</a>
+														<a href="index.php?act=help"><i class="ti-help-alt"></i>Hỗ trợ</a>
 													</li>
 												</ul>
 											</div>

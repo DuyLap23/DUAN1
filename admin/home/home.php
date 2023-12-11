@@ -1,6 +1,6 @@
+
+
 <main>
-
-
 	<div class="head-title">
 		<div class="left">
 			<h1>Tổng Quan</h1>
@@ -136,4 +136,3 @@
 
 	</div>
 </main>
-</section>
