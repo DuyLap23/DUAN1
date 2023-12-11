@@ -3,7 +3,7 @@
 <main>
 	<div class="head-title">
 		<div class="left">
-			<h1>Tổng Quan</h1>
+			<h1>Tổng quan</h1>
 			<ul class="breadcrumb">
 				<li>
 					<a href="#">Trang Chủ</a>
