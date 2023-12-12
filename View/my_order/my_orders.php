@@ -12,6 +12,8 @@
         </div>
         <!-- /page_header -->
         <table class="table table-striped cart-list">
+
+            <!-- thông tin trạng thái  đơn hàng  hàng  -->
             <thead>
                 <tr>
                     <th>
@@ -61,7 +63,7 @@
                                 <span><?= number_format($bill['total'], 0, '.', ',') ?> VND</span>
                             </td>
                             <td>
-                                <strong><?=  $trangthaidh?></strong>
+                                <strong><?=$trangthaidh ?></strong>
                             </td>
                             <td class="options">
                                

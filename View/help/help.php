@@ -46,8 +46,8 @@
                 <a class="box_topic" href="#0">
                     <i class="ti-help"></i>
                     <h3>Trợ giúp chung</h3>
-                    <p>Các thông tin hỗ trợ chung và hướng dẫn sử dụng dành cho người dùng.</p>          
-                      </a>
+                    <p>Các thông tin hỗ trợ chung và hướng dẫn sử dụng dành cho người dùng.</p>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6">
                 <a class="box_topic" href="#0">

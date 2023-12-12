@@ -10,14 +10,14 @@
                     <li>Page active</li>
                 </ul>
             </div>
-        
+
 
         </div>
         <!-- /page_header -->
         <form action="index.php?act=bill" method="post">
             <div class="row">
 
-
+                <!-- form đặt hàng  -->
                 <div class="col-lg-4 col-md-6">
                     <div class="step first">
                         <h3>1. Thông tin và địa chỉ thanh toán</h3>
@@ -26,7 +26,7 @@
 
                             <div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="tab_1">
                                 <?php
-                                if($user) { ?>
+                                if ($user) { ?>
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email" name="email"
                                             value="<?= $user['email'] ?>">
@@ -48,10 +48,10 @@
                                         <input type="number" class="form-control" placeholder="Số điện thoại" name="tel"
                                             value="<?= $user['tel'] ?>">
                                     </div>
-                                <?php } 
+                                <?php }
 
 
-                                    ?>
+                                ?>
                                 <hr>
                             </div>
 
@@ -92,9 +92,9 @@
                         <div class="box_general summary">
                             <ul>
                                 <?php
-                                $Tongthanhtoan =0;
+                                $Tongthanhtoan = 0;
                                 $tong = 0;
-                                foreach($_SESSION['cart'] as $key => $value):
+                                foreach ($_SESSION['cart'] as $key => $value):
                                     extract($value);
                                     $image = explode(',', $value[2])[0];
                                     $ttien = $value[3] * $value[5];
@@ -122,8 +122,9 @@
                                     <?= number_format($Tongthanhtoan, 0, '.', ',') ?> VND
                                 </span></div>
 
-                                    <input type="submit" name="bill_Comfirm" id="" value="Xác nhận đặt hàng"   class="btn_1 full-width">
-                           
+                            <input type="submit" name="bill_Comfirm" id="" value="Xác nhận đặt hàng"
+                                class="btn_1 full-width">
+
                         </div>
                         <!-- /box_general -->
                     </div>

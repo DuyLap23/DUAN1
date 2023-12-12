@@ -37,18 +37,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($loadAll_bill as $key => $bill):
+                    <?php foreach ($loadAll_bill as $key => $bill):
                         extract($bill);
-                        $kh = $bill["name"].'<br>
+                        $kh = $bill["name"] . '<br>
             
-                    '.$bill["email"].'<br>
-                    '.$bill["address"].'<br>
-                    '.$bill["tel"];
+                    ' . $bill["email"] . '<br>
+                    ' . $bill["address"] . '<br>
+                    ' . $bill["tel"];
                         $count_sl = count_sl($bill["id_bill"]);
                         $trangthaidh = get_ttdh($bill["bill_startus"]);
-                        $detail_Dh = 'index.php?act=order_detail&id_bill='.$bill["id_bill"];
-                        $dele = "index.php?act=deletedh&id_dh=".$bill["id_bill"];
-                        $edit = "index.php?act=editdh&id_dh=".$bill["id_bill"];
+                        $detail_Dh = 'index.php?act=order_detail&id_bill=' . $bill["id_bill"];
+                        $dele = "index.php?act=deletedh&id_dh=" . $bill["id_bill"];
+                        $edit = "index.php?act=editdh&id_dh=" . $bill["id_bill"];
 
                         ?>
                         <tr class="tr-shadow box2">
@@ -72,17 +72,17 @@
                             <td>
                                 <span class="
                                 <?php
-                                if($bill["bill_startus"] == 0) {
+                                if ($bill["bill_startus"] == 0) {
                                     echo 'status completed';
-                                } elseif($bill["bill_startus"] == 1) {
+                                } elseif ($bill["bill_startus"] == 1) {
                                     echo 'status pending';
 
-                                } elseif($bill["bill_startus"] == 2) {
+                                } elseif ($bill["bill_startus"] == 2) {
                                     echo 'status cancel';
-                                } elseif($bill["bill_startus"] == 3) {
+                                } elseif ($bill["bill_startus"] == 3) {
                                     echo 'status process';
 
-                                } elseif($bill["bill_startus"] == 4) {
+                                } elseif ($bill["bill_startus"] == 4) {
                                     echo 'status  bluecheck';
 
                                 } ?>
@@ -101,7 +101,7 @@
                             <td class="d-flex justify-content-around" style="gap: 5px ;line-height: 80px">
                                 <?php
 
-                                if($bill["bill_startus"] == 3 || $bill["bill_startus"] == 4) { ?>
+                                if ($bill["bill_startus"] == 3 || $bill["bill_startus"] == 4) { ?>
                                     <a href=" <?= $edit ?>  ">
 
                                     </a>
@@ -143,7 +143,7 @@
                     <?php
                     $Pagepagination = ceil($countDh / $limit);
 
-                    for($i = 1; $i <= $Pagepagination; $i++):
+                    for ($i = 1; $i <= $Pagepagination; $i++):
                         ?>
                         <li>
                             <a href="index.php?act=listdonhang&page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>">

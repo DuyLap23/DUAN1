@@ -39,12 +39,13 @@
 	<link rel="stylesheet" href="./View/css/product_page.css">
 	<link rel="stylesheet" href="./View/css/listing.css">
 	<link rel="stylesheet" href="./Admin/css/style.css">
-	<link rel="stylesheet" href="./View/css/faq.css"> 
-	<link rel="stylesheet" href="./View/css/contact.css"> 
+	<link rel="stylesheet" href="./View/css/faq.css">
+	<link rel="stylesheet" href="./View/css/contact.css">
 	<script src="View/js/ajax.googleapis.com_ajax_libs_jquery_3.7.1_jquery.min.js"></script>
 	<script src="View/js/libary.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
+
 <body>
 	<div id="page">
 		<header class="version_1">
@@ -68,7 +69,8 @@
 							<!-- Mobile menu button -->
 							<div class="main-menu">
 								<div id="header_menu">
-									<a href="index.php"><img src="View/img/logo_4.png" alt="" width="100" height="35"></a>
+									<a href="index.php"><img src="View/img/logo_4.png" alt="" width="100"
+											height="35"></a>
 									<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 								</div>
 								<ul>
@@ -118,11 +120,11 @@
 										<div id="menu">
 											<ul>
 												<?php
-												foreach($sellect_categories as $show): ?>
+												foreach ($sellect_categories as $show): ?>
 													<?php extract($show); ?>
 
 
-													<?php $category_detail = "index.php?act=sanpham&id_cate=".$category_id; ?>
+													<?php $category_detail = "index.php?act=sanpham&id_cate=" . $category_id; ?>
 													<li>
 														<span><a href="<?= $category_detail ?>">
 																<?= $category_name ?>
@@ -139,6 +141,9 @@
 								</ul>
 							</nav>
 						</div>
+						
+							
+								<!-- tìm kiếm  -->
 						<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 							<div class="custom-search-input">
 								<form action="index.php?act=sanpham" method="post">
@@ -148,6 +153,9 @@
 								</form>
 							</div>
 						</div>
+						
+
+						<!-- giỏ hàng nhỏ  -->
 						<div class="col-xl-3 col-lg-2 col-md-3">
 							<ul class="top_tools">
 								<li>
@@ -159,13 +167,13 @@
 												$i = 0;
 												$Tongthanhtoan = 0;
 												$tong = 0;
-												foreach($_SESSION['cart'] as $key => $value):
+												foreach ($_SESSION['cart'] as $key => $value):
 													extract($value);
 
 													$ttien = $value[3] * $value[5];
 													$tong += $ttien;
 													$Tongthanhtoan = $tong + 29000;
-													$deleteCart = "index.php?act=deleteCart&idCart=".$i;
+													$deleteCart = "index.php?act=deleteCart&idCart=" . $i;
 													?>
 
 
@@ -206,18 +214,23 @@
 								<li>
 									<a href="#0" class=""><span></span></a>
 								</li>
+
+
+								<!-- mục tài khoản    -->
 								<li>
 									<?php
-									if($user) {
+									if ($user) {
 										?>
 										<div class="dropdown dropdown-access">
-											<a href="index.php?act=user" class=""><?= $user ? $user['user_name'] : "" ?></a>
+											<a href="index.php?act=user" class="">
+												<?= $user ? $user['user_name'] : "" ?>
+											</a>
 											<div class="dropdown-menu">
 												<?= $user['role'] == 1 ? '<a href="admin/index.php">Đăng nhập Admin</a>' : '' ?>
 												<ul>
 													<li>
 														<a href="index.php?act=user"><i class="ti-user"></i>
-															Thông tin tài khoản 
+															Thông tin tài khoản
 														</a>
 													</li>
 													<li>
@@ -225,10 +238,11 @@
 															đơn hàng
 														</a>
 													</li>
-													
 
-													<li > 
-														<a href="index.php?act=logout" class="logout_a"><i class="ti-lock" ></i>Đăng xuất</a>
+
+													<li>
+														<a href="index.php?act=logout" class="logout_a"><i
+																class="ti-lock"></i>Đăng xuất</a>
 													</li>
 												</ul>
 											</div>
@@ -250,7 +264,7 @@
 															đơn hàng
 														</a>
 													</li>
-													
+
 													<li>
 														<a href="index.php?act=help"><i class="ti-help-alt"></i>Hỗ trợ</a>
 													</li>
@@ -262,19 +276,7 @@
 									}
 									?>
 								</li>
-								<li>
-									<a href="javascript:void(0);" class="btn_search_mob"><span>Search</span></a>
-								</li>
-								<li>
-									<a href="#menu" class="btn_cat_mob">
-										<div class="hamburger hamburger--spin" id="hamburger">
-											<div class="hamburger-box">
-												<div class="hamburger-inner"></div>
-											</div>
-										</div>
-										Categories
-									</a>
-								</li>
+								<!--  -->
 							</ul>
 						</div>
 					</div>

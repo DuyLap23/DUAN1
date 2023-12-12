@@ -32,9 +32,9 @@
                         <select name="category_id" class="rounded-4">
                             <option value="0" selected>Tất cả</option>
                             <?php
-                            foreach($sellect_categories as $danhmuc) {
+                            foreach ($sellect_categories as $danhmuc) {
                                 extract($danhmuc);
-                                echo '   <option value="'.$category_id.'">'.$category_name.'</option>';
+                                echo '   <option value="' . $category_id . '">' . $category_name . '</option>';
                             }
                             ?>
                         </select>
@@ -47,7 +47,7 @@
 
                 <thead class="tr-shadow">
                     <tr>
-                     
+
                         <th>Mã Sản Phẩm</th>
                         <th>Tên Sản Phẩm</th>
                         <th colspan="2"> Ảnh </th>
@@ -63,32 +63,32 @@
                     <?php
 
                     $stt = 1;
-                    foreach($listsanpham as $sanpham) {
+                    foreach ($listsanpham as $sanpham) {
                         extract($sanpham);
 
 
-                        $suasp = "index.php?act=editsp&id_sp=".$product_id;
-                        $xoasp = "index.php?act=deletesp&id_sp=".$product_id; // đường liên kết 
+                        $suasp = "index.php?act=editsp&id_sp=" . $product_id;
+                        $xoasp = "index.php?act=deletesp&id_sp=" . $product_id; // đường liên kết 
                         echo '<tr class="tr-shadow">
                        
                            <td>
-                            '.$product_id.'
+                            ' . $product_id . '
                            </td>    
-                           <td >'.$product_name.'</td>
-                           <td colspan="2"> <img src="../image/'.
+                           <td >' . $product_name . '</td>
+                           <td colspan="2"> <img src="../image/' .
                             explode(',', $image)[0]
-                            .'" ></td>
-                           <td>'.number_format($price, 0, '.', ',').'VND</td>
-                           <td class="desc">'.$description.'</td>
+                            . '" ></td>
+                           <td>' . number_format($price, 0, '.', ',') . 'VND</td>
+                           <td class="desc">' . $description . '</td>
                          
-                           <td>'.$category_name.'</td>
+                           <td>' . $category_name . '</td>
                            <td >
-                               <a href="'.$suasp.'"><button class=" btn status completed">Sửa </button></a>
-                           <a href=" '.$xoasp.'" onclick="return confirm(\'Bạn có chắc muốn xóa?\')"><button class="btn status pending">xóa</button></a>
+                               <a href="' . $suasp . '"><button class=" btn status completed">Sửa </button></a>
+                           <a href=" ' . $xoasp . '" onclick="return confirm(\'Bạn có chắc muốn xóa?\')"><button class="btn status pending">xóa</button></a>
                            </td>
                        </tr>'
                         ;
-                     
+
                     }
                     ?>
 
@@ -107,7 +107,7 @@
                     <?php
                     $Pagepagination = ceil($countsp / $limit);
 
-                    for($i = 1; $i <= $Pagepagination; $i++):
+                    for ($i = 1; $i <= $Pagepagination; $i++):
                         ?>
                         <li>
                             <a href="index.php?act=listsp&page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>">

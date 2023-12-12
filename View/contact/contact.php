@@ -66,13 +66,13 @@
     </div>
     <!-- /bg_white -->
     <script>
-    function submitForm() {
-        var fullName = document.getElementById("fullName").value;
-        var email = document.getElementById("email").value;
-        var message = document.getElementById("message").value;
+        function submitForm() {
+            var fullName = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
 
-        // Gửi thông tin đến server bằng AJAX
-        fetch('process_contact_form.php', {
+            // Gửi thông tin đến server bằng AJAX
+            fetch('process_contact_form.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,13 +83,13 @@
                     message
                 }),
             })
-            .then(response => response.json())
-            .then(data => {
-                alert("Chúng tôi đã nhận được tin nhắn từ bạn. Chúng tôi sẽ phản hồi lại sớm nhất có thể.");
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }
+                .then(response => response.json())
+                .then(data => {
+                    alert("Chúng tôi đã nhận được tin nhắn từ bạn. Chúng tôi sẽ phản hồi lại sớm nhất có thể.");
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
     </script>
 </main>

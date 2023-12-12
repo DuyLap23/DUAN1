@@ -64,20 +64,20 @@
                             </td>
                             <td>
                                 <select name="status" id="" class="rounded-4 ">
-                                    <?php if ($bill_startus == 0){ ?>
+                                    <?php if ($bill_startus == 0) { ?>
                                         <option value="0">Đơn Hàng Mới</option>
                                         <option value="1">Đang Xử Lý</option>
                                         <option value="4">Hủy Đơn </option>
 
-                                 
-                                    <?php } elseif ($bill_startus == 1){ ?>
+
+                                    <?php } elseif ($bill_startus == 1) { ?>
                                         <option value="1">Đang Xử Lý</option>
                                         <option value="2">Đang Giao Hàng</option>
-                            
-                                    <?php }elseif ($bill_startus == 2){ ?>
+
+                                    <?php } elseif ($bill_startus == 2) { ?>
                                         <option value="2">Đang Giao Hàng</option>
                                         <option value="3">Đã Giao Hàng </option>
-                                    <?php }?>
+                                    <?php } ?>
 
                                 </select>
 

@@ -1,7 +1,7 @@
 <?php
 if (isset($sanpham)) {
     extract($sanpham);
-  
+
 }
 ?>
 
@@ -92,22 +92,21 @@ if (isset($sanpham)) {
                     <?php foreach ($load_all_pro_detail as $key => $value):
                         # code...
                         extract($value);
-                       
+
                         ?>
                         <div class="variant d-flex pb-2">
                             <label for="size1" class="label px-3">
                                 Size
                             </label><br />
-                            <input type="text" name="size[]" id="size1" value="<?= $size ?>"
-                                class=" rounded-2 px-3"><br />
+                            <input type="text" name="size[]" id="size1" value="<?= $size ?>" class=" rounded-2 px-3"><br />
                             <label for="quantity1" class="label px-3">
                                 Số Lượng
                             </label><br />
                             <input type="number" name="quantity[]" id="quantity1" value="<?= $quantity ?>"
                                 placeholder="Nhập số lượng " class=" rounded-2 "><br />
                         </div>
-                        <?php endforeach; ?>
-                   
+                    <?php endforeach; ?>
+
 
                     <label for="" class="pt-3">Danh Mục</label><br />
                     <select name="category_id" id="" class="rounded-2 ">

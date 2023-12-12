@@ -48,13 +48,13 @@
 					$tong = 0;
 					$i = 0;
 
-					foreach($_SESSION['cart'] as $key => $value):
+					foreach ($_SESSION['cart'] as $key => $value):
 						extract($value);
 						$image = explode(',', $value[2])[0];
 						$ttien = $value[3] * $value[5];
 						$tong += $ttien;
 
-						$deleteCart = "index.php?act=deleteCart&idCart=".$i;
+						$deleteCart = "index.php?act=deleteCart&idCart=" . $i;
 
 
 

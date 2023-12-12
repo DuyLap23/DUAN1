@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach($liastBinhluan as $key => $binhluan) {
+                    foreach ($liastBinhluan as $key => $binhluan) {
                         ?>
                         <tr class="tr-shadow">
                             <td>
@@ -73,7 +73,7 @@
                     <?php
                     $Pagepagination = ceil($countsp / $limit);
 
-                    for($i = 1; $i <= $Pagepagination; $i++):
+                    for ($i = 1; $i <= $Pagepagination; $i++):
                         ?>
                         <li>
                             <a href="index.php?act=listbinhluan&page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>">

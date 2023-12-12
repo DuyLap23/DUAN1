@@ -1,4 +1,5 @@
 <main>
+    <!-- chi tiết sản phẩm  -->
     <?php
     extract($chitietsp);
     $images = explode(',', $image);
@@ -76,14 +77,7 @@
                                 <?php endforeach; ?>
                             </div>
                             <div id="quantityDisplay">Số lượng còn trong kho: </div>
-                            <script>
-                                function showQuantity(quantity) {
-                                    document.getElementById("quantityDisplay").innerHTML = "Số lượng còn trong kho: " + quantity;
-                                    const quantityInput = document.getElementById("quantity_1");
-                                    quantityInput.max = quantity;
-                                }
-
-                            </script>
+                          
                             <div class="row">
                                 <label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Số lượng </strong></label>
                                 <div class="col-xl-4 col-lg-5 col-md-6 col-6">
@@ -94,37 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <script>// main.js
-                                document.addEventListener("DOMContentLoaded", function () {
-                                    const sizeLabels = document.querySelectorAll('.custom-select-form label.sizeLabel');
-                                    let selectedSize = null;
-
-                                    sizeLabels.forEach(function (label) {
-                                        label.addEventListener('click', function () {
-                                            selectedSize = label.innerText.trim();
-
-                                            // Loại bỏ lớp focus từ tất cả các label trước đó
-                                            sizeLabels.forEach(function (otherLabel) {
-                                                otherLabel.classList.remove('focus');
-                                            });
-
-                                            // Thêm lớp focus cho label được click
-                                            label.classList.add('focus');
-                                        });
-                                    });
-
-                                    const quantityInput = document.getElementById("quantity_1");
-                                    quantityInput.addEventListener('focus', function () {
-                                        sizeLabels.forEach(function (label) {
-                                            if (label.innerText.trim() === selectedSize) {
-                                                label.classList.add('focus');
-                                            } else {
-                                                label.classList.remove('focus');
-                                            }
-                                        });
-                                    });
-                                });
-                            </script>
+                          
                         </div>
                         <div class="row d-flex">
                             <div class="col-lg-5 col-md-6">
@@ -156,8 +120,9 @@
         </form>
     </div>
 
-    <!-- /container -->
-    <!-- /tabs_product -->
+
+
+   <!-- Bình luận -->
     <div class="tab_content_wrapper">
         <div class="container">
             <div class="tab-content" role="tablist">
@@ -212,7 +177,10 @@
         </div>
         <!-- /container -->
     </div>
-    <!-- /tab_content_wrapper -->
+ 
+
+
+    <!-- sản phẩm liên quan  -->
     <div class="container margin_60_35">
         <div class="main_title">
             <h2>Sản Phẩm liên quan</h2>

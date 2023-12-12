@@ -23,10 +23,12 @@
     <!-- /container -->
     <div class="container margin_30">
         <?php
-        if(isset($bill) && (is_array($bill))) {
+        if (isset($bill) && (is_array($bill))) {
             extract($bill);
         } ?>
         <div class="d-flex ">
+
+            <!-- thông tin đơn  hàng  -->
             <div>
                 <h4><strong>Thông tin đơn hàng </strong></h4>
                 <li>
@@ -57,6 +59,7 @@
             </div>
             <hr>
 
+            <!-- thông tin người mua  -->
             <div class="mx-5">
                 <h4><strong>Thông tin người mua </strong></h4>
                 <li>
@@ -76,7 +79,7 @@
                         <em>Số điện thoại: </em>
                     </strong>
 
-                    <?= '0'.$bill['tel'] ?>
+                    <?= '0' . $bill['tel'] ?>
                 </li>
                 <li>
                     <strong>
@@ -89,9 +92,10 @@
         </div>
         <div class="pt-3"> <a href="index.php?act=my_orders" class="btn_1  btn-width">Xem danh sách đơn hàng</a></div>
         <hr>
-        
+
+        <!-- chi tiết đơn hàng  -->
         <table class="table table-striped cart-list">
-        <h4>Chi tiết đơn hàng</h4>
+            <h4>Chi tiết đơn hàng</h4>
             <thead>
                 <tr>
 
@@ -110,7 +114,7 @@
                 $tong = 0;
                 $i = 0;
 
-                foreach($bill_detail as $key => $value) {
+                foreach ($bill_detail as $key => $value) {
                     extract($value);
 
 
@@ -119,28 +123,28 @@
                     echo '<tr>
                                    <td>
                                        <span class="item_cart mb-4">
-                                           '.$value['name'].'
+                                           ' . $value['name'] . '
                                        </span>
                                    </td>
                                    <td>
                                        <div class="thumb_cart">
            
-                                           <img src="image/'.explode(',', $image)[0].'" data-src="image/'.explode(',', $image)[0].'" class="item-box" alt="">
+                                           <img src="image/' . explode(',', $image)[0] . '" data-src="image/' . explode(',', $image)[0] . '" class="item-box" alt="">
            
                                        </div>
                                    </td>
            
            
                                    <td>
-                                       '.number_format($value['price'], 0, '.', ',').'
+                                       ' . number_format($value['price'], 0, '.', ',') . '
                                    </td>
                                    <td>
-                                       '.$value['size'].'
+                                       ' . $value['size'] . '
                                    </td>
                                    <!-- số lượng  -->
                                    <td>
                                        <div class="numbers">
-                                           <input type="number" value="'.$value['quantity'].'" id="quantity_1" class="qty2" name="quantity_1"
+                                           <input type="number" value="' . $value['quantity'] . '" id="quantity_1" class="qty2" name="quantity_1"
                                                min="1" max="100">
            
                                        </div>
@@ -149,7 +153,7 @@
                                    </td>
                                    <!-- tổng  -->
                                    <td id="total">
-                                       '.number_format($value['total'], 0, '.', ',').'
+                                       ' . number_format($value['total'], 0, '.', ',') . '
                                    </td>
                                    
                                </tr>';

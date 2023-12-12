@@ -66,7 +66,7 @@
                     <label for="" class="label pt-2">
                         Giá
                     </label><br />
-                    <input type="number" name="price" id="" value="" placeholder="Nhập số lượng "required
+                    <input type="number" name="price" id="" value="" placeholder="Nhập số lượng " required
                         class="input w-75 rounded-2"><br />
 
                     <label for="" class="label pt-2">
@@ -165,11 +165,11 @@
             <a href="index.php?act=listsp"><button class="btn btn-insert  status completed mt-4">Về Trang Danh Sách
                 </button></button></a>
             <div class="notification">
-                <?php 
+                <?php
                 if (isset($Notification) && $Notification != "") {
-                    
+
                 }
-                
+
                 ?>
 
 

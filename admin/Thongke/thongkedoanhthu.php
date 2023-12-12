@@ -18,17 +18,17 @@
     <form action="index.php?act=listthongke" class="d-flex" method="post">
       <div>
         <label for="">Từ Ngày
-          <input type="date" name="from"  class="rounded-3 border-1">
+          <input type="date" name="from" class="rounded-3 border-1">
         </label>
       </div>
       <div class="px-3 ">
         <label for="">Đến Ngày
-          <input type="date" name="to"  class="rounded-3 border-1">
+          <input type="date" name="to" class="rounded-3 border-1">
         </label>
       </div>
       <div class="px-3 mb-3">
 
-        <input type="submit"  name="loc" value="Lọc" class="btn btn-submit ">
+        <input type="submit" name="loc" value="Lọc" class="btn btn-submit ">
 
       </div>
     </form>
