@@ -10,9 +10,9 @@
                 <div class="col-md-6 ">
                     <div class="all">
                         <div class="slider">
-                            <div class="owl-carousel owl-theme main">
+                            <div class="owl-carousel owl-theme main ">
                                 <?php foreach ($images as $key => $value): ?>
-                                    <img src="./image/<?= $value ?>" class="item-box" alt="">
+                                    <img src="./image/<?= $value ?>" class="item-box " alt="">
                                 <?php endforeach; ?>
                             </div>
                             <div class="left nonl"><i class="ti-angle-left"></i></div>
@@ -46,7 +46,6 @@
                             <div class="card-body mb-4">
                                 <div class="row justify-content-between">
                                     <div class="col-lg-6">
-                                        <h5>Mô tả </h5>
                                         <p>
                                             <?= $description ?>
                                         </p>
@@ -92,8 +91,8 @@
                         </div>
                         <div class="row d-flex">
                             <div class="col-lg-5 col-md-6">
-                                <div class="price_main"><span class="new_price">$
-                                        <?= number_format($price, 0, '.', ',') ?>
+                                <div class="price_main"><span class="new_price">
+                                        <?= number_format($price, 0, '.', ',') ?> VND
                                     </span></div>
                             </div>
                             <?php if ($user) { ?>
@@ -205,8 +204,8 @@
                             </h3>
                         </a>
                         <div class="price_box">
-                            <span class="new_price">$
-                                <?= number_format($price, 0, '.', ',') ?>
+                            <span class="new_price">
+                                <?= number_format($price, 0, '.', ',') ?> VND
                             </span>
                         </div>
                     </div>

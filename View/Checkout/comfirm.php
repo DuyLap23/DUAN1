@@ -133,8 +133,6 @@
            
                                        </div>
                                    </td>
-           
-           
                                    <td>
                                        ' . number_format($value['price'], 0, '.', ',') . '
                                    </td>
@@ -148,28 +146,16 @@
                                                min="1" max="100">
            
                                        </div>
-           
-           
                                    </td>
                                    <!-- tổng  -->
                                    <td id="total">
                                        ' . number_format($value['total'], 0, '.', ',') . '
-                                   </td>
-                                   
+                                   </td>                                 
                                </tr>';
-
-
                     $i += 1;
-
                 }
                 ?>
-
-
-                <!--  -->
-
             </tbody>
-
-
         </table>
     </div>
 
