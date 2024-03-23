@@ -39,12 +39,7 @@
 								</span>
 							</div>
 							<div class="clearfix add_bottom_15">
-								<div class="checkboxes float-start">
-									<label class="container_check">Remember me
-										<input type="checkbox">
-										<span class="checkmark"></span>
-									</label>
-								</div>
+								
 								<div class="float-end"><a id="forgot" href="javascript:void(0);">Lost Password?</a>
 								</div>
 							</div>
@@ -83,7 +78,7 @@
 			</div>
 			<div class="col-xl-6 col-lg-6 col-md-8">
 				<div class="box_account">
-					<h3 class="new_client">Ngườu dùng mới </h3> <small class="float-right pt-2">* Phần bắt buộc</small>
+					<h3 class="new_client">Người dùng mới </h3> <small class="float-right pt-2">* Phần bắt buộc</small>
 					<form action="index.php?act=account" onsubmit="return sendDangky()" method="post">
 						<div class="form_container">
 							<div class="form-group">
@@ -136,12 +131,7 @@
 							</div>
 							<!-- /private -->
 							<!-- /company -->
-							<div class="form-group">
-								<label class="container_check">Đồng ý với <a href="#0">các điều khoản và điều kiện</a>
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</div>
+							
 							<div class="text-center"><input type="submit" value="Đăng kí " name="signup"
 									class="btn_1 full-width"></div>
 						</div>

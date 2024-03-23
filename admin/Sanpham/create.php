@@ -137,7 +137,9 @@
 
                         <?php
                         foreach ($sellect_categories as $danhmuc): ?>
-                            <?php extract($danhmuc); ?>
+                            <?php extract($danhmuc); 
+                           
+                            ?>
                             <option value="<?= $category_id ?>">
                                 <?= $category_name ?>
                             </option>

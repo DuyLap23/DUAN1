@@ -144,7 +144,7 @@ if (isset($_GET['act'])) {
 
             }
             $sellect_categories = sellect_all_categories();
-
+            // print_r($sellect_categories);
             include "Sanpham/update.php";
             break;
         // update sp 

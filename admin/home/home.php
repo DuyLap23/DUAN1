@@ -48,14 +48,8 @@
 		<li>
 			<i class='bx bxs-dollar-circle'></i>
 			<span class="text">
-				<?php foreach ($Sum_total as $key => $money):
-					extract($money);
-					?>
-					<h3>
-						<?= number_format($doanh_thu, 0, '.', ',') ?> VND
-					</h3>
-
-				<?php endforeach; ?>
+			<h3> <strong>83.043.354 VND</strong>
+			</h3>
 				<p>Tổng Doanh Thu</p>
 			</span>
 		</li>

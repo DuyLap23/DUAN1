@@ -141,9 +141,9 @@
 								</ul>
 							</nav>
 						</div>
-						
-							
-								<!-- tìm kiếm  -->
+
+
+						<!-- tìm kiếm  -->
 						<div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
 							<div class="custom-search-input">
 								<form action="index.php?act=sanpham" method="post">
@@ -153,7 +153,7 @@
 								</form>
 							</div>
 						</div>
-						
+
 
 						<!-- giỏ hàng nhỏ  -->
 						<div class="col-xl-3 col-lg-2 col-md-3">
@@ -222,9 +222,13 @@
 									if ($user) {
 										?>
 										<div class="dropdown dropdown-access">
-											<a href="index.php?act=user" class="">
-												<?= $user ? $user['user_name'] : "" ?>
-											</a>
+											<div class="d-flex">
+												<span class="" style="padding-top: 20px; padding-right: 10px">Xin chào :</span>
+
+												<a href="index.php?act=user" class="">
+													<?= $user ? $user['user_name'] : "" ?>
+												</a>
+											</div>
 											<div class="dropdown-menu">
 												<?= $user['role'] == 1 ? '<a href="admin/index.php">Đăng nhập Admin</a>' : '' ?>
 												<ul>

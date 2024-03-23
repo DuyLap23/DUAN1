@@ -48,13 +48,16 @@
                     <strong>
                         <em>phương thức thanh toán :</strong>
                     </em>
-                    <?= $bill['payment'] ?>
+                   <?php if ( $bill['payment']) {
+                  echo 'Thanh toán khi nhận hàng ';
+                   }?>
                 </li>
                 <li>
                     <strong>
                         <em>Tổng đơn hàng :</em>
+                        <?= number_format($bill['total'], 0, '.', ',') ?> VND
                     </strong>
-                    <?= number_format($bill['total'], 0, '.', ',') ?> VND
+                    
                 </li>
             </div>
             <hr>
@@ -104,7 +107,6 @@
                     <th>Giá</th>
                     <th>Size</th>
                     <th>Số lượng</th>
-                    <th>Tổng tiền</th>
 
                 </tr>
             </thead>
@@ -148,9 +150,7 @@
                                        </div>
                                    </td>
                                    <!-- tổng  -->
-                                   <td id="total">
-                                       ' . number_format($value['total'], 0, '.', ',') . '
-                                   </td>                                 
+                                                               
                                </tr>';
                     $i += 1;
                 }

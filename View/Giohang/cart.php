@@ -91,7 +91,7 @@
 							<td>
 								<div class="numbers">
 
-									<input type="number" value="<?= $value[5] ?>" id="quantity_1" class="qty2"
+									<input type="number" value="<?= $value[5] ?>" id="quantity_1" class="qty2"  
 										name="quantity[<?= $key ?>]" min="1" max="100">
 
 								</div>

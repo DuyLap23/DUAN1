@@ -268,7 +268,7 @@ if (isset($_GET['act']) && ($_GET['act']) != "") {
                 $tongdonhang = tongdonhang();
 
                 $idbill = insert_bill($id_user, $name, $email, $address, $tel, $ngaydathang, $payment, $tongdonhang);
-
+ 
 
                 //    insert into cart : session['cart']& $idbill 
                 foreach ($_SESSION['cart'] as $key => $value) {

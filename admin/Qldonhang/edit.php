@@ -72,6 +72,7 @@
 
                                     <?php } elseif ($bill_startus == 1) { ?>
                                         <option value="1">Đang Xử Lý</option>
+                                        <option value="4">Hủy Đơn </option>
                                         <option value="2">Đang Giao Hàng</option>
 
                                     <?php } elseif ($bill_startus == 2) { ?>
